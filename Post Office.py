@@ -5,17 +5,19 @@
 
 import random
 
-postage = ""
+l = 0
+w = 0
+t = 0
 
-print("Hey there! Welcome to the digital Post office")
-postage = input('''
-      What're you sending today?
-      1) Envelope
-      2) Package
-      3) Other
-      Enter response here: 
-      ''').lower
-if postage == "envelope" or "1":
-    posdim1 = input("")
-    posdim2 = input("")
-    posdim3 = input("")
+
+
+def main():
+    print("Hey there! Welcome to the digital Post office")
+    l = input("Enter your postage length: ")
+    w = input("Enter your postage width")
+    t = input("Enter your postage's thickness")
+
+
+while True:
+    main()
+    continue
