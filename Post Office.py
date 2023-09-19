@@ -5,24 +5,8 @@
 #Working on: pseudocode and getting some necessary variables down
 
 import random
+import time
 
-l = 0
-w = 0
-t = 0
-
-def size():
-    print("placeholder")
-    
-def zip():
-    print("placeholder")
-
-def calc():
-    print("placeholder")
-
-def main():
-    print("placeholder")
-
-
-while True:
-    if __name__=="__main__":
-        main()
+length = input("Put in the length of your envelope as a number: ")
+length = float(length)
+print(length)
