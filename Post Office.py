@@ -2,22 +2,28 @@
 #Started: 9/18/23
 #Ended: 
 #Current version: 0.191823
+#Working on: pseudocode and getting some necessary variables down
 
 import random
+import 
 
 l = 0
 w = 0
 t = 0
 
+def size():
+    print("placeholder")
+    
+def zip():
+    print("placeholder")
 
+def calc():
+    print("placeholder")
 
 def main():
-    print("Hey there! Welcome to the digital Post office")
-    l = input("Enter your postage length: ")
-    w = input("Enter your postage width")
-    t = input("Enter your postage's thickness")
+    print("placeholder")
 
 
 while True:
-    main()
-    continue
+    if __name__=="__main__":
+        main()
