@@ -5,7 +5,6 @@
 #Working on: pseudocode and getting some necessary variables down
 
 import random
-import 
 
 l = 0
 w = 0
