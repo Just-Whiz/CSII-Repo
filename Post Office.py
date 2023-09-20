@@ -7,6 +7,6 @@
 import random
 import time
 
-length = input("Put in the length of your envelope as a number: ")
-length = float(length)
-print(length)
+def classify():
+    if l >= 3.5 or l <= 4.25 and h >= 3.5 or h <= 6 and t >= 0.007
+
