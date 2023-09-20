@@ -7,12 +7,18 @@
 import random
 import time
 
+l = 0
+h = 0
+t = 0
 
 def main():
     print("Welcome to the post office. Below, please enter the dimensions of the postage you plan to send.")
     time.sleep(1)
-    l = input("Enter ")
-    l = float(l)
+    l = input("Enter your postage's length: ")
+    h = input("Enter your postage's height: ")
+    t = input("Enter your postage's thickness: ")
+    zip1 = input("Enter your starting ZIP code address: ")
+    zip2 = input("Enter your ending ZIP code adress: ")
 
 
 def classify():
@@ -20,10 +26,10 @@ def classify():
         postclass == "Regular Post Card"
     elif l >= 4.25 or l <= 6 and h >= 6 or h <= 11.5 and t >= 0.007 or t <= 0.15:
         postclass == "Large Post Card"
-    elif l >= or l <= and h>= or h <= and t >= or t <= :
+    elif l >= 3.5 or l <= 6.125 and h >= 5 or h <= 11.5 and t >= 0.25 or t <= 0.5:
         postclass == "Envelope"
-    elif l >= or l <= and h>= or h <= and t >= or t <= :
+    elif l >= 6.125 or l <= 24 and h >= 11 or h <= 18 and t >= 0.25 or t <= 0.5:
         postclass == "Large Envelope"
-    elif l >= or l <= and h>= or h <= and t >= or t <= :
-        postclass == ""
 
+while True:
+    main()
