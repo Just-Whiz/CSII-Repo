@@ -10,7 +10,9 @@ import time
 
 def main():
     print("Welcome to the post office. Below, please enter the dimensions of the postage you plan to send.")
-    
+    time.sleep(1)
+    l = input("Enter ")
+    l = float(l)
 
 
 def classify():
@@ -18,4 +20,10 @@ def classify():
         postclass == "Regular Post Card"
     elif l >= 4.25 or l <= 6 and h >= 6 or h <= 11.5 and t >= 0.007 or t <= 0.15:
         postclass == "Large Post Card"
+    elif l >= or l <= and h>= or h <= and t >= or t <= :
+        postclass == "Envelope"
+    elif l >= or l <= and h>= or h <= and t >= or t <= :
+        postclass == "Large Envelope"
+    elif l >= or l <= and h>= or h <= and t >= or t <= :
+        postclass == ""
 
