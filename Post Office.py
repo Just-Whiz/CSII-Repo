@@ -7,6 +7,15 @@
 import random
 import time
 
+
+def main():
+    print("Welcome to the post office. Below, please enter the dimensions of the postage you plan to send.")
+    
+
+
 def classify():
-    if l >= 3.5 or l <= 4.25 and h >= 3.5 or h <= 6 and t >= 0.007
+    if l >= 3.5 or l <= 4.25 and h >= 3.5 or h <= 6 and t >= 0.007 or t <= 0.016:
+        postclass == "Regular Post Card"
+    elif l >= 4.25 or l <= 6 and h >= 6 or h <= 11.5 and t >= 0.007 or t <= 0.15:
+        postclass == "Large Post Card"
 
