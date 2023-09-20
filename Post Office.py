@@ -2,7 +2,7 @@
 #Started: 9/18/23
 #Ended: 
 #Current version: 0.21
-#Challenges: 
+#Challenges: making the data entry user-friendly (although should be "to-spec"), 
 #Working on: pseudocode and getting some necessary variables down
 
 import time
@@ -19,4 +19,3 @@ def getsize(l, h, t):
     return postclass 
 
 def getzone():
-    
