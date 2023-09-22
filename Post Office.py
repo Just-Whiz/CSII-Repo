@@ -7,12 +7,19 @@
 
 import time
 
+# Defining main function
+def main():
+    l = input("Enter length: ")
+    w = input("Enter width: ")
+    h = input("Enter height: ")
+    zip1 = input("Enter your starting zip: ")
+    zip2 = input("Enter your ending zip: ")
+  
+# Using the special variable 
+# __name__
+if __name__=="__main__":
+    main()
 
-l = ""
-w = ""
-h = ""
-zip2 = ""
-zip1 = ""
 
 def getsize(l, h, t):
     #Function takes in 3 parameters (length, height, and thickness [l, h, & t])
