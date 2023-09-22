@@ -1,7 +1,7 @@
 #Project name: GCDS Rust Removal AKA the GCDS Post office algorithm
 #Started: 9/18/23
 #Ended: 
-#Current version: 0.21
+#Current version: 0.25
 #Challenges: making the data entry user-friendly (although should be "to-spec"), 
 #Working on: pseudocode and getting some necessary variables down
 
