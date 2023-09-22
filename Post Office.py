@@ -7,6 +7,13 @@
 
 import time
 
+
+l = ""
+w = ""
+h = ""
+zip2 = ""
+zip1 = ""
+
 def getsize(l, h, t):
     #Function takes in 3 parameters (length, height, and thickness [l, h, & t])
     #If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed dependent on the parameter given.
@@ -18,6 +25,9 @@ def getsize(l, h, t):
     #elif (l > 6.125 and h > 18  and t > 0.5): [working on the next set of parameters]
     return postclass 
 
-def getzone():
+def getzone(startZone):
+    if zip1 >= 00001 or zip1 <= 06999:
+        startZone = 1
+    elif zip1 > =
 
-    return 
+    return startZone
