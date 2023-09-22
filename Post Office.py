@@ -8,13 +8,19 @@
 import time
 
 # Defining main function
+# Asks the user for 
 def main():
-    l = input("Enter length: ")
-    w = input("Enter width: ")
-    h = input("Enter height: ")
-    zip1 = input("Enter your starting zip: ")
-    zip2 = input("Enter your ending zip: ")
-  
+    print("Welcome to the GCDS Post Office. Enter your data below.")
+    time.sleep(1)
+    l = float(input("Enter length: "))
+    w = float(input("Enter width: "))
+    h = float(input("Enter height: "))
+    zip1 = float(input("Enter your starting zip: "))
+    zip2 = float(input("Enter your ending zip: "))
+    print("Processing...")
+    time.sleep(2)
+    print("")
+
 # Using the special variable 
 # __name__
 if __name__=="__main__":
