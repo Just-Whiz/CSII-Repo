@@ -22,8 +22,8 @@ def main():
     print("Enter catched functions here")
 
 #getsize takes in 3 parameters (length, height, and thickness [l, h, & t])
-#If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed dependent on the parameter given.
-#Once the calculations are performed, the function finishes by returning the value of postclass, determined by the parameters
+#If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
+#Once the calculations are performed, the function finishes by returning the value of postclass.
 
 def getsize(l, h, t):
     if (l >= 3.5 or l <= 4.25) and (h >= 3.5 or h <= 6) and (t >= 0.007 or t <= 0.016): postclass = "Regular Post Card"                
