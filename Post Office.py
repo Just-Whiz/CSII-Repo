@@ -19,7 +19,7 @@ def main():
     zip2 = float(input("Enter your ending zip: "))
     postsize = getsize(l, h, t)
 
-    print("Enter catched functions here")
+    print(postsize)
 
 #getsize takes in 3 parameters (length, height, and thickness [l, h, & t])
 #If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
@@ -37,7 +37,6 @@ def getsize(l, h, t):
 
 #getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
 #If 
-
 
 
 # Using the special variable 
