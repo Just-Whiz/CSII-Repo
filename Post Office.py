@@ -37,7 +37,7 @@ def getsize(l, h, t):
     return postclass
 
 #getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
-#If 
+#If either zips are within certain parameters, then it'll assign them a zone within the integers of numbers they find themselves in
 
 def getzone1(zip1):
     if (zip1 >= 1) and (zip1 <= 6999): zone1 = 1
@@ -47,6 +47,8 @@ def getzone1(zip1):
     elif (zip1 >= 63000) and (zip1 <= 84999): zone1 = 5
     elif (zip1 >= 85000) and (zip1 <= 99999): zone1 = 6
     return zone1
+
+#See the above
 
 def getzone2(zip2):
     if (zip2 >= 1) and (zip2 <= 6999): zone2 = 1
