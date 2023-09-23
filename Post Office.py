@@ -8,7 +8,7 @@
 import time
 
 # Defining main function
-# Asks the user for 
+# Asks the user for their postage inputs and stores them in their corresponding variables
 def main():
     print("Welcome to the GCDS Post Office. Enter your data below.")
     time.sleep(1)
@@ -22,7 +22,7 @@ def main():
     zone2 = getzone2(zip2)
     print(postsize, zone1, zone2)
 
-#getsize takes in 3 parameters (length, height, and thickness [l, h, & t])
+#getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
 #If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
 #Once the calculations are performed, the function finishes by returning the value of postclass.
 
@@ -34,6 +34,7 @@ def getsize(l, h, t):
     #elif (l > 6.125 and h > 18  and t > 0.5): [working on the next set of parameters]
     else:
         postclass = "Unmailable"
+        #Assigned when any item does not conform to the above requirements
     return postclass
 
 #getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
@@ -48,7 +49,7 @@ def getzone1(zip1):
     elif (zip1 >= 85000) and (zip1 <= 99999): zone1 = 6
     return zone1
 
-#See the above
+#See the above description for this function
 
 def getzone2(zip2):
     if (zip2 >= 1) and (zip2 <= 6999): zone2 = 1
