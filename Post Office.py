@@ -19,7 +19,8 @@ def main():
     zip2 = float(input("Enter your ending zip: "))
     postsize = getsize(l, h, t)
     zone1 = getzone1(zip1)
-    print(postsize, zone1)
+    zone2 = getzone2(zip2)
+    print(postsize, zone1, zone2)
 
 #getsize takes in 3 parameters (length, height, and thickness [l, h, & t])
 #If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
@@ -46,7 +47,16 @@ def getzone1(zip1):
     elif (zip1 >= 63000) and (zip1 <= 84999): zone1 = 5
     elif (zip1 >= 85000) and (zip1 <= 99999): zone1 = 6
     return zone1
-    
+
+def getzone2(zip2):
+    if (zip2 >= 1) and (zip2 <= 6999): zone2 = 1
+    elif (zip2 >= 7000) and (zip2 <= 19999): zone2 = 2
+    elif (zip2 >= 20000) and (zip2 <= 35999): zone2 = 3
+    elif (zip2 >= 36000) and (zip2 <= 62999): zone2 = 4
+    elif (zip2 >= 63000) and (zip2 <= 84999): zone2 = 5
+    elif (zip2 >= 85000) and (zip2 <= 99999): zone2 = 6
+    return zone2
+
 
 
 # Using the special variable 
