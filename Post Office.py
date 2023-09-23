@@ -18,7 +18,8 @@ def main():
     zip1 = float(input("Enter your starting zip: "))
     zip2 = float(input("Enter your ending zip: "))
     postsize = getsize(l, h, t)
-    zone1 = getzone(zip1, zip2)
+    zone1 = getzone(zip1)
+    zone1 = getzone(zip2)
     startzone = (zone1)
     endzone = (zone2)
 
@@ -41,13 +42,13 @@ def getsize(l, h, t):
 #getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
 #If 
 
-def getzone1(zip1):
-    if (zip1 >= 1) and (zip1 <= 6999): zone1 = 1
-    elif (zip1 >= 7000) and (zip1 <= 19999): zone1 = 2
-    elif (zip1 >= 20000) and (zip1 <= 35999): zone1 = 3
-    elif (zip1 >= 36000) and (zip1 <= 62999): zone1 = 4
-    elif (zip1 >= 63000) and (zip1 <= 84999): zone1 = 5
-    
+def getzone(zip1, zip2):
+    if (zip1 or zip2 >= 1) and (zip1 or zip2 <= 6999): zone1 = 1
+    elif (zip1 or zip2 >= 7000) and (zip1 or zip2 <= 19999): zone1 = 2
+    elif (zip1 or zip2 >= 20000) and (zip1 or zip2 <= 35999): zone1 = 3
+    elif (zip1 or zip2 >= 36000) and (zip1 or zip2 <= 62999): zone1 = 4
+    elif (zip1 or zip2 >= 63000) and (zip1 or zip2 <= 84999): zone1 = 5
+    elif (zip1 or zip2 >= 85000) and (zip1 or zip2 <= 99999): zone1 = 6
     return zone1
     
 
