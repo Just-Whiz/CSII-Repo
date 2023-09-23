@@ -38,7 +38,7 @@ def getsize(l, h, t):
 #getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
 #If 
 
-def getzone(zip1, zip2)
+def getzone(zip1, zip2):
     if (zip1 or zip2 >= 1) and (zip1 or zip2 <= 6999): zone1 = 1
     elif (zip1 or zip2 >= 7000) and (zip1 or zip2 <= 19999): zone1 = 2
     elif (zip1 or zip2 >= 20000) and (zip1 or zip2 <= 35999): zone1 = 3
