@@ -20,7 +20,9 @@ def main():
     postsize = getsize(l, h, t)
     zone1 = getzone1(zip1)
     zone2 = getzone2(zip2)
-    print(postsize, zone1, zone2)
+    zonestravelled
+    print(postsize)
+    
 
 #getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
 #If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
@@ -60,6 +62,14 @@ def getzone2(zip2):
     elif (zip2 >= 85000) and (zip2 <= 99999): zone2 = 6
     return zone2
 
+#zonetravelcost is a function that takes in two parameters (zone1 & zone2)
+
+
+def zonetravelled(zone1, zone2):
+    zonestravelled = abs(zone1 - zone2)
+
+
+  
 
 
 # Using the special variable 
