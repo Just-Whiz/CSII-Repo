@@ -70,12 +70,12 @@ def getzone2(zip2):
 #If postclass is equal to a particular string value, the cost is equal to certain "tariff" times another set tariff per zones travelled
 
 def postcost(postclass, zonestravelled):
-    if postclass == "Regular Post Card": postcost == float(0.20 + 0.03 * (zonestravelled)) 
-    elif postclass == "Large Post Card": postcost == float(0.37 + 0.03 * (zonestravelled))
-    elif postclass == "Envelope": postcost == float(0.37 + 0.04 * (zonestravelled))
-    elif postclass == "Large Envelope": postcost == float(0.60 + 0.05 * (zonestravelled))
-    elif postclass == "Package": postcost == float(2.95 + 0.25 * (zonestravelled))
-    elif postclass == "Large Package": postcost == float(3.95 + 0.35 * (zonestravelled))
+    if postclass == "Regular Post Card": postcost == 0.20 + 0.03 * (zonestravelled) 
+    elif postclass == "Large Post Card": postcost == 0.37 + 0.03 * (zonestravelled)
+    elif postclass == "Envelope": postcost == 0.37 + 0.04 * (zonestravelled)
+    elif postclass == "Large Envelope": postcost == 0.60 + 0.05 * (zonestravelled)
+    elif postclass == "Package": postcost == 2.95 + 0.25 * (zonestravelled)
+    elif postclass == "Large Package": postcost == 3.95 + 0.35 * (zonestravelled)
     else: 
         print("Unmailable")
         #Assigned if the data entered or postclass does not meet the above requirements
