@@ -22,8 +22,8 @@ def main():
     zone2 = getzone2(zip2)
     zonestravelled = float(int(abs(zone1 - zone2)))
     time.sleep(1)
-    postcost(postsize, zonestravelled)
-    print(str(postcost))
+    totalpostcost = postcost(postsize, zonestravelled)
+    print(totalpostcost)
     print(locals())
     
 
