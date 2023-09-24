@@ -18,10 +18,10 @@ def main():
     zip1 = float(input("Enter your starting zip: "))
     zip2 = float(input("Enter your ending zip: "))
     postsize = getsize(l, h, t)
-    zone1 = getzone1(zip1)
+    zone1 = getzone1(zip1) 
     zone2 = getzone2(zip2)
-    zonestravelled
-    print(postsize)
+    zonestravelled = float(int(abs(zone1 - zone2)))
+    print("Your total cost is {}").format(totalcost)
     
 
 #getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
@@ -29,7 +29,7 @@ def main():
 #Once the calculations are performed, the function finishes by returning the value of postclass.
 
 def getsize(l, h, t):
-    if (l >= 3.5 or l <= 4.25) and (h >= 3.5 or h <= 6) and (t >= 0.007 or t <= 0.016): postclass = "Regular Post Card"                
+    if (l >= 3.5 or l <= 4.25) and (h >= 3.5 or h <= 6) and (t >= 0.007 or t <= 0.016): postclass = "Regular Post Card"     
     elif (l >= 4.25 or l <= 6) and (h >= 6 or h <= 11.5) and (t >= 0.007 or t <= 0.15): postclass = "Large Post Card"
     elif (l >= 3.5 or l <= 6.125) and (h >= 5 or h <= 11.5) and (t >= 0.25 or t <= 0.5): postclass = "Envelope"
     elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = "Large Envelope"
@@ -42,7 +42,7 @@ def getsize(l, h, t):
 #getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
 #If either zips are within certain parameters, then it'll assign them a zone within the integers of numbers they find themselves in
 
-def getzone1(zip1, zip2):
+def getzone1(zip1):
     if (zip1 >= 1) and (zip1 <= 6999): zone1 = 1
     elif (zip1 >= 7000) and (zip1 <= 19999): zone1 = 2
     elif (zip1 >= 20000) and (zip1 <= 35999): zone1 = 3
@@ -62,16 +62,12 @@ def getzone2(zip2):
     elif (zip2 >= 85000) and (zip2 <= 99999): zone2 = 6
     return zone2
 
-#zonetravelcost is a function that takes in two parameters (zone1 & zone2)
-
-
-def postzonestravelled(zone1, zone2):
-    zonestravelled = abs(zone1 - zone2)
-    return postzonestravelled
-
-
-  
-
+def totalcost(postclass, zonestravelled):
+    if postclass == "Regular Post Card": totalcost == 0.20 + 0.03*(zonestravelled) 
+    elif postclass == "Large Post Card": totalcost == 0.37 + 0.03*(zonestravelled)
+    elif postclass == "Envelope": totalcost == 0.37 + 0.04 * (zonestravelled)
+    elif postclass == "Large Envelope": totalcost == 0.60 + 0.05 * (zonestravelled)
+    return totalcost
 
 # Using the special variable 
 # __name__
