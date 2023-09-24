@@ -22,7 +22,7 @@ def main():
     zone2 = getzone2(zip2)
     zonestravelled = float(int(abs(zone1 - zone2)))
     time.sleep(1)
-    print("Your total cost is {}").format(totalcost)
+    print("Your total cost is {}").format(totalpostcost(postsize, zonestravelled))
     
 
 #getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
@@ -65,16 +65,21 @@ def getzone2(zip2):
     return zone2
 #Returns the variable zone2 as the zone the ending zipcode is located in
 
+#totalcost takes in 2 parameters (postclass & zonestravelled)
+#If postclass is equal to a particular string value, the cost is equal to certain "tariff" times another set tariff per zones travelled
 
-
-def totalcost(postclass, zonestravelled):
-    if postclass == "Regular Post Card": totalcost == 0.20 + 0.03*(zonestravelled) 
-    elif postclass == "Large Post Card": totalcost == 0.37 + 0.03*(zonestravelled)
-    elif postclass == "Envelope": totalcost == 0.37 + 0.04 * (zonestravelled)
-    elif postclass == "Large Envelope": totalcost == 0.60 + 0.05 * (zonestravelled)
-    elif postclass == "Package": totalcost == 2.95 + 0.25 * (zonestravelled)
-    elif postclass == "Large Package": totalcost == 3.95 + 0.35
-    return totalcost
+def totalpostcost(postclass, zonestravelled):
+    if postclass == "Regular Post Card": totalpostcost == 0.20 + 0.03*(zonestravelled) 
+    elif postclass == "Large Post Card": totalpostcost == 0.37 + 0.03*(zonestravelled)
+    elif postclass == "Envelope": totalpostcost == 0.37 + 0.04 * (zonestravelled)
+    elif postclass == "Large Envelope": totalpostcost == 0.60 + 0.05 * (zonestravelled)
+    elif postclass == "Package": totalpostcost == 2.95 + 0.25 * (zonestravelled)
+    elif postclass == "Large Package": totalpostcost == 3.95 + 0.35 * (zonestravelled)
+    else: 
+        print("Unmailable")
+        #Assigned if the data entered or postclass does not meet the above requirements
+    return totalpostcost
+#Returns the variable totalpostcost as the final total cost with all 5 inputs
 
 # Using the special variable 
 # __name__
