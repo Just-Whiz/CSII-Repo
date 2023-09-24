@@ -22,7 +22,7 @@ def main():
     zone2 = getzone2(zip2)
     zonestravelled = float(int(abs(zone1 - zone2)))
     time.sleep(1)
-    print("Your total cost is {}".format(totalpostcost(postsize, zonestravelled)))
+    print(totalpostcost(postsize, zonestravelled))
     
 
 #getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
