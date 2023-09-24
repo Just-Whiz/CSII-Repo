@@ -21,6 +21,7 @@ def main():
     zone1 = getzone1(zip1) 
     zone2 = getzone2(zip2)
     zonestravelled = float(int(abs(zone1 - zone2)))
+    time.sleep(1)
     print("Your total cost is {}").format(totalcost)
     
 
@@ -50,8 +51,9 @@ def getzone1(zip1):
     elif (zip1 >= 63000) and (zip1 <= 84999): zone1 = 5
     elif (zip1 >= 85000) and (zip1 <= 99999): zone1 = 6
     return zone1
+#Returns the variable zone1 as the zone the starting zipcode is located in
 
-#See the above description for this function
+#See the above description for the function below
 
 def getzone2(zip2):
     if (zip2 >= 1) and (zip2 <= 6999): zone2 = 1
@@ -61,12 +63,17 @@ def getzone2(zip2):
     elif (zip2 >= 63000) and (zip2 <= 84999): zone2 = 5
     elif (zip2 >= 85000) and (zip2 <= 99999): zone2 = 6
     return zone2
+#Returns the variable zone2 as the zone the ending zipcode is located in
+
+
 
 def totalcost(postclass, zonestravelled):
     if postclass == "Regular Post Card": totalcost == 0.20 + 0.03*(zonestravelled) 
     elif postclass == "Large Post Card": totalcost == 0.37 + 0.03*(zonestravelled)
     elif postclass == "Envelope": totalcost == 0.37 + 0.04 * (zonestravelled)
     elif postclass == "Large Envelope": totalcost == 0.60 + 0.05 * (zonestravelled)
+    elif postclass == "Package": totalcost == 2.95 + 0.25 * (zonestravelled)
+    elif postclass == "Large Package": totalcost == 3.95 + 0.35
     return totalcost
 
 # Using the special variable 
