@@ -42,7 +42,7 @@ def getsize(l, h, t):
 #getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
 #If either zips are within certain parameters, then it'll assign them a zone within the integers of numbers they find themselves in
 
-def getzone1(zip1):
+def getzone1(zip1, zip2):
     if (zip1 >= 1) and (zip1 <= 6999): zone1 = 1
     elif (zip1 >= 7000) and (zip1 <= 19999): zone1 = 2
     elif (zip1 >= 20000) and (zip1 <= 35999): zone1 = 3
@@ -65,8 +65,9 @@ def getzone2(zip2):
 #zonetravelcost is a function that takes in two parameters (zone1 & zone2)
 
 
-def zonetravelled(zone1, zone2):
+def postzonestravelled(zone1, zone2):
     zonestravelled = abs(zone1 - zone2)
+    return postzonestravelled
 
 
   
