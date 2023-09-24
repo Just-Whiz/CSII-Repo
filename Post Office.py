@@ -23,6 +23,7 @@ def main():
     zonestravelled = float(int(abs(zone1 - zone2)))
     time.sleep(1)
     postcost(postsize, zonestravelled)
+    print(str(postcost))
     print(locals())
     
 
