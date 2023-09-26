@@ -25,7 +25,7 @@ def main():
     zonestravelled = float(int(abs(zone1 - zone2)))
     time.sleep(1)
     totalpostcost = postcost(postsize, zonestravelled)
-    print(totalpostcost)
+    print("Total printing cost: $",totalpostcost)
     #print(locals())
     
 
