@@ -25,8 +25,8 @@ def main():
     zonestravelled = float(int(abs(zone1 - zone2)))
     time.sleep(1)
     totalpostcost = postcost(postsize, zonestravelled)
-    print("Total printing cost: $",totalpostcost)
-    #print(locals())
+    print(totalpostcost)
+    print(locals())
     
 
 # getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
