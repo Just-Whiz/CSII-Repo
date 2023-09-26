@@ -8,13 +8,12 @@
 
 import time                                                                                             # Imports the time module from the Python library into the project
 
-
 def main():                                                                                             # Defining main function
     print("Welcome to the GCDS Post Office. Enter your data below.")                                 
     time.sleep(1)
     while True:
         try:                                                                                                
-            l, h, t, zip1, zip2 = [int(x) for x in input("Enter values: ").split(", ")]
+            l, h, t, zip1, zip2 = [int(l, h, t, zip1, zip2) for l, h, t, zip1, zip2 in input("Enter values: ").split(",")]
             postsize = getsize(l, h, t)                                                                 
             zone1 = getzone1(zip1)                                                                      
             zone2 = getzone2(zip2)
