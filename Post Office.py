@@ -23,8 +23,7 @@ def main():
     zonestravelled = float(int(abs(zone1 - zone2)))
     time.sleep(1)
     totalpostcost = postcost(postsize, zonestravelled)
-    print(totalpostcost)
-    print(locals())
+    print(totalpostcost).print(locals())
     
 
 #getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
@@ -71,12 +70,12 @@ def getzone2(zip2):
 #If postclass is equal to a particular string value, the cost is equal to certain "tariff" times another set tariff per zones travelled
 
 def postcost(postclass, zonestravelled):
-    if postclass == "Regular Post Card": postcost == 0.20 + 0.03 * (zonestravelled) 
-    elif postclass == "Large Post Card": postcost == 0.37 + 0.03 * (zonestravelled)
-    elif postclass == "Envelope": postcost == 0.37 + 0.04 * (zonestravelled)
-    elif postclass == "Large Envelope": postcost == 0.60 + 0.05 * (zonestravelled)
-    elif postclass == "Package": postcost == 2.95 + 0.25 * (zonestravelled)
-    elif postclass == "Large Package": postcost == 3.95 + 0.35 * (zonestravelled)
+    if postclass == "Regular Post Card": postcost == 0.20 + 0.03 * float(zonestravelled) 
+    elif postclass == "Large Post Card": postcost == 0.37 + 0.03 * float(zonestravelled)
+    elif postclass == "Envelope": postcost == 0.37 + 0.04 * float(zonestravelled)
+    elif postclass == "Large Envelope": postcost == 0.60 + 0.05 * float(zonestravelled)
+    elif postclass == "Package": postcost == 2.95 + 0.25 * float(zonestravelled)
+    elif postclass == "Large Package": postcost == 3.95 + 0.35 * float(zonestravelled)
     else: 
         print("Unmailable")
         #Assigned if the data entered or postclass does not meet the above requirements
