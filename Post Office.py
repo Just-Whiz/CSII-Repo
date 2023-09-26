@@ -5,28 +5,26 @@
 #Challenges: making the data entry user-friendly (although should be "to-spec"), 
 #Working on: pseudocode and getting some necessary variables down
 
-import time
 
-# Defining main function
-# Asks the user for their postage inputs and stores them in their corresponding variables
-# Catches each of the returned function's ouputs and stores them in a printable variable
+import time                                                                                             # Imports the time module from the Python library into the project
 
-def main():
-    print("Welcome to the GCDS Post Office. Enter your data below.")
+
+def main():                                                                                             # Defining main function
+    print("Welcome to the GCDS Post Office. Enter your data below.")                                 
     time.sleep(1)
-    l = float(input("Enter length: "))
-    h = float(input("Enter height: "))
-    t = float(input("Enter thickness: "))
-    zip1 = float(input("Enter your starting zip: "))
-    zip2 = float(input("Enter your ending zip: "))
-    postsize = getsize(l, h, t)
-    zone1 = getzone1(zip1) 
-    zone2 = getzone2(zip2)
-    zonestravelled = float(int(abs(zone1 - zone2)))
-    time.sleep(1)
-    totalpostcost = postcost(postsize, zonestravelled)
-    print(totalpostcost)
-    print(locals())
+    while True:
+        try:                                                                                                
+            l, h, t, zip1, zip2 = [int(x) for x in input("Enter values: ").split(", ")]
+            postsize = getsize(l, h, t)                                                                 
+            zone1 = getzone1(zip1)                                                                      
+            zone2 = getzone2(zip2)
+            zonestravelled = float(int(abs(zone1 - zone2)))
+            time.sleep(1)
+            totalpostcost = postcost(postsize, zonestravelled)
+            print(totalpostcost)                                                  
+        except ValueError:
+            print("The inputs you entered aren't numbers. Please enter numbers in the format asked for.")
+    
     
 
 # getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
