@@ -30,12 +30,12 @@ def main():
 # Once the calculations are performed, the function finishes by returning the value of postclass.
 
 def getsize(l, h, t):
-    if (l >= 3.5 or l <= 4.25) and (h >= 3.5 or h <= 6) and (t >= 0.007 or t <= 0.016): postclass = 1
+    if (l >= 3.5 and l <= 4.25) and (h >= 3.5 or h <= 6) and (t >= 0.007 or t <= 0.016): postclass = 1
     elif (l >= 4.25 or l <= 6) and (h >= 6 or h <= 11.5) and (t >= 0.007 or t <= 0.15): postclass = 2
     elif (l >= 3.5 or l <= 6.125) and (h >= 5 or h <= 11.5) and (t >= 0.25 or t <= 0.5): postclass = 3
     elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = 4
     elif (l + h*2 + t*2) <= 84: postclass = 5
-    elif 84 >= (l + h*2+ t*2 <= 130): postclass = 6
+    elif 84 >= (l + h*2 + t*2 <= 130): postclass = 6
     else: postclass = "Unmailable"
         #Assigned when any item does not conform to the above requirements
     return postclass
