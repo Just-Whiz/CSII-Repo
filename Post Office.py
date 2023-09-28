@@ -11,17 +11,17 @@ import time
 def main():                              
     time.sleep(1)
     while True:
-        try:
-            l, h, t, zip1, zip2 = input("Enter your 5 postage inputs here formatted by commas (length, height, thickness, 1st zipcode, 2nd zipcode): ").split(", ")                                                                                                
-            postsize = getsize(l, h, t)                                                                 
-            zone1 = getzone1(zip1)                                                                      
-            zone2 = getzone2(zip2)
-            zonestravelled = float(int(abs(zone1 - zone2)))
-            time.sleep(1)
-            totalpostcost = postcost(postsize, zonestravelled)
-            print(totalpostcost)                                                  
-        except ValueError:
-            print("The inputs you entered aren't numbers. Please enter numbers in the format asked for.")
+            try:
+                l, h, t, zip1, zip2  = [int(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
+                postsize = getsize(l, h, t)                                                                 
+                zone1 = getzone1(zip1)                                                                      
+                zone2 = getzone2(zip2)
+                zonestravelled = float(int(abs(zone1 - zone2)))
+                time.sleep(1)
+                totalpostcost = postcost(postsize, zonestravelled)
+                print(totalpostcost)   
+            except ValueError:
+                print("Re-enter the values in a format seperated by commas")                                               
 
 # getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
 # If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
@@ -33,7 +33,7 @@ def getsize(l, h, t):
     elif (l >= 3.5 or l <= 6.125) and (h >= 5 or h <= 11.5) and (t >= 0.25 or t <= 0.5): postclass = "Envelope"
     elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = "Large Envelope"
     elif (l + h*2 + t*2) <= 84: return "Package"
-    elif 84 < (l + h*2+ t*2) <= 130: return "Large Package"
+    elif 84 >= (l + h*2+ t*2 <= 130): return "Large Package"
     else:
         postclass = "Unmailable"
         #Assigned when any item does not conform to the above requirements
