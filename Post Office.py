@@ -5,7 +5,6 @@
 #Challenges: making the data entry user-friendly (although should be "to-spec"), 
 #Working on: pseudocode and getting some necessary variables down
 
-
 import time                                                     
 
 def main():                              
@@ -19,7 +18,10 @@ def main():
                 zonestravelled = float(int(abs(zone1 - zone2)))
                 time.sleep(1)
                 totalpostcost = postcost(postsize, zonestravelled)
-                print(totalpostcost)   
+                if totalpostcost == "Unmailable":
+                    print("Unmailable")
+                else:
+                    print(totalpostcost)    
             except ValueError:
                 print("Re-enter the values in a format seperated by commas")                                               
 
@@ -32,10 +34,10 @@ def getsize(l, h, t):
     elif (l >= 4.25 or l <= 6) and (h >= 6 or h <= 11.5) and (t >= 0.007 or t <= 0.15): postclass = "Large Post Card"
     elif (l >= 3.5 or l <= 6.125) and (h >= 5 or h <= 11.5) and (t >= 0.25 or t <= 0.5): postclass = "Envelope"
     elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = "Large Envelope"
-    elif (l + h*2 + t*2) <= 84: return "Package"
-    elif 84 >= (l + h*2+ t*2 <= 130): return "Large Package"
-    else:
-        postclass = "Unmailable"
+    elif (l + h*2 + t*2) <= 84: postclass = "Package"
+    elif 84 >= (l + h*2+ t*2 <= 130): postclass = "Large Package"
+    elif t >= 1: postclass = "Unmailable"
+    else: postclass = "Unmailable"
         #Assigned when any item does not conform to the above requirements
     return postclass
 
@@ -74,8 +76,7 @@ def postcost(postclass, zonestravelled):
     elif postclass == "Large Envelope": postcost = 0.60 + 0.05 * float(zonestravelled)
     elif postclass == "Package": postcost = 2.95 + 0.25 * float(zonestravelled)
     elif postclass == "Large Package": postcost = 3.95 + 0.35 * float(zonestravelled)
-    else: 
-        print("Unmailable")
+    elif postclass == "Unmailable": postcost = ("Unmailable")
         # Assigned if the data entered or postclass does not meet the above requirements
     return postcost
 # Returns the variable postcost as the final total cost with all 5 inputs
