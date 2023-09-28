@@ -11,16 +11,17 @@ def main():
     time.sleep(1)
     while True:
             try:
-                l, h, t, zip1, zip2  = [int(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
+                l, h, t, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
                 postsize = getsize(l, h, t)                                                                 
                 zone1, zone2 = (getzone1(zip1), getzone2(zip2))                                                                      
                 zonestravelled = float(int(abs(zone1 - zone2)))
                 time.sleep(1)
                 totalpostcost = postcost(postsize, zonestravelled)
-                if totalpostcost == "Unmailable":
+                if totalpostcost == None:
                     print("Unmailable")
                 else:
-                    print(totalpostcost)    
+                    print(totalpostcost)
+                    print(locals())
             except ValueError:
                 print("Re-enter the values in a format seperated by commas")                                               
 
@@ -29,12 +30,12 @@ def main():
 # Once the calculations are performed, the function finishes by returning the value of postclass.
 
 def getsize(l, h, t):
-    if (l >= 3.5 or l <= 4.25) and (h >= 3.5 or h <= 6) and (t >= 0.007 or t <= 0.016): postclass = "Regular Post Card"     
-    elif (l >= 4.25 or l <= 6) and (h >= 6 or h <= 11.5) and (t >= 0.007 or t <= 0.15): postclass = "Large Post Card"
-    elif (l >= 3.5 or l <= 6.125) and (h >= 5 or h <= 11.5) and (t >= 0.25 or t <= 0.5): postclass = "Envelope"
-    elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = "Large Envelope"
-    elif (l + h*2 + t*2) <= 84: postclass = "Package"
-    elif 84 >= (l + h*2+ t*2 <= 130): postclass = "Large Package"
+    if (l >= 3.5 or l <= 4.25) and (h >= 3.5 or h <= 6) and (t >= 0.007 or t <= 0.016): postclass = 1
+    elif (l >= 4.25 or l <= 6) and (h >= 6 or h <= 11.5) and (t >= 0.007 or t <= 0.15): postclass = 2
+    elif (l >= 3.5 or l <= 6.125) and (h >= 5 or h <= 11.5) and (t >= 0.25 or t <= 0.5): postclass = 3
+    elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = 4
+    elif (l + h*2 + t*2) <= 84: postclass = 5
+    elif 84 >= (l + h*2+ t*2 <= 130): postclass = 6
     else: postclass = "Unmailable"
         #Assigned when any item does not conform to the above requirements
     return postclass
@@ -68,13 +69,13 @@ def getzone2(zip2):
 # If postclass is equal to a particular string value, the cost is equal to certain "tariff" times another set tariff per zones travelled
 
 def postcost(postclass, zonestravelled):
-    if postclass == "Regular Post Card": postcost = (0.03 * zonestravelled) + 0.20
-    elif postclass == "Large Post Card": postcost = (0.03 * zonestravelled) + 0.37
-    elif postclass == "Envelope": postcost = (0.04 * zonestravelled) + 0.37
-    elif postclass == "Large Envelope": postcost = (0.05 * zonestravelled) + 0.60
-    elif postclass == "Package": postcost = (0.25 * zonestravelled) + 2.95
-    elif postclass == "Large Package": postcost = (0.35 * zonestravelled) + 3.95
-    elif postclass == "Unmailable": postcost = ("Unmailable")
+    if postclass == 1: postcost = (0.03 * zonestravelled) + 0.20
+    elif postclass == 2: postcost = (0.03 * zonestravelled) + 0.37
+    elif postclass == 3: postcost = (0.04 * zonestravelled) + 0.37
+    elif postclass == 4: postcost = (0.05 * zonestravelled) + 0.60
+    elif postclass == 5: postcost = (0.25 * zonestravelled) + 2.95
+    elif postclass == 6: postcost = (0.35 * zonestravelled) + 3.95
+    elif postclass == 7: postcost = None
         # Assigned if the data entered or postclass does not meet the above requirements
     return postcost
 # Returns the variable postcost as the final total cost with all 5 inputs
