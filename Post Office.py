@@ -13,8 +13,7 @@ def main():
             try:
                 l, h, t, zip1, zip2  = [int(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
                 postsize = getsize(l, h, t)                                                                 
-                zone1 = getzone1(zip1)                                                                      
-                zone2 = getzone2(zip2)
+                zone1, zone2 = (getzone1(zip1), getzone2(zip2))                                                                      
                 zonestravelled = float(int(abs(zone1 - zone2)))
                 time.sleep(1)
                 totalpostcost = postcost(postsize, zonestravelled)
@@ -36,7 +35,6 @@ def getsize(l, h, t):
     elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = "Large Envelope"
     elif (l + h*2 + t*2) <= 84: postclass = "Package"
     elif 84 >= (l + h*2+ t*2 <= 130): postclass = "Large Package"
-    elif t >= 1: postclass = "Unmailable"
     else: postclass = "Unmailable"
         #Assigned when any item does not conform to the above requirements
     return postclass
@@ -70,12 +68,12 @@ def getzone2(zip2):
 # If postclass is equal to a particular string value, the cost is equal to certain "tariff" times another set tariff per zones travelled
 
 def postcost(postclass, zonestravelled):
-    if postclass == "Regular Post Card": postcost = 0.20 + 0.03 * float(zonestravelled) 
-    elif postclass == "Large Post Card": postcost = 0.37 + 0.03 * float(zonestravelled)
-    elif postclass == "Envelope": postcost = 0.37 + 0.04 * float(zonestravelled)
-    elif postclass == "Large Envelope": postcost = 0.60 + 0.05 * float(zonestravelled)
-    elif postclass == "Package": postcost = 2.95 + 0.25 * float(zonestravelled)
-    elif postclass == "Large Package": postcost = 3.95 + 0.35 * float(zonestravelled)
+    if postclass == "Regular Post Card": postcost = 0.20 + (0.03 * int(zonestravelled)) 
+    elif postclass == "Large Post Card": postcost = 0.37 + (0.03 * int(zonestravelled))
+    elif postclass == "Envelope": postcost = 0.37 + (0.04 * int(zonestravelled))
+    elif postclass == "Large Envelope": postcost = 0.60 + (0.05 * int(zonestravelled))
+    elif postclass == "Package": postcost = 2.95 + (0.25 * int(zonestravelled))
+    elif postclass == "Large Package": postcost = 3.95 + (0.35 * int(zonestravelled))
     elif postclass == "Unmailable": postcost = ("Unmailable")
         # Assigned if the data entered or postclass does not meet the above requirements
     return postcost
