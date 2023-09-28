@@ -13,7 +13,7 @@ def main():
             try:
                 l, h, t, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
                 postsize = getsize(l, h, t)                                                                 
-                zone1, zone2 = (getzone1(zip1), getzone2(zip2))                                                                      
+                zone1, zone2 = (getzone(zip1, zip2))                                                                      
                 zonestravelled = float(int(abs(zone1 - zone2)))
                 time.sleep(1)
                 totalpostcost = postcost(postsize, zonestravelled)
@@ -21,7 +21,6 @@ def main():
                     print("Unmailable")
                 else:
                     print(totalpostcost)
-                    print(locals())
             except ValueError:
                 print("Re-enter the values in a format seperated by commas")                                               
 
@@ -42,26 +41,20 @@ def getsize(l, h, t):
 # getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
 # If either zips are within certain parameters, then it'll assign them a zone within the integers of numbers they find themselves in
 
-def getzone1(zip1):
+def getzone(zip1, zip2):
     if (zip1 >= 1) and (zip1 <= 6999): zone1 = 1
     elif (zip1 >= 7000) and (zip1 <= 19999): zone1 = 2
     elif (zip1 >= 20000) and (zip1 <= 35999): zone1 = 3
     elif (zip1 >= 36000) and (zip1 <= 62999): zone1 = 4
     elif (zip1 >= 63000) and (zip1 <= 84999): zone1 = 5
     elif (zip1 >= 85000) and (zip1 <= 99999): zone1 = 6
-    return zone1
-# Returns the variable zone1 as the zone the starting zipcode is located in
 
-# See the above description for the function below
-
-def getzone2(zip2):
-    if (zip2 >= 1) and (zip2 <= 6999): zone2 = 1
     elif (zip2 >= 7000) and (zip2 <= 19999): zone2 = 2
     elif (zip2 >= 20000) and (zip2 <= 35999): zone2 = 3
     elif (zip2 >= 36000) and (zip2 <= 62999): zone2 = 4
     elif (zip2 >= 63000) and (zip2 <= 84999): zone2 = 5
     elif (zip2 >= 85000) and (zip2 <= 99999): zone2 = 6
-    return zone2
+    return zone1, zone2
 # Returns the variable zone2 as the zone the ending zipcode is located in
 
 # postcost takes in 2 parameters (postclass & zonestravelled)
