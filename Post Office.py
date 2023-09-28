@@ -36,8 +36,7 @@ def getsize(l, h, t):
     elif (l >= 6.125 and l <= 24) or (h >= 11 and h <= 18) or (t >= 0.25 and t <= 0.5): postclass = 4
     elif (l + h*2 + t*2) <= 84: postclass = 5
     elif 84 >= (l + h*2 + t*2 <= 130): postclass = 6
-    else: postclass = "Unmailable"
-        #Assigned when any item does not conform to the above requirements
+    else: postclass = None
     return postclass
 
 # getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
