@@ -8,12 +8,11 @@
 
 import time                                                     
 
-def main():
-    print("Welcome to the GCDS Post Office. Enter your numbers below, seperated by commas with spaces (", ")")                                 
+def main():                              
     time.sleep(1)
     while True:
-        try:                                                                                                
-            
+        try:
+            l, h, t, zip1, zip2 = input("Enter your 5 postage inputs here formatted by commas (length, height, thickness, 1st zipcode, 2nd zipcode): ").split(", ")                                                                                                
             postsize = getsize(l, h, t)                                                                 
             zone1 = getzone1(zip1)                                                                      
             zone2 = getzone2(zip2)
@@ -23,8 +22,6 @@ def main():
             print(totalpostcost)                                                  
         except ValueError:
             print("The inputs you entered aren't numbers. Please enter numbers in the format asked for.")
-    
-    
 
 # getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
 # If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
@@ -35,7 +32,8 @@ def getsize(l, h, t):
     elif (l >= 4.25 or l <= 6) and (h >= 6 or h <= 11.5) and (t >= 0.007 or t <= 0.15): postclass = "Large Post Card"
     elif (l >= 3.5 or l <= 6.125) and (h >= 5 or h <= 11.5) and (t >= 0.25 or t <= 0.5): postclass = "Envelope"
     elif (l >= 6.125 or l <= 24) and (h >= 11 or h <= 18) and (t >= 0.25 or t <= 0.5): postclass = "Large Envelope"
-    #elif (l > 6.125 and h > 18  and t > 0.5): [working on the next set of parameters]
+    elif (l + h*2 + t*2) <= 84: return "Package"
+    elif 84 < (l + h*2+ t*2) <= 130: return "Large Package"
     else:
         postclass = "Unmailable"
         #Assigned when any item does not conform to the above requirements
