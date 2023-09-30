@@ -6,11 +6,10 @@ def main():
             try:
                 length, height, thickness, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
                 postsize = get_size(length, height, thickness)                                                                 
-                zone1list = (get_zone(zip1, zip2)) 
-                zone1 = zone1list[0]   
-                zone2list = (get_zone(zip1, zip2))
-                zone2 = zone1list[0]  
-                zonestravelled = float(int(abs(zone1 - zone2)))
+                zonelist = get_zone(zip1, zip2)  
+                startzone = int(zonelist[0])
+                endzone = int(zonelist[1])  
+                zonestravelled = float(int(abs(startzone - endzone)))
                 time.sleep(1)
                 totalpostcost = post_cost(postsize, zonestravelled)
                 if totalpostcost == None:
@@ -50,7 +49,7 @@ def get_zone(zip1, zip2):
             if (zipto >= 1) and (zipto <= 6999):
                 zone2 = 1
         elif (zipfrom >= 7000) and (zipfrom <= 19999): 
-            zone = 2
+            zone1 = 2
             if (zipto >= 7000) and (zipto <= 19999):
                  zone2 = 2
         elif (zipfrom >= 20000) and (zipfrom <= 35999):
