@@ -4,12 +4,15 @@ def main():
     time.sleep(1)
     while True:
             try:
-                l, h, t, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
-                postsize = getsize(l, h, t)                                                                 
-                zone1, zone2  = (getzone(zip1, zip2))                                                                   
+                length, height, thickness, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
+                postsize = get_size(length, height, thickness)                                                                 
+                zone1list = (get_zone(zip1, zip2)) 
+                zone1 = zone1list[0]   
+                zone2list = (get_zone(zip1, zip2))
+                zone2 = zone1list[0]  
                 zonestravelled = float(int(abs(zone1 - zone2)))
                 time.sleep(1)
-                totalpostcost = postcost(postsize, zonestravelled)
+                totalpostcost = post_cost(postsize, zonestravelled)
                 if totalpostcost == None:
                     print("Unmailable")
                 else:
@@ -19,20 +22,24 @@ def main():
 
 
 def get_size(l, h, t):
-    if (l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) or (t >= 0.007 and t <= 0.016): 
+    length = l
+    height = h
+    thickness = t
+    if ((l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) or 
+        (t >= 0.007 and t <= 0.016)): 
          postclass = 1
-    elif (l >= 4.25 and l <= 6) or (h >= 6 and h <= 11.5) or (t >= 0.007 and t <= 0.15): 
+    elif ((l >= 4.25 and l <= 6) or (h >= 6 and h <= 11.5) 
+         or (t >= 0.007 and t <= 0.15)): 
          postclass = 2
-    elif (l >= 3.5 and l <= 6.125) or (h >= 5 and h <= 11.5) or (t >= 0.25 and t <= 0.5): 
+    elif ((l >= 3.5 and l <= 6.125) or (h >= 5 and h <= 11.5) 
+         or (t >= 0.25 and t <= 0.5)): 
          postclass = 3
-    elif (l >= 6.125 and l <= 24) or (h >= 11 and h <= 18) or (t >= 0.25 and t <= 0.5): 
+    elif ((l >= 6.125 and l <= 24) or (h >= 11 and h <= 18)
+         or (t >= 0.25 and t <= 0.5)): 
          postclass = 4
-    elif (l + h*2 + t*2) <= 84: 
-         postclass = 5
-    elif 84 >= (l + h*2 + t*2 <= 130): 
-         postclass = 6
-    else: 
-         postclass = None
+    elif (l + h*2 + t*2) <= 84: postclass = 5
+    elif 84 >= (l + h*2 + t*2 <= 130): postclass = 6
+    else: postclass = None
     return postclass
 
 def get_zone(zip1, zip2):
@@ -52,19 +59,19 @@ def get_zone(zip1, zip2):
                   zone2 = 3
         elif (zipfrom >= 36000) and (zipfrom <= 62999): 
              zone1 = 4
-             if (zipto >= ) and (zipto <= ):
+             if (zipto >= 36000) and (zipto <= 62999):
                   zone2 = 4
-        elif (zipfrom >= ) and (zipfrom <= ): 
+        elif (zipfrom >= 63000) and (zipfrom <= 84999): 
              zone1 = 5
-             if (zipfto >= ) and (zipto <= ):
+             if (zipto >= 63000) and (zipto <= 84999): 
                   zone2 = 5
-        elif (zipfrom >= ) and (zipfrom <= ): 
+        elif (zipfrom >= 85000) and (zipfrom <= 99999): 
              zone1 = 6
-             if (zipto >= ) and (zipto <=): 
+             if (zipto >= 85000) and (zipto <= 99999): 
                 zone2 = 6
-        return [zipfrom, zipto]
+        return [zone1, zone2]
 
-def calc_post_cost(postclass, zonestravelled):
+def post_cost(postclass, zonestravelled):
     if postclass == 1: postcost = (0.03 * zonestravelled) + 0.20
     elif postclass == 2: postcost = (0.03 * zonestravelled) + 0.37
     elif postclass == 3: postcost = (0.04 * zonestravelled) + 0.37
