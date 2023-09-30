@@ -18,26 +18,53 @@ def main():
                 print("Re-enter the values in a format seperated by commas")                                               
 
 
-def getsize(l, h, t):
-    if (l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) or (t >= 0.007 and t <= 0.016): postclass = 1
-    elif (l >= 4.25 and l <= 6) or (h >= 6 and h <= 11.5) or (t >= 0.007 and t <= 0.15): postclass = 2
-    elif (l >= 3.5 and l <= 6.125) or (h >= 5 and h <= 11.5) or (t >= 0.25 and t <= 0.5): postclass = 3
-    elif (l >= 6.125 and l <= 24) or (h >= 11 and h <= 18) or (t >= 0.25 and t <= 0.5): postclass = 4
-    elif (l + h*2 + t*2) <= 84: postclass = 5
-    elif 84 >= (l + h*2 + t*2 <= 130): postclass = 6
-    else: postclass = None
+def get_size(l, h, t):
+    if (l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) or (t >= 0.007 and t <= 0.016): 
+         postclass = 1
+    elif (l >= 4.25 and l <= 6) or (h >= 6 and h <= 11.5) or (t >= 0.007 and t <= 0.15): 
+         postclass = 2
+    elif (l >= 3.5 and l <= 6.125) or (h >= 5 and h <= 11.5) or (t >= 0.25 and t <= 0.5): 
+         postclass = 3
+    elif (l >= 6.125 and l <= 24) or (h >= 11 and h <= 18) or (t >= 0.25 and t <= 0.5): 
+         postclass = 4
+    elif (l + h*2 + t*2) <= 84: 
+         postclass = 5
+    elif 84 >= (l + h*2 + t*2 <= 130): 
+         postclass = 6
+    else: 
+         postclass = None
     return postclass
 
+def get_zone(zip1, zip2):
+        zipfrom = zip1
+        zipto = zip2
+        if (zipfrom >= 1) and (zipfrom <= 6999): 
+            zone1 = 1
+            if (zipto >= 1) and (zipto <= 6999):
+                zone2 = 1
+        elif (zipfrom >= 7000) and (zipfrom <= 19999): 
+            zone = 2
+            if (zipto >= 7000) and (zipto <= 19999):
+                 zone2 = 2
+        elif (zipfrom >= 20000) and (zipfrom <= 35999):
+             zone1 = 3
+             if (zipto >= 20000) and (zipto <= 35999):
+                  zone2 = 3
+        elif (zipfrom >= 36000) and (zipfrom <= 62999): 
+             zone1 = 4
+             if (zipto >= ) and (zipto <= ):
+                  zone2 = 4
+        elif (zipfrom >= ) and (zipfrom <= ): 
+             zone1 = 5
+             if (zipfto >= ) and (zipto <= ):
+                  zone2 = 5
+        elif (zipfrom >= ) and (zipfrom <= ): 
+             zone1 = 6
+             if (zipto >= ) and (zipto <=): 
+                zone2 = 6
+        return [zipfrom, zipto]
 
-def getzone(zip1, zip2):
-    if (zip >= 1) and (zip1 <= 6999): zone = 1
-    elif (zip >= 7000) and (zip1 <= 19999): zone = 2
-    elif (zip >= 20000) and (zip1 <= 35999): zone = 3 
-    elif (zip >= 36000) and (zip1 <= 62999): zone = 4
-    elif (zip1 >= 63000) and (zip1 <= 84999): zone = 5
-    elif (zip1 >= 85000) and (zip1 <= 99999): zone = 6
-
-def postcost(postclass, zonestravelled):
+def calc_post_cost(postclass, zonestravelled):
     if postclass == 1: postcost = (0.03 * zonestravelled) + 0.20
     elif postclass == 2: postcost = (0.03 * zonestravelled) + 0.37
     elif postclass == 3: postcost = (0.04 * zonestravelled) + 0.37
