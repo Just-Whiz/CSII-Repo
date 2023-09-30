@@ -1,8 +1,5 @@
 import time                                                     
 
-zone1 = 0
-zone2 = 0
-
 def main():                              
     time.sleep(1)
     while True:
@@ -12,13 +9,14 @@ def main():
                 zonelist = get_zone(zip1, zip2) 
                 startzone = zonelist[0]
                 endzone = zonelist[1]
+                print(zonelist)
                 zonestravelled = float(int(abs(startzone - endzone)))
                 time.sleep(1)
                 totalpostcost = post_cost(postsize, zonestravelled)
                 if totalpostcost == None:
                     print("Unmailable")
                 else:
-                    print(totalpostcost)
+                    print('%.2f'%totalpostcost)
             except ValueError:
                 print("Re-enter the values in a format seperated by commas")                                               
 
@@ -39,51 +37,43 @@ def get_size(l, h, t):
     elif ((l >= 6.125 and l <= 24) or (h >= 11 and h <= 18)
          or (t >= 0.25 and t <= 0.5)): 
          postclass = 4
-    elif (l + h*2 + t*2) <= 84: postclass = 5
-    elif 84 >= (l + h*2 + t*2 <= 130): postclass = 6
-    else: postclass = None
+    elif (l + h*2 + t*2) <= 84: 
+          postclass = 5
+    elif 84 >= (l + h*2 + t*2 <= 130): 
+          postclass = 6
+    else: 
+          postclass = None
     return postclass
 
 def get_zone(zip1, zip2):
         zipfrom = zip1
         zipto = zip2
-        if ((zipfrom >= 1) and (zipfrom <= 6999) and 
-            (zipto >= 1) and (zipto <= 6999)): 
-                zone1 += 1
-                zone2 += 1
-        elif ((zipfrom >= 7000) and (zipfrom <= 19999) and 
-              (zipto >= 7000) and (zipto <= 19999)): 
-                zone1 += 2
-                zone2 += 2
-        elif ((zipfrom >= 20000) and (zipfrom <= 35999) and 
-              (zipto >= 20000) and (zipto <= 35999)):
-                zone1 += 3
-                zone2 += 3
-        elif ((zipfrom >= 36000) and (zipfrom <= 62999) and 
-              (zipto >= 36000) and (zipto <= 62999)): 
-                zone1 += 4
-                zone2 += 4
-        elif ((zipfrom >= 63000) and (zipfrom <= 84999) and 
-              (zipto >= 63000) and (zipto <= 84999)): 
-                zone1 += 5 
-                zone2 += 5
-        elif ((zipfrom >= 85000) and (zipfrom <= 99999) and 
-              (zipto >= 85000) and (zipto <= 99999)): 
-                zone1 += 6 
-                zone2 += 6
+        if (zipfrom >= 1) and (zipfrom <= 6999): zone1 = 1
+        elif (zipfrom >= 7000) and (zipfrom <= 19999): zone1 = 2
+        elif (zipfrom >= 20000) and (zipfrom <= 35999): zone1 = 3
+        elif (zipfrom >= 36000) and (zipfrom <= 62999): zone1 = 4
+        elif (zipfrom >= 63000) and (zipfrom <= 84999): zone1 = 5 
+        elif (zipfrom >= 85000) and (zipfrom <= 99999): zone1 = 6 
         else: 
-              print("Unreachable")
+            if (zipto >= 85000) and (zipto <= 99999): zone2 = 1
+            elif (zipto >= 63000) and (zipto <= 84999): zone2 = 5
+            elif (zipto >= 36000) and (zipto <= 62999): zone2 = 4
+            elif (zipto >= 20000) and (zipto <= 35999): zone2 = 3
+            elif (zipto >= 7000) and (zipto <= 19999): zone2 = 2
+            else:
+                 print("Unreachable")
         return [zone1, zone2]
             
 
 def post_cost(postclass, zonestravelled):
-    if postclass == 1: postcost = (0.03 * zonestravelled) + 0.20
-    elif postclass == 2: postcost = (0.03 * zonestravelled) + 0.37
-    elif postclass == 3: postcost = (0.04 * zonestravelled) + 0.37
-    elif postclass == 4: postcost = (0.05 * zonestravelled) + 0.60
-    elif postclass == 5: postcost = (0.25 * zonestravelled) + 2.95
-    elif postclass == 6: postcost = (0.35 * zonestravelled) + 3.95
-    elif postclass == 7: postcost = None
+    if postclass == 1: postcost = 0.20 + (0.03 * ifloat(zonestravelled)) + 0.20
+    elif postclass == 2: postcost = (0.03 * float(zonestravelled)) + 0.37
+    elif postclass == 3: postcost = (0.04 * float(zonestravelled)) + 0.37
+    elif postclass == 4: postcost = (0.05 * float(zonestravelled)) + 0.60
+    elif postclass == 5: postcost = (0.25 * float(zonestravelled)) + 2.95
+    elif postclass == 6: postcost = (0.35 * float(zonestravelled)) + 3.95
+    else:
+          postcost = None
     return postcost
 
 # Using the special variable 
