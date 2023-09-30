@@ -24,8 +24,8 @@ def get_size(l, h, t):
     length = l
     height = h
     thickness = t
-    if ((l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) or 
-        (t >= 0.007 and t <= 0.016)): 
+    if ((l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) 
+         or (t >= 0.007 and t <= 0.016)): 
          postclass = 1
     elif ((l >= 4.25 and l <= 6) or (h >= 6 and h <= 11.5) 
          or (t >= 0.007 and t <= 0.15)): 
