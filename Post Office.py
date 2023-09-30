@@ -55,23 +55,24 @@ def get_zone(zip1, zip2):
         elif (zipfrom >= 63000) and (zipfrom <= 84999): zone1 = 5 
         elif (zipfrom >= 85000) and (zipfrom <= 99999): zone1 = 6 
         else: 
-            if (zipto >= 85000) and (zipto <= 99999): zone2 = 1
-            elif (zipto >= 63000) and (zipto <= 84999): zone2 = 5
-            elif (zipto >= 36000) and (zipto <= 62999): zone2 = 4
-            elif (zipto >= 20000) and (zipto <= 35999): zone2 = 3
-            elif (zipto >= 7000) and (zipto <= 19999): zone2 = 2
-            else:
-                 print("Unreachable")
+            zone1 = "Unreachable"
+        if (zipto >= 85000) and (zipto <= 99999): zone2 = 6
+        elif (zipto >= 63000) and (zipto <= 84999): zone2 = 5
+        elif (zipto >= 36000) and (zipto <= 62999): zone2 = 4
+        elif (zipto >= 20000) and (zipto <= 35999): zone2 = 3
+        elif (zipto >= 7000) and (zipto <= 19999): zone2 = 2
+        elif (zipto >= 1) and (zipto <= 6999): zone2 = 1
+        else:
+                zone1, zone2 = "Unreachable"
         return [zone1, zone2]
             
-
 def post_cost(postclass, zonestravelled):
-    if postclass == 1: postcost = 0.20 + (0.03 * ifloat(zonestravelled)) + 0.20
-    elif postclass == 2: postcost = (0.03 * float(zonestravelled)) + 0.37
-    elif postclass == 3: postcost = (0.04 * float(zonestravelled)) + 0.37
-    elif postclass == 4: postcost = (0.05 * float(zonestravelled)) + 0.60
-    elif postclass == 5: postcost = (0.25 * float(zonestravelled)) + 2.95
-    elif postclass == 6: postcost = (0.35 * float(zonestravelled)) + 3.95
+    if postclass == 1: postcost = 0.20 + (0.03 * float(zonestravelled))
+    elif postclass == 2: postcost = 0.37 + (0.03 * float(zonestravelled))
+    elif postclass == 3: postcost = 0.37 + (0.04 * float(zonestravelled))
+    elif postclass == 4: postcost = 0.60 + (0.05 * float(zonestravelled))
+    elif postclass == 5: postcost = 2.95 + (0.25 * float(zonestravelled))
+    elif postclass == 6: postcost = 3.95 + (0.35 * float(zonestravelled))
     else:
           postcost = None
     return postcost
