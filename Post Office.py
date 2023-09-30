@@ -1,10 +1,3 @@
-#Project name: GCDS Rust Removal AKA the GCDS Post office algorithm
-#Started: 9/18/23
-#Ended: 
-#Current version: 0.75
-#Challenges: making the data entry user-friendly (although should be "to-spec"), 
-#Working on: pseudocode and getting some necessary variables down
-
 import time                                                     
 
 def main():                              
@@ -13,8 +6,7 @@ def main():
             try:
                 l, h, t, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
                 postsize = getsize(l, h, t)                                                                 
-                zone1 = (getzone(zip1, zip2))
-                zone2 = (getzone(zip1, zip2))                                                                      
+                zone1, zone2  = (getzone(zip1, zip2))                                                                   
                 zonestravelled = float(int(abs(zone1 - zone2)))
                 time.sleep(1)
                 totalpostcost = postcost(postsize, zonestravelled)
@@ -25,9 +17,6 @@ def main():
             except ValueError:
                 print("Re-enter the values in a format seperated by commas")                                               
 
-# getsize is a simple algorithm that takes in 3 parameters (length, height, and thickness [l, h, & t])
-# If the parameters are between certain numbers and all of them meet the parameters, then the variable "postclass" will be changed.
-# Once the calculations are performed, the function finishes by returning the value of postclass.
 
 def getsize(l, h, t):
     if (l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) or (t >= 0.007 and t <= 0.016): postclass = 1
@@ -39,21 +28,14 @@ def getsize(l, h, t):
     else: postclass = None
     return postclass
 
-# getfinalzone takes in 2 parameters (zip1 and zip2 [zip1 & zip2])
-# If either zips are within certain parameters, then it'll assign them a zone within the integers of numbers they find themselves in
 
 def getzone(zip1, zip2):
-    if (zip1 >= 1) and (zip1 <= 6999) or (zip2 >= 0) and (zip2 <= 6999): zone = 1 
-    elif (zip1 >= 7000) and (zip1 <= 19999) (zip2 >= 7000) and (zip2 <= 19999): zone = 2
-    elif (zip1 >= 20000) and (zip1 <= 35999) or (zip2 >= 20000) and (zip2 <= 35999): zone = 3 
-    elif (zip1 >= 36000) and (zip1 <= 62999) or (zip2 >= 36000) and (zip2 <= 62999): zone = 4
-    elif (zip1 >= 63000) and (zip1 <= 84999) or (zip2 >= 63000) and (zip2 <= 84999): zone = 5
-    elif (zip1 >= 85000) and (zip1 <= 99999) or (zip2 >= 85000) and (zip2 <= 99999): zone = 6
-    return zone
-# Returns the variable zone2 as the zone the ending zipcode is located in
-
-# postcost takes in 2 parameters (postclass & zonestravelled)
-# If postclass is equal to a particular string value, the cost is equal to certain "tariff" times another set tariff per zones travelled
+    if (zip >= 1) and (zip1 <= 6999): zone = 1
+    elif (zip >= 7000) and (zip1 <= 19999): zone = 2
+    elif (zip >= 20000) and (zip1 <= 35999): zone = 3 
+    elif (zip >= 36000) and (zip1 <= 62999): zone = 4
+    elif (zip1 >= 63000) and (zip1 <= 84999): zone = 5
+    elif (zip1 >= 85000) and (zip1 <= 99999): zone = 6
 
 def postcost(postclass, zonestravelled):
     if postclass == 1: postcost = (0.03 * zonestravelled) + 0.20
@@ -63,9 +45,7 @@ def postcost(postclass, zonestravelled):
     elif postclass == 5: postcost = (0.25 * zonestravelled) + 2.95
     elif postclass == 6: postcost = (0.35 * zonestravelled) + 3.95
     elif postclass == 7: postcost = None
-        # Assigned if the data entered or postclass does not meet the above requirements
     return postcost
-# Returns the variable postcost as the final total cost with all 5 inputs
 
 # Using the special variable 
 # __name__
