@@ -1,14 +1,17 @@
 import time                                                     
 
+zone1 = 0
+zone2 = 0
+
 def main():                              
     time.sleep(1)
     while True:
             try:
                 length, height, thickness, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
                 postsize = get_size(length, height, thickness)                                                                 
-                zonelist = get_zone(zip1, zip2)  
-                startzone = int(zonelist[0])
-                endzone = int(zonelist[1])  
+                zonelist = get_zone(zip1, zip2) 
+                startzone = zonelist[0]
+                endzone = zonelist[1]
                 zonestravelled = float(int(abs(startzone - endzone)))
                 time.sleep(1)
                 totalpostcost = post_cost(postsize, zonestravelled)
@@ -44,31 +47,34 @@ def get_size(l, h, t):
 def get_zone(zip1, zip2):
         zipfrom = zip1
         zipto = zip2
-        if (zipfrom >= 1) and (zipfrom <= 6999): 
-            zone1 = 1
-            if (zipto >= 1) and (zipto <= 6999):
-                zone2 = 1
-        elif (zipfrom >= 7000) and (zipfrom <= 19999): 
-            zone1 = 2
-            if (zipto >= 7000) and (zipto <= 19999):
-                 zone2 = 2
-        elif (zipfrom >= 20000) and (zipfrom <= 35999):
-             zone1 = 3
-             if (zipto >= 20000) and (zipto <= 35999):
-                  zone2 = 3
-        elif (zipfrom >= 36000) and (zipfrom <= 62999): 
-             zone1 = 4
-             if (zipto >= 36000) and (zipto <= 62999):
-                  zone2 = 4
-        elif (zipfrom >= 63000) and (zipfrom <= 84999): 
-             zone1 = 5
-             if (zipto >= 63000) and (zipto <= 84999): 
-                  zone2 = 5
-        elif (zipfrom >= 85000) and (zipfrom <= 99999): 
-             zone1 = 6
-             if (zipto >= 85000) and (zipto <= 99999): 
-                zone2 = 6
+        if ((zipfrom >= 1) and (zipfrom <= 6999) and 
+            (zipto >= 1) and (zipto <= 6999)): 
+                zone1 += 1
+                zone2 += 1
+        elif ((zipfrom >= 7000) and (zipfrom <= 19999) and 
+              (zipto >= 7000) and (zipto <= 19999)): 
+                zone1 += 2
+                zone2 += 2
+        elif ((zipfrom >= 20000) and (zipfrom <= 35999) and 
+              (zipto >= 20000) and (zipto <= 35999)):
+                zone1 += 3
+                zone2 += 3
+        elif ((zipfrom >= 36000) and (zipfrom <= 62999) and 
+              (zipto >= 36000) and (zipto <= 62999)): 
+                zone1 += 4
+                zone2 += 4
+        elif ((zipfrom >= 63000) and (zipfrom <= 84999) and 
+              (zipto >= 63000) and (zipto <= 84999)): 
+                zone1 += 5 
+                zone2 += 5
+        elif ((zipfrom >= 85000) and (zipfrom <= 99999) and 
+              (zipto >= 85000) and (zipto <= 99999)): 
+                zone1 += 6 
+                zone2 += 6
+        else: 
+              print("Unreachable")
         return [zone1, zone2]
+            
 
 def post_cost(postclass, zonestravelled):
     if postclass == 1: postcost = (0.03 * zonestravelled) + 0.20
