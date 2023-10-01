@@ -9,9 +9,7 @@ def main():
                 zonelist = get_zone(zip1, zip2) 
                 startzone = zonelist[0]
                 endzone = zonelist[1]
-                print(zonelist)
                 zonestravelled = float(int(abs(startzone - endzone)))
-                time.sleep(1)
                 totalpostcost = post_cost(postsize, zonestravelled)
                 if totalpostcost == None:
                     print("Unmailable")
@@ -25,17 +23,17 @@ def get_size(l, h, t):
     length = l
     height = h
     thickness = t
-    if ((l >= 3.5 and l <= 4.25) or (h >= 3.5 and h <= 6) 
-         or (t >= 0.007 and t <= 0.016)): 
+    if ((l >= 3.5 and l <= 4.25) and (h >= 3.5 and h <= 6) 
+         and (t >= 0.007 and t <= 0.016)): 
          postclass = 1
-    elif ((l >= 4.25 and l <= 6) or (h >= 6 and h <= 11.5) 
-         or (t >= 0.007 and t <= 0.15)): 
+    elif ((l >= 4.25 and l <= 6) and (h >= 6 and h <= 11.5) 
+         and (t >= 0.007 and t <= 0.15)): 
          postclass = 2
-    elif ((l >= 3.5 and l <= 6.125) or (h >= 5 and h <= 11.5) 
-         or (t >= 0.25 and t <= 0.5)): 
+    elif ((l >= 3.5 and l <= 6.125) and (h >= 5 and h <= 11.5) 
+         and (t >= 0.25 and t <= 0.5)): 
          postclass = 3
-    elif ((l >= 6.125 and l <= 24) or (h >= 11 and h <= 18)
-         or (t >= 0.25 and t <= 0.5)): 
+    elif ((l >= 6.125 and l <= 24) and (h >= 11 and h <= 18)
+         and (t >= 0.25 and t <= 0.5)): 
          postclass = 4
     elif (l + h*2 + t*2) <= 84: 
           postclass = 5
