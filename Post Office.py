@@ -62,9 +62,9 @@ def get_size(l, h, t):                                                          
           postclass = None                                                                                      # return Postclass as None (essentially, make its 
     return postclass                                                                                            # value worth nothing in Python's "eyes")
 
-def get_zone(zip1, zip2):
+def get_zone(zip1, zip2):                                                                                       # Gets the zones of the two zipcodes entered (zip1 and zip2)
         """                                                
-        Returns two different zone values based on the two zips fed in by the user.
+        Returns two different zone values based on the two zipcodes fed in by the user.
                                                                                                                 
         The first zipcode is identified as zip1 and the second zipcode is called zip2. 
         The algorithm uses both to determine the zone identification number of each zipcode.
@@ -92,21 +92,26 @@ def get_zone(zip1, zip2):
                 zone2 = "Unreachable"                                                                           # Since two variables can't be returned at a time, the variables
         return [zone1, zone2]                                                                                   # are stored in a list on the function's return (or end)
             
-def post_cost(postclass, zonestravelled):
+def post_cost(postclass, zonestravelled):                                                                       # Gets the postage class based on the type of postage 
     """
+    Gets the postage class based on the type of postage and the zones it has travelled.
 
+    The postage class is determined earlier by the get_size() function, and the zones 
+    travelled is defined by the main() early on before calling this function. Based on this,
+    the postcost is a set value for each seperate postclass plus a flat rate times the 
+    amount of zones travelled. Otherwise, the value returned is None (or nothing), and it 
+    assigns and returns postcost as the total amount to be paid. 
     """
-    if postclass == 1: postcost = 0.20 + (0.03 * float(zonestravelled))
-    elif postclass == 2: postcost = 0.37 + (0.03 * float(zonestravelled))
-    elif postclass == 3: postcost = 0.37 + (0.04 * float(zonestravelled))
+    if postclass == 1: postcost = 0.20 + (0.03 * float(zonestravelled))                                         # If the postclass is equal to a certain value, set the postcost equal to a 
+    elif postclass == 2: postcost = 0.37 + (0.03 * float(zonestravelled))                                       # a fixed amount + a distinct flat rate times the floated value of the 
+    elif postclass == 3: postcost = 0.37 + (0.04 * float(zonestravelled))                                       # zonestravelled variable. This is repeated across the next 3 elif statements
     elif postclass == 4: postcost = 0.60 + (0.05 * float(zonestravelled))
     elif postclass == 5: postcost = 2.95 + (0.25 * float(zonestravelled))
     elif postclass == 6: postcost = 3.95 + (0.35 * float(zonestravelled))
-    else:
-          postcost = None
-    return postcost
+    else:                                                                                                       # If the above conditions aren't met, fall back to 
+          postcost = None                                                                                       # setting the postcost as None (a value meaning nothing(?))
+    return postcost                                                                                             # Returns postcost's value based on the calculations done in the function
 
-# Using the special variable 
-# __name__
-if __name__=="__main__":
-    main()
+if __name__=="__main__":                                                                                        # Using the spicy, special variable 
+    main()                                                                                                      # __name__
+
