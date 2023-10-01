@@ -20,6 +20,11 @@ def main():
 
 
 def get_size(l, h, t):
+    """
+    Returns a package type number based on the postage values given.
+
+    The 
+    """
     length = l
     height = h
     thickness = t
@@ -44,27 +49,39 @@ def get_size(l, h, t):
     return postclass
 
 def get_zone(zip1, zip2):
-        zipfrom = zip1
-        zipto = zip2
+        """
+        Returns two different zone values based on the two zips fed in by the user.
+
+        The first zipcode is identified as zip1 and the second zipcode is called zip2. 
+        The algorithm uses both to determine the zone identification number of each zipcode.
+        Starting from zip1 (changed to zipfrom for readability) to zip2 (changed to zipto), 
+        it assigns it a variable for identification and then proceeds to return both values 
+        in a list form, because two values cannot be returned at a time
+        """
+        zipfrom = zip1                                                                                          # zip1's value identified as variable zipfrom's value
+        zipto = zip2                                                                                            # zip2's value identified as variable zipto's value
         if (zipfrom >= 1) and (zipfrom <= 6999): zone1 = 1
         elif (zipfrom >= 7000) and (zipfrom <= 19999): zone1 = 2
-        elif (zipfrom >= 20000) and (zipfrom <= 35999): zone1 = 3
-        elif (zipfrom >= 36000) and (zipfrom <= 62999): zone1 = 4
-        elif (zipfrom >= 63000) and (zipfrom <= 84999): zone1 = 5 
+        elif (zipfrom >= 20000) and (zipfrom <= 35999): zone1 = 3                                               # If the parameter zipfrom (zip1) is within 2 values, assign
+        elif (zipfrom >= 36000) and (zipfrom <= 62999): zone1 = 4                                               # zone1 (the variable to be returned) to a value between
+        elif (zipfrom >= 63000) and (zipfrom <= 84999): zone1 = 5                                               # 1-6
         elif (zipfrom >= 85000) and (zipfrom <= 99999): zone1 = 6 
-        else: 
-            zone1 = "Unreachable"
+        else:                                                                                                   # If the above conditions aren't met, fall back to 
+            zone1 = "Unreachable"                                                                               # to an unreachable error message
         if (zipto >= 85000) and (zipto <= 99999): zone2 = 6
         elif (zipto >= 63000) and (zipto <= 84999): zone2 = 5
-        elif (zipto >= 36000) and (zipto <= 62999): zone2 = 4
-        elif (zipto >= 20000) and (zipto <= 35999): zone2 = 3
+        elif (zipto >= 36000) and (zipto <= 62999): zone2 = 4                                                   # If the parameter zipto (zip2) is within 2 values, assign
+        elif (zipto >= 20000) and (zipto <= 35999): zone2 = 3                                                   # zone2 (the second variable)        
         elif (zipto >= 7000) and (zipto <= 19999): zone2 = 2
         elif (zipto >= 1) and (zipto <= 6999): zone2 = 1
         else:
-                zone1, zone2 = "Unreachable"
-        return [zone1, zone2]
+                zone2 = "Unreachable"                                                                           # Since two variables can't be returned at a time, the variables
+        return [zone1, zone2]                                                                                   # are stored in a list on the function's return (or end)
             
 def post_cost(postclass, zonestravelled):
+    """
+
+    """
     if postclass == 1: postcost = 0.20 + (0.03 * float(zonestravelled))
     elif postclass == 2: postcost = 0.37 + (0.03 * float(zonestravelled))
     elif postclass == 3: postcost = 0.37 + (0.04 * float(zonestravelled))
