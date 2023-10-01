@@ -1,65 +1,79 @@
 import time                                                     
 
-def main():                              
+def main():                                                                                                   # The bones of the project that calls all functions and uses them
+    """
+    Guides and marks the beginning of the project's code. 
+
+    This main() first gets the length, height, thickness, zip1, & zip2
+    variables through an input statement that can take 5 inputs for the
+    purpose of "postage pricing". If the user inputs the data in an invalid format, the program spits out an 
+    error message and tries again to get valid data. When done, it processes
+    all variables through the functions get_size(), get_zone(), and then
+    calculates the total cost (as according to the spec) to present the 
+    user a two decimal base 10 value equivlant to the shipping cost of the postage.
+    """                              
     time.sleep(1)
-    while True:
-            try:
-                length, height, thickness, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]                                                                                                
-                postsize = get_size(length, height, thickness)                                                                 
-                zonelist = get_zone(zip1, zip2) 
-                startzone = zonelist[0]
-                endzone = zonelist[1]
-                zonestravelled = float(int(abs(startzone - endzone)))
-                totalpostcost = post_cost(postsize, zonestravelled)
-                if totalpostcost == None:
-                    print("Unmailable")
-                else:
-                    print('%.2f'%totalpostcost)
-            except ValueError:
-                print("Re-enter the values in a format seperated by commas")                                               
+    while True:                                                                                                 # A forever loop that runs everything inside until the conditions inside are false
+            try:                                                                                                # A loop that catches and handles the ValueError exception when inputs are formatted incorrectly
+                length, height, thickness, zip1, zip2  = [(float(x)) for x in input("Enter values: ").split(",")]  # Input that takes 5 inputs for 5 variables in order, formatted by commas                                                                                              
+                postsize = get_size(length, height, thickness)                                                  # Gets the size of the postage based on 3 variables, length, height, and thickness             
+                zonelist = get_zone(zip1, zip2)                                                                 # Organizes the returned "listed" values of get_zone into a list, called zonelist
+                startzone = zonelist[0]                                                                         # Makes the value of the starting zone (startzone) the 1st listed value in zonelist
+                endzone = zonelist[1]                                                                           # Makes the value of the ending zone (endzone) the 2nd listed value in zonelist
+                zonestravelled = float(int(abs(startzone - endzone)))                                           # Calculates the zones travelled (zonestravelled) as the floated, integer, absolute value of 
+                totalpostcost = post_cost(postsize, zonestravelled)                                             # startzone - endzone. totalpostcost is determined by function post_cost with arguments postsize and zonestravelled
+                if totalpostcost == None:                                                                       # If the total cost is None (nothing, essentially) then print unmailable
+                    print("Unmailable")                                                                         # Prints the error message of the aforementioned
+                else:                                                                                           # If the above conditions aren't met
+                    print('%.2f'%totalpostcost)                                                                 # Prints the total cost of sending the postage to the 100th decimal value
+            except ValueError:                                                                                  # If the formatting exception ValueError is sent out by Python
+                print("Re-enter the values in a format seperated by commas")                                    # Prints an error message asking for proper input         
 
 
-def get_size(l, h, t):
+def get_size(l, h, t):                                                                                          # Gets the size of the postage based on the parameters given
     """
-    Returns a package type number based on the postage values given.
+    Returns a package/postage type based on a number value given.
 
-    The 
+    It first converts length, height, and thickness into style-spec readable
+    values, l, h, and t for the purpose of legibility. If they fall into specific
+    parameters defined by the values in the algorithm, it is assigned a number value
+    specific to a postage class, 
     """
-    length = l
-    height = h
-    thickness = t
-    if ((l >= 3.5 and l <= 4.25) and (h >= 3.5 and h <= 6) 
-         and (t >= 0.007 and t <= 0.016)): 
-         postclass = 1
-    elif ((l >= 4.25 and l <= 6) and (h >= 6 and h <= 11.5) 
-         and (t >= 0.007 and t <= 0.15)): 
-         postclass = 2
+    length = l                                                                                                  # length's value identified as new variable l's value
+    height = h                                                                                                  # height's value identified as new variable h's value
+    thickness = t                                                                                               # thickness's value identified as new variable t's value
+    if ((l >= 3.5 and l <= 4.25) and (h >= 3.5 and h <= 6)                                                      # If l is between these 2 values, and h is between these 2 values,
+         and (t >= 0.007 and t <= 0.016)):                                                                      # and t is between these 2 values, assign postclass a value
+         postclass = 1                                                                                          # Postclass 1 is the Post Card class
+    elif ((l >= 4.25 and l <= 6) and (h >= 6 and h <= 11.5)                                                     # For lines 48, 51, 54, 57, and 59's documentation, refer to 
+         and (t >= 0.007 and t <= 0.15)):                                                                       # lines 45-46 on what they do
+         postclass = 2                                                                                          # Postclass 2 is the Large Post Card class
     elif ((l >= 3.5 and l <= 6.125) and (h >= 5 and h <= 11.5) 
+         and (t >= 0.25 and t <= 0.5)):                                                             
+         postclass = 3                                                                                          # Postclass 3 is the Envelope class
+    elif ((l >= 6.125 and l <= 24) and (h >= 11 and h <= 18)                                                    
          and (t >= 0.25 and t <= 0.5)): 
-         postclass = 3
-    elif ((l >= 6.125 and l <= 24) and (h >= 11 and h <= 18)
-         and (t >= 0.25 and t <= 0.5)): 
-         postclass = 4
+         postclass = 4                                                                                          # Postclass 4 is the Large Envelope class
     elif (l + h*2 + t*2) <= 84: 
-          postclass = 5
+          postclass = 5                                                                                         # Postclass 5 is the Package class
     elif 84 >= (l + h*2 + t*2 <= 130): 
-          postclass = 6
-    else: 
-          postclass = None
-    return postclass
+          postclass = 6                                                                                         # Postclass 6 is the Large Package class
+    else:                                                                                                       # If the above parameters aren't met,
+          postclass = None                                                                                      # return Postclass as None (essentially, make its 
+    return postclass                                                                                            # value worth nothing in Python's "eyes")
 
 def get_zone(zip1, zip2):
-        """
+        """                                                
         Returns two different zone values based on the two zips fed in by the user.
-
+                                                                                                                
         The first zipcode is identified as zip1 and the second zipcode is called zip2. 
         The algorithm uses both to determine the zone identification number of each zipcode.
         Starting from zip1 (changed to zipfrom for readability) to zip2 (changed to zipto), 
         it assigns it a variable for identification and then proceeds to return both values 
         in a list form, because two values cannot be returned at a time
         """
-        zipfrom = zip1                                                                                          # zip1's value identified as variable zipfrom's value
-        zipto = zip2                                                                                            # zip2's value identified as variable zipto's value
+        zipfrom = zip1                                                                                          # zip1's value identified as new variable zipfrom's value
+        zipto = zip2                                                                                            # zip2's value identified as new variable zipto's value
         if (zipfrom >= 1) and (zipfrom <= 6999): zone1 = 1
         elif (zipfrom >= 7000) and (zipfrom <= 19999): zone1 = 2
         elif (zipfrom >= 20000) and (zipfrom <= 35999): zone1 = 3                                               # If the parameter zipfrom (zip1) is within 2 values, assign
