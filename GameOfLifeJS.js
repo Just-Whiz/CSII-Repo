@@ -1,9 +1,9 @@
 // :When the size is submitted by the user, call the loadGrid() function to generate the grid
 // based on those parameters
 
-function loadGrid() {
+function makeGrid() {
     let tbl = document.getElementById("gridCanvas")
-    
+
     for(let i= 0; i < 11; i++) {
         let myRow = document.createElement("tr")
         myRow.id = "row" + i;
