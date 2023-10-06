@@ -35,8 +35,8 @@ def main():                                                                     
                 if totalpostcost == None:                                                                       # If the total cost is None (nothing, essentially) then print unmailable
                     print("Unmailable")                                                                         # Prints the error message of the aforementioned
                 else:                                                                                           # If the above conditions aren't met
+                    print(totalpostcost)                                                                        # Prints the total cost of sending the postage to the 100th decimal value
                     print(locals())
-                    print(totalpostcost)                                                                 # Prints the total cost of sending the postage to the 100th decimal value
             except ValueError:                                                                                  # If the formatting exception ValueError is sent out by Python
                 print("Unmailable")                                                                             # Prints an error message asking for proper input         
 
@@ -59,7 +59,7 @@ def get_size(l, h, t):                                                          
          and (t >= 0.007 and t <= 0.15)):                                                                       # lines 45-46 on what they do
          postclass = 2                                                                                          # Postclass 2 is the Large Post Card class
     elif ((l >= 3.5 and l <= 6.125) and (h >= 5 and h <= 11.5) 
-         and (t >= 0.25 and t <= 0.5)):                                                             
+         and (t >= 0.16 and t <= 0.25)):                                                             
          postclass = 3                                                                                          # Postclass 3 is the Envelope class
     elif ((l >= 6.125 and l <= 24) and (h >= 11 and h <= 18)                                                    
          and (t >= 0.25 and t <= 0.5)): 
@@ -109,8 +109,8 @@ def post_cost(postclass, zonestravelled):                                       
     The postage class is determined earlier by the get_size() function, and the zones 
     travelled is defined by the main() early on before calling this function. Based on this,
     the postcost is a set value for each seperate postclass plus a flat rate times the 
-    amount of zones travelled. Otherwise, the value returned is None (or nothing), and it 
-    assigns and returns postcost as the total amount to be paid. 
+    amount of zones travelled. Otherwise, the value returned is None (or nothing as its invalid here), 
+    and it assigns and returns postcost as the total amount to be paid. 
     """
     if postclass == 1: postcost = 0.20 + (0.03 * float(zonestravelled))                                         # If the postclass is equal to a certain value, set the postcost equal to a 
     elif postclass == 2: postcost = 0.37 + (0.03 * float(zonestravelled))                                       # a fixed amount + a distinct flat rate times the floated value of the 
