@@ -1,6 +1,15 @@
+# ***START FLOWER BOX***
+# Program Name: GCDS Rust Removal AKA GCDS Post Office
+# Student Name: Chris Suy
+# Course: CS II
+# Instructor: Mr. Campbell
+# Date: 10/6/23
+# I pledge my honor
+# ***END FLOWER BOX***
+
 import time                                                     
 
-def main():                                                                                                   # The bones of the project that calls all functions and uses them
+def main():                                                                                                     # The bones of the project that calls all functions and uses them
     """
     Guides and marks the beginning of the project's code. 
 
@@ -14,9 +23,9 @@ def main():                                                                     
     """                              
     time.sleep(1)
     i = 0
-    while i < 5:                                                                                                 # A forever loop that runs everything inside until the conditions inside are false
+    while i < 5:                                                                                                # A forever loop that runs everything inside until the conditions inside are false
             try:                                                                                                # A loop that catches and handles the ValueError exception when inputs are formatted incorrectly
-                length, height, thickness, zip1, zip2  = [(float(x)) for x in input("").split(",")]  # Input that takes 5 inputs for 5 variables in order, formatted by commas                                                                                              
+                length, height, thickness, zip1, zip2  = [(float(x)) for x in input("").split(",")]             # Input that takes 5 inputs for 5 variables in order, formatted by commas                                                                                              
                 postsize = get_size(length, height, thickness)                                                  # Gets the size of the postage based on 3 variables, length, height, and thickness             
                 zonelist = get_zone(zip1, zip2)                                                                 # Organizes the returned "listed" values of get_zone into a list, called zonelist
                 startzone = zonelist[0]                                                                         # Makes the value of the starting zone (startzone) the 1st listed value in zonelist
