@@ -29,13 +29,15 @@ def main():                                                                     
                 startzone = zonelist[0]                                                                         # Makes the value of the starting zone (startzone) the 1st listed value in zonelist
                 endzone = zonelist[1]                                                                           # Makes the value of the ending zone (endzone) the 2nd listed value in zonelist
                 zonestravelled = float(int(abs(endzone - startzone)))                                           # Calculates the zones travelled (zonestravelled) as the floated, integer, absolute value of 
-                totalpostcost = str(post_cost(postsize, zonestravelled)).lstrip("0")                                             # startzone - endzone. totalpostcost is determined by function post_cost with arguments postsize and zonestravelled
+                totalpostcost = str(post_cost(postsize, zonestravelled)).lstrip("0")                            # startzone - endzone. totalpostcost is determined by function post_cost with arguments postsize and zonestravelled
                 if totalpostcost == None:                                                                       # If the total cost is None (nothing, essentially) then print unmailable
                     print("Unmailable")                                                                         # Prints the error message of the aforementioned
                 else:                                                                                           # If the above conditions aren't met
-                    print(totalpostcost)                                                                        # Prints the total cost of sending the postage to the 100th decimal value
+                    print(totalpostcost)   
+                    print(locals())                                                                             # Prints the total cost of sending the postage to the 100th decimal value
                     i += 1
             except ValueError:                                                                                  # If the formatting exception ValueError is sent out by Python
+                
                 print("Unmailable")                                                                             # Prints an error message         
 
 def get_size(l, h, t):                                                                                          # Gets the size of the postage based on the parameters given
