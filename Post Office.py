@@ -1,11 +1,9 @@
-# ***START FLOWER BOX***
 # Program Name: GCDS Rust Removal AKA GCDS Post Office
 # Student Name: Chris Suy
 # Course: CS II
 # Instructor: Mr. Campbell
 # Date: 10/6/23
 # I pledge my honor
-# ***END FLOWER BOX***
 
 import time                                                     
 
@@ -36,9 +34,11 @@ def main():                                                                     
                     print("Unmailable")                                                                         # Prints the error message of the aforementioned
                 else:                                                                                           # If the above conditions aren't met
                     print(totalpostcost)                                                                        # Prints the total cost of sending the postage to the 100th decimal value
+                    i += 1
                     print(locals())
             except ValueError:                                                                                  # If the formatting exception ValueError is sent out by Python
-                print("Unmailable")                                                                             # Prints an error message asking for proper input         
+                
+                print("Unmailable")                                                                             # Prints an error message         
 
 def get_size(l, h, t):                                                                                          # Gets the size of the postage based on the parameters given
     """
@@ -66,7 +66,7 @@ def get_size(l, h, t):                                                          
          postclass = 4                                                                                          # Postclass 4 is the Large Envelope class
     elif (l >= 24) and (h >= 18) and (t >= 0.5) and (l + (t + h)) <= 84: 
           postclass = 5                                                                                         # Postclass 5 is the Package class
-    elif (l + (h + t)) >= 84 and (l + (h + t)) <= 130: 
+    elif (l + (h + t)) >= 84 or (l + (h + t)) <= 130: 
           postclass = 6                                                                                         # Postclass 6 is the Large Package class
     else:                                                                                                       # If the above parameters aren't met,
           postclass = None                                                                                      # return Postclass as None (essentially, make its 
@@ -124,4 +124,3 @@ def post_cost(postclass, zonestravelled):                                       
 
 if __name__=="__main__":                                                                                        # Using the spicy, special variable 
     main()                                                                                                      # __name__
-
