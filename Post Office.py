@@ -13,22 +13,23 @@ def main():                                                                     
     user a two decimal base 10 value equivlant to the shipping cost of the postage.
     """                              
     time.sleep(1)
-    while True:                                                                                                 # A forever loop that runs everything inside until the conditions inside are false
+    i = 0
+    while i < 5:                                                                                                 # A forever loop that runs everything inside until the conditions inside are false
             try:                                                                                                # A loop that catches and handles the ValueError exception when inputs are formatted incorrectly
                 length, height, thickness, zip1, zip2  = [(float(x)) for x in input("").split(",")]  # Input that takes 5 inputs for 5 variables in order, formatted by commas                                                                                              
                 postsize = get_size(length, height, thickness)                                                  # Gets the size of the postage based on 3 variables, length, height, and thickness             
                 zonelist = get_zone(zip1, zip2)                                                                 # Organizes the returned "listed" values of get_zone into a list, called zonelist
                 startzone = zonelist[0]                                                                         # Makes the value of the starting zone (startzone) the 1st listed value in zonelist
                 endzone = zonelist[1]                                                                           # Makes the value of the ending zone (endzone) the 2nd listed value in zonelist
-                zonestravelled = float(int(abs(startzone - endzone)))                                           # Calculates the zones travelled (zonestravelled) as the floated, integer, absolute value of 
+                zonestravelled = float(int(abs(endzone - startzone)))                                           # Calculates the zones travelled (zonestravelled) as the floated, integer, absolute value of 
                 totalpostcost = str(post_cost(postsize, zonestravelled)).lstrip("0")                                             # startzone - endzone. totalpostcost is determined by function post_cost with arguments postsize and zonestravelled
                 if totalpostcost == None:                                                                       # If the total cost is None (nothing, essentially) then print unmailable
                     print("Unmailable")                                                                         # Prints the error message of the aforementioned
                 else:                                                                                           # If the above conditions aren't met
+                    print(locals())
                     print(totalpostcost)                                                                 # Prints the total cost of sending the postage to the 100th decimal value
             except ValueError:                                                                                  # If the formatting exception ValueError is sent out by Python
                 print("Unmailable")                                                                             # Prints an error message asking for proper input         
-
 
 def get_size(l, h, t):                                                                                          # Gets the size of the postage based on the parameters given
     """
@@ -54,9 +55,9 @@ def get_size(l, h, t):                                                          
     elif ((l >= 6.125 and l <= 24) and (h >= 11 and h <= 18)                                                    
          and (t >= 0.25 and t <= 0.5)): 
          postclass = 4                                                                                          # Postclass 4 is the Large Envelope class
-    elif (l + h*2 + t*2) <= 84: 
+    elif (l >= 24) and (h >= 18) and (t >= 0.5) and (l + (t + h)) <= 84: 
           postclass = 5                                                                                         # Postclass 5 is the Package class
-    elif 84 >= (l + h*2 + t*2 <= 130): 
+    elif (l + (h + t)) >= 84 and (l + (h + t)) <= 130: 
           postclass = 6                                                                                         # Postclass 6 is the Large Package class
     else:                                                                                                       # If the above parameters aren't met,
           postclass = None                                                                                      # return Postclass as None (essentially, make its 
