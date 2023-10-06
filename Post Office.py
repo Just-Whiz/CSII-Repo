@@ -35,9 +35,7 @@ def main():                                                                     
                 else:                                                                                           # If the above conditions aren't met
                     print(totalpostcost)                                                                        # Prints the total cost of sending the postage to the 100th decimal value
                     i += 1
-                    print(locals())
             except ValueError:                                                                                  # If the formatting exception ValueError is sent out by Python
-                
                 print("Unmailable")                                                                             # Prints an error message         
 
 def get_size(l, h, t):                                                                                          # Gets the size of the postage based on the parameters given
