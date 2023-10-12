@@ -15,18 +15,20 @@
         <label for="height">Enter height: </label>
         <input type="text" id="heightinput" name="height" required>
         <label for="thickness">Enter thickness: </label>
-        <label type="text" id="thickness" name="thickness" required>
+        <input type="text" id="thicknessinput" name="thickness" required>
         <label for="zipto">Enter ZipTo: </label>
         <input type="text" id="ziptoinput" name="length" required>
         <label for="zipfrom">Enter ZipFrom: </label>
         <input type="text" id="zipfrominput" name="height" required>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" onclick="calculate()">
     </form>
     <script>
         function calculate() {
             // Get the values entered by the user
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
+            var length = document.getElementById("lengthinput").value;
+            var height = document.getElementById("heightinput").value;
+            var thickness = document.getElementById("thicknessinput").value;
+            var zipto = document.getElementById
 
             console.log("DEBUG: " + name)
             console.log("DEBUG: " + email)
