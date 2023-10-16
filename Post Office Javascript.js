@@ -19,6 +19,7 @@ function main() {
     // Display an alert with the submitted values
     alert("\nLength: " + length + "\nEmail: " + height + "\nThickness: " + thickness);
 }
+
 function calculate() {
 
 }
