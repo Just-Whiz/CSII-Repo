@@ -21,7 +21,6 @@ function main() {
     // Display an alert with the submitted values
     alert("\nLength{} " + length + "\nEmail{} " + height + "\nThickness{} " + thickness);
 
-    while (i < 5) {
         try {                                                                                                       
             postsize = get_size(length, height, thickness)                                                             
             zonelist = get_zone(zip1, zip2)                                                                
@@ -75,11 +74,21 @@ function get_zone(zipfrom, zipto) {
     var zipto = zip2
     
     if ((zipfrom >= 1) && (zipfrom <= 6999)) {zone1 = 1}
-    else if ((zipfrom >= 7000) && (zipfrom <= 19999)) {zone1 = 2}
-    else if ((zipfrom >= 20000) && (zipfrom <= 35999)) {zone1 = 3}
-    else if ((zipfrom >= 36000) && (zipfrom <= 62999)) {zone1 = 4} 
-    else if ((zipfrom >= 63000) && (zipfrom <= 84999)) {zone1 = 5}                                            
-    else if ((zipfrom >= 85000) && (zipfrom <= 99999)) {zone1 = 6}  
+    else if ((zipfrom >= 7000) && (zipfrom <= 19999)) {
+        zone1 = 2
+    }
+    else if ((zipfrom >= 20000) && (zipfrom <= 35999)) {
+        zone1 = 3
+    }
+    else if ((zipfrom >= 36000) && (zipfrom <= 62999)) {
+        zone1 = 4
+    } 
+    else if ((zipfrom >= 63000) && (zipfrom <= 84999)) {
+        zone1 = 5
+    }                                            
+    else if ((zipfrom >= 85000) && (zipfrom <= 99999)) {
+        zone1 = 6
+    }  
     else 
         zone1 = "Unreachable"                                                                               
     if ((zipto >= 85000) && (zipto <= 99999)) {zone2 = 6} 
@@ -96,11 +105,21 @@ function get_zone(zipfrom, zipto) {
 
 function post_cost(postclass, zonestravelled) {
     if (postclass == 1) {(postcost = 0.20 + (0.03 * float(zonestravelled)))}                                    
-    else if (postclass == 2) {(postcost = 0.37 + (0.03 * float(zonestravelled)))}                                   
-    else if (postclass == 3) {(postcost = 0.37 + (0.04 * float(zonestravelled)))}                                      
-    else if (postclass == 4) {(postcost = 0.60 + (0.05 * float(zonestravelled)))}
-    else if (postclass == 5) {(postcost = 2.95 + (0.25 * float(zonestravelled)))}
-    else if (postclass == 6) {(postcost = 3.95 + (0.35 * float(zonestravelled)))}
-    else {postcost = None}                                                                                       
+    else if (postclass == 2) {
+        (postcost = 0.37 + (0.03 * float(zonestravelled)))
+    }                                   
+    else if (postclass == 3) {
+        (postcost = 0.37 + (0.04 * float(zonestravelled)))
+    }                                      
+    else if (postclass == 4) {
+        (postcost = 0.60 + (0.05 * float(zonestravelled)))}
+    else if (postclass == 5) {(postcost = 2.95 + (0.25 * float(zonestravelled)))
+    }
+    else if (postclass == 6) {
+        (postcost = 3.95 + (0.35 * float(zonestravelled)))
+    }
+    else {
+        postcost = None
+    }                                                                                       
     return postcost
 }
