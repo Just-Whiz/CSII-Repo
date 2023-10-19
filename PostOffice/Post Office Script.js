@@ -1,44 +1,26 @@
 // Post Office JavaScript
 
 function main() {
-    // Get the values entered by the user
-    var length = document.getElementById("l").value;
-    var height = document.getElementById("h").value;
-    var thickness = document.getElementById("t").value;
-    var zipto = document.getElementById("zipto").value;
-    var zipfrom = document.getElementById("zipfrom").value;
-    var postclass = 0
-    var i = 0
+        // Get the values entered by the user
+        var length = document.getElementById("l").value;
+        var height = document.getElementById("h").value;
+        var thickness = document.getElementById("t").value;
+        var zipto = document.getElementById("zipto").value;
+        var zipfrom = document.getElementById("zipfrom").value;
+        var postclass = 0
+        var i = 0
 
-    // Send messages in the console showing the values of each submitted value
-    console.log("DEBUG{} " + length);
-    console.log("DEBUG{} " + height);
-    console.log("DEBUG{} " + thickness);
-    console.log("DEBUG{} " + zipto);
-    console.log("DEBUG{} " + zipfrom);
+        // Send messages in the console showing the values of each submitted value
+        console.log("DEBUG: " + length);
+        console.log("DEBUG: " + height);
+        console.log("DEBUG: " + thickness);
+        console.log("DEBUG: " + zipto);
+        console.log("DEBUG: " + zipfrom);
 
   
-    // Display an alert with the submitted values
-    alert("\nLength{} " + length + "\nEmail{} " + height + "\nThickness{} " + thickness);
+        // Display an alert with the submitted values
+        alert("\nLength{} " + length + "\nEmail{} " + height + "\nThickness{} " + thickness);
 
-        try {                                                                                                       
-            postsize = get_size(length, height, thickness)                                                             
-            zonelist = get_zone(zip1, zip2)                                                                
-            startzone = zonelist[0]                                                                         
-            endzone = zonelist[1]                                                                           
-            zonestravelled = float(int(abs(endzone - startzone)))                                           
-            totalpostcost = str(post_cost(postsize, zonestravelled))                            
-            if (totalpostcost == None) {
-                print("Unmailable")
-            }                                                                         
-            else {
-                totalpostcost = "{:.2f}".lstrip('0')
-                print(totalpostcost)   
-                print(locals())                                                                             
-                i += 1
-            }
-        }
-    }
 }
 
 function get_size(l, h, t) {

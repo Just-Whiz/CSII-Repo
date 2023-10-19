@@ -1,7 +1,14 @@
 body {
-    color: linen;
+    background-color: linen;
+}
+
+input {
+    border: solid black 5px;
+    background-color: lightgoldenrodyellow;
+    padding: 10px;
+    margin-left: 100px;
 }
 
 label {
-    
+    font-weight: solid;
 }
