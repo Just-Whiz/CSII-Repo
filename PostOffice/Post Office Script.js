@@ -10,17 +10,34 @@ function main() {
         var postclass = 0
         var i = 0
 
-        // Send messages in the console showing the values of each submitted value
-        console.log("DEBUG: " + length);
+        // Send debug alert messages showing the values of each submitted value
+        alert("DEBUG: " + length);
         console.log("DEBUG: " + height);
         console.log("DEBUG: " + thickness);
         console.log("DEBUG: " + zipto);
         console.log("DEBUG: " + zipfrom);
 
-  
-        // Display an alert with the submitted values
-        alert("\nLength{} " + length + "\nEmail{} " + height + "\nThickness{} " + thickness);
+        postsize = get_size(l, h, t);
+        zonelist = get_zone(zip1, zip2);
+        startzone = zonelist[0];
+        endzone = zonelist[1];
+        zonestravelled = float(int(abs(endzone - startzone)));
+        totalpostcost = str(post_cost(postsize, zonestravelled));
+        
+        if (totalpostcost = "None") {
+            alert("Unmailable")
+        }
+        else {
+            displayCost()
+    }
+}
 
+function displayCost() {
+        const message = document.getElementById("message");
+
+        cost = totalpostcost
+
+        message.innerHTML = cost
 }
 
 function get_size(l, h, t) {
@@ -101,7 +118,7 @@ function post_cost(postclass, zonestravelled) {
         (postcost = 3.95 + (0.35 * float(zonestravelled)))
     }
     else {
-        postcost = None
+        postcost = "None"
     }                                                                                       
     return postcost
 }
