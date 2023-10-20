@@ -21,9 +21,9 @@ function main() {
         zonelist = get_zone(zip1, zip2);
         startzone = zonelist[0];
         endzone = zonelist[1];
-        zonestravelled = float(int(abs(endzone - startzone)));
-        totalpostcost = str(post_cost(postsize, zonestravelled));
-        
+        zonestravelled = Math.abs(endzone - startzone);
+        totalpostcost = post_cost(postsize, zonestravelled);
+
         if (totalpostcost = "None") {
             alert("Unmailable")
         }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <!--Stupid computer thought an html file was a document. wtf.-->
-<!--AE-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,21 +7,24 @@
     <link rel="stylesheet" href="Post Office Styles.css">
     <title>Post Office Frontend</title>
 </head>
-<body onload="main()">
+<body>
     <h1>Post Office Frontend</h1>
     <form>
         <label for="length">Enter length: </label>
-        <input type="text" id="l" name="length" required><br>
+        <input type="text" id="l" name="length" required><br><br>
         <label for="height">Enter height: </label>
-        <input type="text" id="h" name="height" required><br>
+        <input type="text" id="h" name="height" required><br><br>
         <label for="thickness">Enter thickness: </label>
-        <input type="text" id="t" name="thickness" required><br>
+        <input type="text" id="t" name="thickness" required><br><br>
         <label for="zipto">Enter ZipTo: </label>
-        <input type="text" id="zipto" name="zipto" required><br>
+        <input type="text" id="zipto" name="zipto" required><br><br>
         <label for="zipfrom">Enter ZipFrom </label>
-        <input type="text" id="zipfrom" name="zipfrom" required><br>
-        <input type="submit" value="Submit" onclick="doStuff()">
+        <input type="text" id="zipfrom" name="zipfrom" required><br><br>
+        <input type="submit" value="Submit" id="submitbutton" onclick="main()">
     </form>
+    <div class="outputdisplay" id="message">
+        <p>Calculations will display here...</p>
+    </div>
     <script src="Post Office Script.js"></script>
 </body>
 </html>
