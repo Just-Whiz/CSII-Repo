@@ -6,22 +6,16 @@ automation, and the understanding of the indecidability problem. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="GameOfLifeJS.js" defer></script>
     <link rel="stylesheet" type="text/css" href="GameOfLifeCSS.css">
     <title>Chris Suy's Game of Life</title>
 </head>
 <body>
     <h1>Conway's Game of Life</h1>
 
-    <form id="sizePicker">
-        <p>Enter your desired height here: </p>
-        <input type="number" id="inputHeight" name="height" min="1" value="1">
-        <p>Enter your desired width here: </p>
-        <input type="number" id="inputWidth" name="width" min="1" value="1">
-        <input type="submit" onclick="makeGrid();return false;">
-    <!--Element will constantly disappear/reappear if not returned false-->    
-    
-    <div id="gridContainer">
-    </div>
-    <script src="GameOfLifeJS.js"></script>
+    <div class="grid-container" id="grid">
+    </div>  
+    <button>Generate New Grid</button>
+    <div id="container"></div>
 </body>
 </html>
