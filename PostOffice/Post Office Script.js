@@ -1,17 +1,16 @@
 // Post Office JavaScript
 
 function main() {
-        // Get the values entered by the user
-        var length = document.getElementById("l").value;
-        var height = document.getElementById("h").value;
+    // Get the values entered by the user
+    var length = document.getElementById("l").value;
+    var height = document.getElementById("h").value;
         var thickness = document.getElementById("t").value;
         var zipto = document.getElementById("zipto").value;
         var zipfrom = document.getElementById("zipfrom").value;
-        var postclass = 0
-        var i = 0
+        var postclass = 0;
 
         // Send debug alert messages showing the values of each submitted value
-        alert("DEBUG: " + length);
+        console.log("DEBUG: " + length);
         console.log("DEBUG: " + height);
         console.log("DEBUG: " + thickness);
         console.log("DEBUG: " + zipto);
@@ -28,16 +27,23 @@ function main() {
             alert("Unmailable")
         }
         else {
-            displayCost()
-    }
-}
+            displayCost();
+        };
+};
 
 function displayCost() {
-        const message = document.getElementById("message");
 
-        cost = totalpostcost
+        let USDollar = new Intl.NumberFormat(en-US, {
+            style: 'currency',
+            currency: 'USD',
+        });
 
-        message.innerHTML = cost
+        totalpostcost = (Math.round(num1 * 100) / 100).toFixed(2)
+
+        document.getElementById('message').innerText  = `${USDollar.format(totalpostcost)}`;
+
+        alert(`The formatted total of ${totalpostcost} is ${USDollar.format(totalpostcost)}`);
+        console.log(`${totalpostcost} is your postcost and ${USDollar.format(totalpostcost)} is your formatted value`)
 }
 
 function get_size(l, h, t) {
