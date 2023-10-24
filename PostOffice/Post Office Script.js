@@ -17,7 +17,7 @@ function main() {
         console.log("DEBUG: " + zipfrom);
 
         postsize = get_size(l, h, t);
-        zonelist = get_zone(zip1, zip2);
+        zonelist = get_zone(zipto, zipfrom);
         startzone = zonelist[0];
         endzone = zonelist[1];
         zonestravelled = Math.abs(endzone - startzone);
@@ -33,7 +33,7 @@ function main() {
 
 function displayCost() {
 
-        let USDollar = new Intl.NumberFormat(en-US, {
+        let USDollar = new Intl.NumberFormat("en-US", {
             style: 'currency',
             currency: 'USD',
         });
@@ -75,10 +75,9 @@ function get_size(l, h, t) {
 }
 
 function get_zone(zipfrom, zipto) {
-    var zipfrom = zip1
-    var zipto = zip2
-    
-    if ((zipfrom >= 1) && (zipfrom <= 6999)) {zone1 = 1}
+    if ((zipfrom >= 1) && (zipfrom <= 6999)) {
+        zone1 = 1
+    }
     else if ((zipfrom >= 7000) && (zipfrom <= 19999)) {
         zone1 = 2
     }
