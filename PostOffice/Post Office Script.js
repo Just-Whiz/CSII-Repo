@@ -2,12 +2,11 @@
 
 function main() {
     // Get the values entered by the user
-    var length = document.getElementById("l").value;
-    var height = document.getElementById("h").value;
+        var length = document.getElementById("l").value;
+        var height = document.getElementById("h").value;
         var thickness = document.getElementById("t").value;
         var zipto = document.getElementById("zipto").value;
         var zipfrom = document.getElementById("zipfrom").value;
-        var postclass = 0;
 
         // Send debug alert messages showing the values of each submitted value
         console.log("DEBUG: " + length);
@@ -16,19 +15,16 @@ function main() {
         console.log("DEBUG: " + zipto);
         console.log("DEBUG: " + zipfrom);
 
-        postsize = get_size(l, h, t);
-        zonelist = get_zone(zipto, zipfrom);
-        startzone = zonelist[0];
-        endzone = zonelist[1];
-        zonestravelled = Math.abs(endzone - startzone);
-        totalpostcost = post_cost(postsize, zonestravelled);
+        var postsize = get_size(l, h, t);
+        var zonelist = get_zone(zipto, zipfrom);
+        var startzone = zonelist[0];
+        var endzone = zonelist[1];
+        var zonestravelled = Math.abs(endzone - startzone);
+        var totalpostcost = post_cost(postsize, zonestravelled);
 
-        if (totalpostcost = "None") {
-            alert("Unmailable")
-        }
-        else {
-            displayCost();
-        };
+        console.log(startzone + " is the value of the startzone");
+        console.log(endzone + " is the endzone");
+        console.log("DEBUG: " + displayCost());
 };
 
 function displayCost() {
@@ -70,9 +66,9 @@ function get_size(l, h, t) {
         postclass = 6
    } else {                                                                                                      
          postclass = None
-   }                                                                                      
+   };                                                                                      
                                                                     
-}
+};
 
 function get_zone(zipfrom, zipto) {
     if ((zipfrom >= 1) && (zipfrom <= 6999)) {
@@ -103,9 +99,9 @@ function get_zone(zipfrom, zipto) {
     else if ((zipto >= 1) && (zipto <= 6999)) {zone2 = 1}
     else {
         zone2 = "Unreachable"
-    }                                                                   
+    };                                                                   
     return [zone1, zone2]    
-}
+};
 
 function post_cost(postclass, zonestravelled) {
     if (postclass == 1) {(postcost = 0.20 + (0.03 * float(zonestravelled)))}                                    
