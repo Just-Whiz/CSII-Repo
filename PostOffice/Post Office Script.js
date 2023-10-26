@@ -16,31 +16,24 @@ function main() {
         console.log("DEBUG: " + zipfrom);
 
         var postsize = get_size(l, h, t);
-        var zonelist = get_zone(zipto, zipfrom);
-        var startzone = zonelist[0];
-        var endzone = zonelist[1];
-        var zonestravelled = Math.abs(endzone - startzone);
-        var totalpostcost = post_cost(postsize, zonestravelled);
+        let zonelist = get_zone(zipto, zipfrom);
+        var startzone = Math.floor(Number(zonelist[0]));
+        var endzone = Math.floor(Number(zonelist[1]));
+        var zonestravelled = Math.floor(Number(Math.abs(endzone - startzone)));
+        var totalpostcost = Math.floor(Number(post_cost(postsize, zonestravelled)));
 
-        console.log(startzone + " is the value of the startzone");
-        console.log(endzone + " is the endzone");
-        console.log("DEBUG: " + displayCost());
+        console.log(startzone + " is the value of startzone");
+        console.log(endzone + " is the value of endzone");
+        console.log(postclass + " is the value of postclass")
+        console.log(cost + " is the value of postcost")
+
+        totalpostcost = Math.floor(Number(Math.round(totalpostcost * 100) / 100).toFixed(2));
+
+        document.getElementById('message').innerText  = `${totalpostcost}`;
+        console.log(`${totalpostcost} is your postcost.`);
+
+        alert(`${totalpostcost} is your final product`);
 };
-
-function displayCost() {
-
-        let USDollar = new Intl.NumberFormat("en-US", {
-            style: 'currency',
-            currency: 'USD',
-        });
-
-        totalpostcost = (Math.round(num1 * 100) / 100).toFixed(2)
-
-        document.getElementById('message').innerText  = `${USDollar.format(totalpostcost)}`;
-
-        alert(`The formatted total of ${totalpostcost} is ${USDollar.format(totalpostcost)}`);
-        console.log(`${totalpostcost} is your postcost and ${USDollar.format(totalpostcost)} is your formatted value`)
-}
 
 function get_size(l, h, t) {
     if ((l >= 3.5 && l <= 4.25) && (h >= 3.5 && h <= 6)
@@ -65,7 +58,7 @@ function get_size(l, h, t) {
     else if  ((l + (h + t)) >= 84 || (l + (h + t)) <= 130) {
         postclass = 6
    } else {                                                                                                      
-         postclass = None
+         postclass = "None"
    };                                                                                      
                                                                     
 };
@@ -100,26 +93,33 @@ function get_zone(zipfrom, zipto) {
     else {
         zone2 = "Unreachable"
     };                                                                   
-    return [zone1, zone2]    
+    return [zone1, zone2];
 };
 
 function post_cost(postclass, zonestravelled) {
-    if (postclass == 1) {(postcost = 0.20 + (0.03 * float(zonestravelled)))}                                    
+    if (postclass == 1) {
+        (cost = 0.20 + (0.03 * Number.parseFloat(zonestravelled)))
+    }                                    
     else if (postclass == 2) {
-        (postcost = 0.37 + (0.03 * float(zonestravelled)))
+        (cost = 0.37 + (0.03 * Number.parseFloat(zonestravelled)))
     }                                   
     else if (postclass == 3) {
-        (postcost = 0.37 + (0.04 * float(zonestravelled)))
+        (cost = 0.37 + (0.04 * Number.parseFloat(zonestravelled)))
     }                                      
     else if (postclass == 4) {
-        (postcost = 0.60 + (0.05 * float(zonestravelled)))}
-    else if (postclass == 5) {(postcost = 2.95 + (0.25 * float(zonestravelled)))
+        (cost = 0.60 + (0.05 * Number.parseFloat(zonestravelled)))
+    }
+    else if (postclass == 5) {
+        (cost = 2.95 + (0.25 * Number.parseFloat(zonestravelled)))
     }
     else if (postclass == 6) {
-        (postcost = 3.95 + (0.35 * float(zonestravelled)))
+        (cost = 3.95 + (0.35 * Number.parseFloat(zonestravelled)))
+    }
+    else if (postclass == "None") {
+        (cost = "None")
     }
     else {
-        postcost = "None"
+        cost = "None"
     }                                                                                       
-    return postcost
+    return cost
 }
