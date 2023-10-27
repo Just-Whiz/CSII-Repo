@@ -8,6 +8,12 @@ function main() {
         var zipto = document.getElementById("zipto").value;
         var zipfrom = document.getElementById("zipfrom").value;
 
+        length = parseFloat(length);
+        height = parseFloat(height);
+        thickness = parseFloat(thickness);
+        zipto = parseFloat(zipto);
+        zipfrom = parseFloat(zipfrom);
+
         // Send debug alert messages showing the values of each submitted value
         console.log("DEBUG: " + length);
         console.log("DEBUG: " + height);
@@ -28,11 +34,10 @@ function main() {
         console.log(cost + " is the value of postcost")
 
         totalpostcost = Math.floor(Number(Math.round(totalpostcost * 100) / 100).toFixed(2));
-
-        document.getElementById('message').innerText  = `${totalpostcost}`;
         console.log(`${totalpostcost} is your postcost.`);
 
         alert(`${totalpostcost} is your final product`);
+        
 };
 
 function get_size(l, h, t) {
@@ -98,28 +103,25 @@ function get_zone(zipfrom, zipto) {
 
 function post_cost(postclass, zonestravelled) {
     if (postclass == 1) {
-        (cost = 0.20 + (0.03 * Number.parseFloat(zonestravelled)))
+        (cost = 0.20 + (0.03 * zonestravelled));
     }                                    
     else if (postclass == 2) {
-        (cost = 0.37 + (0.03 * Number.parseFloat(zonestravelled)))
+        (cost = 0.37 + (0.03 * zonestravelled));
     }                                   
     else if (postclass == 3) {
-        (cost = 0.37 + (0.04 * Number.parseFloat(zonestravelled)))
+        (cost = 0.37 + (0.04 * zonestravelled));
     }                                      
     else if (postclass == 4) {
-        (cost = 0.60 + (0.05 * Number.parseFloat(zonestravelled)))
+        (cost = 0.60 + (0.05 * zonestravelled));
     }
     else if (postclass == 5) {
-        (cost = 2.95 + (0.25 * Number.parseFloat(zonestravelled)))
+        (cost = 2.95 + (0.25 * zonestravelled));
     }
     else if (postclass == 6) {
-        (cost = 3.95 + (0.35 * Number.parseFloat(zonestravelled)))
-    }
-    else if (postclass == "None") {
-        (cost = "None")
+        (cost = 3.95 + (0.35 * zonestravelled));
     }
     else {
-        cost = "None"
+        cost = "None";
     }                                                                                       
     return cost
-}
+};
