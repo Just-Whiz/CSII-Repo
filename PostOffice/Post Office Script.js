@@ -25,22 +25,25 @@ function main() {
         let zonelist = get_zone(zipto, zipfrom);
         var startzone = Math.floor(Number(zonelist[0]));
         var endzone = Math.floor(Number(zonelist[1]));
-        var zonestravelled = Math.floor(Number(Math.abs(endzone - startzone)));
-        var totalpostcost = Math.floor(Number(post_cost(postsize, zonestravelled)));
-
-        console.log(startzone + " is the value of startzone");
-        console.log(endzone + " is the value of endzone");
-        console.log(postclass + " is the value of postclass")
-        console.log(cost + " is the value of postcost")
+        var zonestravelled = (Number(Math.abs(endzone - startzone)));
+        var totalpostcost = post_cost(postsize, zonestravelled);
 
         totalpostcost = Math.floor(Number(Math.round(totalpostcost * 100) / 100).toFixed(2));
         console.log(`${totalpostcost} is your postcost.`);
-
         alert(`${totalpostcost} is your final product`);
-        
+
+        console.log(startzone + " is the value of startzone");
+        console.log(endzone + " is the value of endzone");
+        console.log(postclass + " is the value of postclass");
+        console.log(zonestravelled + " is the value of zonestravelled");
+        console.log(totalpostcost + " is the value of postcost");
 };
 
 function get_size(l, h, t) {
+    let length = l;
+    let height = h;
+    let thickness = t;
+    
     if ((l >= 3.5 && l <= 4.25) && (h >= 3.5 && h <= 6)
          && (t >= 0.007 && t <= 0.016)) {
         postclass = 1 
@@ -51,17 +54,17 @@ function get_size(l, h, t) {
         }                                                                                         
     else if ((l >= 3.5 && l <= 6.125) && (h >= 5 && h <= 11.5) 
         && (t >= 0.16 && t <= 0.25)) {                                                             
-        postclass = 3
+            postclass = 3
         }                                                                                          
     else if ((l >= 6.125 && l <= 24) && (h >= 11 && h <= 18)                                                    
         && (t >= 0.25 && t <= 0.5)) {
-        postclass = 4                  
+            postclass = 4                  
         }                                                                        
     else if ((l >= 24 && h >= 18 && t >= 0.5 && (l + (t + h))) <= 84) {
-        postclass = 5
+            postclass = 5
     }                                                                  
     else if  ((l + (h + t)) >= 84 || (l + (h + t)) <= 130) {
-        postclass = 6
+            postclass = 6
    } else {                                                                                                      
          postclass = "None"
    };                                                                                      
@@ -102,23 +105,23 @@ function get_zone(zipfrom, zipto) {
 };
 
 function post_cost(postclass, zonestravelled) {
-    if (postclass == 1) {
-        (cost = 0.20 + (0.03 * zonestravelled));
+    if (postclass = 1) {
+        cost = (Number(zonestravelled) * 0.03) + 0.20;
     }                                    
-    else if (postclass == 2) {
-        (cost = 0.37 + (0.03 * zonestravelled));
+    else if (postclass = 2) {
+        cost = ((Number(zonestravelled) * 0.03) + 0.37) 
     }                                   
-    else if (postclass == 3) {
-        (cost = 0.37 + (0.04 * zonestravelled));
+    else if (postclass = 3) {
+        cost = ((Number(zonestravelled) * 0.04) + 0.37)
     }                                      
-    else if (postclass == 4) {
-        (cost = 0.60 + (0.05 * zonestravelled));
+    else if (postclass = 4) {
+        cost = ((Number(zonestravelled) * 0.05) + 0.60)
     }
-    else if (postclass == 5) {
-        (cost = 2.95 + (0.25 * zonestravelled));
+    else if (postclass = 5) {
+        cost = ((Number(zonestravelled) * 0.25) + 2.95)
     }
-    else if (postclass == 6) {
-        (cost = 3.95 + (0.35 * zonestravelled));
+    else if (postclass = 6) {
+        cost = ((Number(zonestravelled) * 0.35) + 3.95)
     }
     else {
         cost = "None";
