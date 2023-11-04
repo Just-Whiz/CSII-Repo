@@ -1,77 +1,99 @@
-// Post Office JavaScript
+// # Program Name: GCDS Rust Removal AKA the GCDS Post Office
+// Student Name: Chris Suy
+// Course: CS II
+// Instructor: Mr. Campbell
+// Date: 10/6/23
+// I pledge my honor
 
 function main() {
-    // Get the values entered by the user
-        var length = document.getElementById("l").value;
-        var height = document.getElementById("h").value;
-        var thickness = document.getElementById("t").value;
+    /*
+    l - the length of the postage
+    h - the height of the postage
+    t - the thickness of the postage
+    zipto - the starting 
+    zipfrom - 
+
+    This function 
+    */
+
+        // Get the values entered by the user
+        var l = document.getElementById("l").value;
+        var h = document.getElementById("h").value;
+        var t = document.getElementById("t").value;
         var zipto = document.getElementById("zipto").value;
         var zipfrom = document.getElementById("zipfrom").value;
 
-        length = parseFloat(length);
-        height = parseFloat(height);
-        thickness = parseFloat(thickness);
+        // Turn each inputted value into a number instead of a string
+        l = parseFloat(l);
+        h = parseFloat(h);
+        t = parseFloat(t);
         zipto = parseFloat(zipto);
         zipfrom = parseFloat(zipfrom);
 
-        // Send debug alert messages showing the values of each submitted value
-        console.log("DEBUG: " + length);
-        console.log("DEBUG: " + height);
-        console.log("DEBUG: " + thickness);
-        console.log("DEBUG: " + zipto);
-        console.log("DEBUG: " + zipfrom);
+        // Sets variables to a returned function value
+        /*
+        size 
+        */
+        var size = get_size(l, h, t);                                           // Sets size to the returned value of get_size
+        var zone_list = get_zone(zipto, zipfrom);                                   // Sets zones to the returned value of get_zone
+        var start_zones = Math.floor(zone_list[0]);                                      // Sets startz
+        var end_zones = Math.floor(zone_list[1]);
+        var travelled_zones = Math.abs(end_zones - start_zones);
+        var total = post_cost(size, travelled_zones);
 
-        var postsize = get_size(l, h, t);
-        let zonelist = get_zone(zipto, zipfrom);
-        var startzone = Math.floor(Number(zonelist[0]));
-        var endzone = Math.floor(Number(zonelist[1]));
-        var zonestravelled = (Number(Math.abs(endzone - startzone)));
-        var totalpostcost = post_cost(postsize, zonestravelled);
+        // Keeps the output of totalpostcost to two decimal places and inserts it into the HTML
+        totalcost = totalcost.toFixed(2);
+        const message = document.getElementById("message")
+        message.innerHTML = total                    //set to a float data type
 
-        totalpostcost = Math.floor(Number(Math.round(totalpostcost * 100) / 100).toFixed(2));
-        console.log(`${totalpostcost} is your postcost.`);
-        alert(`${totalpostcost} is your final product`);
+        cost = a_number.toString()                          //convert a_number to a string
 
-        console.log(startzone + " is the value of startzone");
-        console.log(endzone + " is the value of endzone");
-        console.log(postclass + " is the value of postclass");
-        console.log(zonestravelled + " is the value of zonestravelled");
-        console.log(totalpostcost + " is the value of postcost");
+        a_number.console.log("20: " + a_number)
+
+        if (a_number.substring(0,1) == "0")                             //check for leading zero
+                a_number = a_number.substring(1)                //if so, cut everything after the leading zero
+                console.log("22: " + a_number)
 };
 
 function get_size(l, h, t) {
-    let length = l;
-    let height = h;
-    let thickness = t;
-    
+    /*
+    l - variable for length
+    h - variable for the height
+    t - variable for the thickness
+
+    This function is a simple algorithm that determines 
+
+    */
     if ((l >= 3.5 && l <= 4.25) && (h >= 3.5 && h <= 6)
          && (t >= 0.007 && t <= 0.016)) {
-        postclass = 1 
+            postclass = 1;
          }                                                                      
     else if ((l >= 4.25 && l <= 6) && (h >= 6 && h <= 11.5)                                                     
         && (t >= 0.007 && t <= 0.15)) {
-            postclass = 2
+            postclass = 2;
         }                                                                                         
     else if ((l >= 3.5 && l <= 6.125) && (h >= 5 && h <= 11.5) 
         && (t >= 0.16 && t <= 0.25)) {                                                             
-            postclass = 3
+            postclass = 3;
         }                                                                                          
     else if ((l >= 6.125 && l <= 24) && (h >= 11 && h <= 18)                                                    
         && (t >= 0.25 && t <= 0.5)) {
-            postclass = 4                  
+            postclass = 4;               
         }                                                                        
     else if ((l >= 24 && h >= 18 && t >= 0.5 && (l + (t + h))) <= 84) {
             postclass = 5
     }                                                                  
     else if  ((l + (h + t)) >= 84 || (l + (h + t)) <= 130) {
-            postclass = 6
+            postclass = 6;
    } else {                                                                                                      
-         postclass = "None"
+            postclass = "Unmailable";
    };                                                                                      
-                                                                    
-};
+   return postclass                                                    
+}
 
 function get_zone(zipfrom, zipto) {
+    /*
+    */
     if ((zipfrom >= 1) && (zipfrom <= 6999)) {
         zone1 = 1
     }
@@ -91,7 +113,7 @@ function get_zone(zipfrom, zipto) {
         zone1 = 6
     }  
     else 
-        zone1 = "Unreachable"                                                                               
+        zone1 = "Unmailable"                                                                               
     if ((zipto >= 85000) && (zipto <= 99999)) {zone2 = 6} 
     else if ((zipto >= 63000) && (zipto <= 84999)) {zone2 = 5}
     else if ((zipto >= 36000) && (zipto <= 62999)) {zone2 = 4}                                                  
@@ -99,32 +121,34 @@ function get_zone(zipfrom, zipto) {
     else if ((zipto >= 7000) && (zipto <= 19999)) {zone2 = 2}
     else if ((zipto >= 1) && (zipto <= 6999)) {zone2 = 1}
     else {
-        zone2 = "Unreachable"
+        zone2 = "Unmailable"
     };                                                                   
     return [zone1, zone2];
 };
 
 function post_cost(postclass, zonestravelled) {
-    if (postclass = 1) {
-        cost = (Number(zonestravelled) * 0.03) + 0.20;
+    /*
+    */
+    if (postclass == 1) {
+        cost = ((zonestravelled) * 0.03) + 0.20;
     }                                    
-    else if (postclass = 2) {
-        cost = ((Number(zonestravelled) * 0.03) + 0.37) 
+    else if (postclass == 2) {
+        cost = (((zonestravelled) * 0.03) + 0.37) 
     }                                   
-    else if (postclass = 3) {
-        cost = ((Number(zonestravelled) * 0.04) + 0.37)
+    else if (postclass == 3) {
+        cost = (((zonestravelled) * 0.04) + 0.37)
     }                                      
-    else if (postclass = 4) {
-        cost = ((Number(zonestravelled) * 0.05) + 0.60)
+    else if (postclass == 4) {
+        cost = (((zonestravelled) * 0.05) + 0.60)
     }
-    else if (postclass = 5) {
-        cost = ((Number(zonestravelled) * 0.25) + 2.95)
+    else if (postclass == 5) {
+        cost = ((zonestravelled * 0.25) + 2.95)
     }
-    else if (postclass = 6) {
-        cost = ((Number(zonestravelled) * 0.35) + 3.95)
+    else if (postclass == 6) {
+        cost = (((zonestravelled) * 0.35) + 3.95)
     }
     else {
-        cost = "None";
+        cost = "Unmailable";
     }                                                                                       
     return cost
 };
