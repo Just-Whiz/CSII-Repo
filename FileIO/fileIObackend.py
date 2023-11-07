@@ -1,6 +1,5 @@
 import csv
 
-
 outfile = open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", 'w')
 with open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", 'r') as infile:
     reader = csv.reader(infile, delimiter=",")
