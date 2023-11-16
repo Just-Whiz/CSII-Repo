@@ -36,23 +36,20 @@ function main() {
         */
         var size = get_size(l, h, t);                                           // Sets size to the returned value of get_size
         var zone_list = get_zone(zipto, zipfrom);                                   // Sets zones to the returned value of get_zone
-        var start_zones = Math.floor(zone_list[0]);                                      // Sets startz
+        var start_zones = Math.floor(zone_list[0]);                                      // Sets startzone as a variable from the tuple returned from the function
         var end_zones = Math.floor(zone_list[1]);
         var travelled_zones = Math.abs(end_zones - start_zones);
         var total = post_cost(size, travelled_zones);
 
         // Keeps the output of totalpostcost to two decimal places and inserts it into the HTML
-        totalcost = totalcost.toFixed(2);
-        const message = document.getElementById("message")
-        message.innerHTML = total                    //set to a float data type
+        var totalcost = total 
+        totalcost.toFixed(2);
+        totalcost = totalcost.toString()                          //convert a_number to a string
+        if (totalcost.substring(0,1) == "0")
+            totalcost = totalcost.substring(1)
+            const message = document.getElementById("message")
+            message.innerHTML = totalcost                    //set to a float data type
 
-        cost = a_number.toString()                          //convert a_number to a string
-
-        a_number.console.log("20: " + a_number)
-
-        if (a_number.substring(0,1) == "0")                             //check for leading zero
-                a_number = a_number.substring(1)                //if so, cut everything after the leading zero
-                console.log("22: " + a_number)
 };
 
 function get_size(l, h, t) {
