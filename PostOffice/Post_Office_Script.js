@@ -7,13 +7,16 @@
 
 function main() {
     /*
+
+    This function runs the functions that calculate and determine the price
+    of postage.
+
     l - the length of the postage
     h - the height of the postage
     t - the thickness of the postage
     zipto - the starting 
     zipfrom - 
 
-    This function 
     */
 
         // Get the values entered by the user
@@ -31,24 +34,24 @@ function main() {
         zipfrom = parseFloat(zipfrom);
 
         // Sets variables to a returned function value
-        /*
-        size 
-        */
-        var size = get_size(l, h, t);                                           // Sets size to the returned value of get_size
-        var zone_list = get_zone(zipto, zipfrom);                                   // Sets zones to the returned value of get_zone
-        var start_zones = Math.floor(zone_list[0]);                                      // Sets startzone as a variable from the tuple returned from the function
-        var end_zones = Math.floor(zone_list[1]);
-        var travelled_zones = Math.abs(end_zones - start_zones);
-        var total = post_cost(size, travelled_zones);
-
-        // Keeps the output of totalpostcost to two decimal places and inserts it into the HTML
-        var totalcost = total 
-        totalcost.toFixed(2);
-        totalcost = totalcost.toString()                          //convert a_number to a string
-        if (totalcost.substring(0,1) == "0")
-            totalcost = totalcost.substring(1)
-            const message = document.getElementById("message")
-            message.innerHTML = totalcost                    //set to a float data type
+        var size = get_size(l, h, t);                                       // Sets size to the returned value of get_size
+        var zone_list = get_zone(zipto, zipfrom);                           // Sets zones to the returned value of get_zone
+        var start_zones = Math.floor(zone_list[0]);                         // Sets startzone as a variable from the tuple returned from the function
+        var end_zones = Math.floor(zone_list[1]);                           
+        var travelled_zones = Math.abs(end_zones - start_zones);            
+        var total = post_cost(size, travelled_zones);                       
+                                                                                
+        // Convert a_number to a string
+ 
+        // A regular expression that removes the leading numbers/zeroes in the decimals after a "restraining" number of places
+        const toFixedWithoutZeros = (num, precision) =>
+        num.toFixed(precision).replace(/\.0+$/, '');                                      // In this case, this expression removes all numbers after the 2nd decimal place                
+             
+        
+        if (total.substring(0,1) == "0")
+            toFixedWithoutZeros(total, 2);                                       
+            const message = document.getElementById("message");         // Sets message as a variable and looks for its title ID in the HTML
+            message.innerHTML = total;                                  // Sets the HTML to the value of total (after being )
 
 };
 
