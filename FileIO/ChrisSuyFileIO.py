@@ -8,8 +8,6 @@
 import csv
 import time
 
-print("hello")
-
 def main():
    
     """ doc """
@@ -21,11 +19,9 @@ def main():
 
    
     while go is True:
-        print('''
-              Menu: Enter Choice or 'Q' to (Q)uit:")
+        print('''Menu: Enter Choice or 'Q' to (Q)uit:
 1) Print All Students at School")
-2) Print All Students in Grade 12"
-''')
+2) Print All Students in Grade 12"''')
         time.sleep(1)
         answer = input("Enter your input here: ")
 
@@ -34,12 +30,7 @@ def main():
         elif answer == "2":
             count_seniors(file_input)
         elif answer == "3":
-            try:
-                first_name = input("Enter your first name")
-                last_name = 
-
-        
-
+            print("placeholder")
 
 def display_all(file_input):
 
@@ -51,7 +42,9 @@ def display_all(file_input):
     Each variable is stylized with the title present for each of the rows in the file.
     Ex: student_last_name is each student's last name.
     """
+
     file_input.seek(1)
+
     for record in file_input: 
         row = record.split(",")
         student_last_name = row[0]
@@ -63,7 +56,18 @@ def display_all(file_input):
         print(student_first_name, student_last_name, student_grade, student_gender, student_address, student_state)
 
 def count_seniors(file_input):
-    """"""
+    """
+    This functions displays all the seniors' names that currently go to GCDS. 
+
+    By taking file_input as a variable, it opens the 
+    """
+    file_input.seek(1)                                     #move pointer to line 1
+
+    for record in file_input:
+        kid = record.split(",")
+        if kid[2] == "12":
+            print(kid[0] + " " + kid[1])
+            file_input(next)
 
 if __name__ == '__main__':
     main()
