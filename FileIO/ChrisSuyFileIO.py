@@ -8,6 +8,8 @@
 import csv
 import time
 
+print("hello")
+
 def main():
    
     """ doc """
@@ -17,20 +19,26 @@ def main():
     answer = "Y"
     go = True
 
-    print("Menu: Enter Choice or 'Q' to (Q)uit:")
-    print("1) Print All Students at School")
-    print("2) Print All Students in Grade 12")
    
     while go is True:
+        print('''
+              Menu: Enter Choice or 'Q' to (Q)uit:")
+1) Print All Students at School")
+2) Print All Students in Grade 12"
+''')
+        time.sleep(1)
+        answer = input("Enter your input here: ")
 
         if answer == "1":
             display_all(file_input)
-        elif answer == "Q":
-            go = False
-            print("bye")
-            return
-           
-        answer = input("Enter Choice or 'Q' to quit")
+        elif answer == "2":
+            count_seniors(file_input)
+        elif answer == "3":
+            try:
+                first_name = input("Enter your first name")
+                last_name = 
+
+        
 
 
 def display_all(file_input):
@@ -53,6 +61,9 @@ def display_all(file_input):
         student_address = row[4]
         student_state = row[5]
         print(student_first_name, student_last_name, student_grade, student_gender, student_address, student_state)
+
+def count_seniors(file_input):
+    """"""
 
 if __name__ == '__main__':
     main()
