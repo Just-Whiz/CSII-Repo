@@ -47,13 +47,8 @@ def display_all(file_input):
 
     for record in file_input: 
         row = record.split(",")
-        student_last_name = row[0]
-        student_first_name = row[1]
-        student_grade = row[2]
-        student_gender = row[3]
-        student_address = row[4]
-        student_state = row[5]
-        print(student_first_name, student_last_name, student_grade, student_gender, student_address, student_state)
+        time.sleep(0.001)
+        print(row[1], row[2], row[3])
 
 def count_seniors(file_input):
     """
@@ -65,9 +60,11 @@ def count_seniors(file_input):
 
     for record in file_input:
         kid = record.split(",")
-        if kid[2] == "12":
-            print(kid[0] + " " + kid[1])
-            file_input(next)
+        if kid[2] == "Grade 12":
+            time.sleep(0.01)
+            print(kid[1] + " " + kid[0])
+        time.sleep(1)
+
 
 if __name__ == '__main__':
     main()
