@@ -139,17 +139,7 @@ def find_student_by_first(file_input):
     """
     This function finds all students with the same inputted first name
     """
-    first_name = input("Enter the first name here: ")
-    last_name = input()
-
-    file_input.close()
-
-    file_input = open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", "a")
-    file_input.write()
-
-    file_input.write("\n")
-    file_input.close()
-    file_input = open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", "r")
+    first_name 
 
 
 
