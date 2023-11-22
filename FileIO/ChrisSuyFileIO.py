@@ -65,7 +65,7 @@ def display_all(file_input):
     for record in file_input: 
         row = record.split(",")
         time.sleep(0.00000000001)
-        print(row[1], row[0], row[2], row[3], row[4], row[5])
+        print(row[1], row[0], row[2], row[3], row[4], row[5], row[6])
 
 
 
