@@ -36,13 +36,13 @@ def main():
 # The code below is the menu function
 
         if answer == "1":
-            count_seniors(file_input)
+            display_all(file_input)
             time.sleep(1)
         elif answer == "2":
-            compare_genders(file_input)
+            count_seniors(file_input)
             time.sleep(1)
         elif answer == "3":
-            print("placeholder")
+            compare_genders(file_input)
         elif answer == "7":
             display_all(file_input)
             time.sleep(1)
@@ -135,12 +135,9 @@ def compare_genders(file_input):
         print(f"There are {gender_difference} more gals than guys")
     time.sleep(1)
 
-def find_student_by_first(file_input):
-    """
-    This function finds all students with the same inputted first name
-    """
-    first_name 
 
+if __name__ == '__main__':
+    main()
 
 
 
