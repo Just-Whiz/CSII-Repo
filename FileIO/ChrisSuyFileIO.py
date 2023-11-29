@@ -5,6 +5,7 @@
 # Date: 10/6/23
 # I pledge my honor
 # Running bug list: None to report at the moment.
+# To be coded: Make complex selections (first by gender, then city, then by amount of specific grade living there), make selections from database (e.g. ask first name, gender, grade to find specific student), 
 
 import csv
 import time
@@ -22,8 +23,8 @@ def main():
    
     while go is True:
         print('''=================================================================
-              Menu: Enter Choice or 'Q' to (Q)uit:
-              
+Menu: Enter Choice or 'Q' to (Q)uit:
+
 1) Print all students at school
 2) Print all students in grade 12
 3) Compare the amount of boys versus girls
@@ -44,7 +45,23 @@ def main():
             time.sleep(1)
         elif answer == "3":
             compare_genders(file_input)
+            time.sleep(1)
+        elif answer == "4":
+            find_by_first_name(file_input)
+            time.sleep(1)
+        elif answer == "5": 
+            find_by_last_name(file_input)
+            time.sleep(1)
+        elif answer == "6":
+            add_new_entry(file_input)
+            time.sleep(1)
         elif answer == "7":
+            sort_students(file_input)
+            time.sleep(1)
+        elif answer == "8":
+            update_student_info(file_input)
+            time.sleep(1)
+        elif answer == "11":
             display_all(file_input)
             time.sleep(1)
         elif answer == "Q" or "q":
@@ -162,6 +179,8 @@ def find_by_first_name(file_input):
 
     """
 
+    print("placeholder")
+
 def find_by_last_name(file_input):
     """
     This function finds kids by last 
@@ -170,21 +189,47 @@ def find_by_last_name(file_input):
 
     """
 
+    print("placeholder")
+
 def add_new_entry(file_input):
     """
-    This function adds a new entry (in this case, a new student) to the file as a whole. 
+    This function adds a new entry (in this case, a new student) to the file as a whole. To add a completely new entry,
+    the funciton will ask the user for the first name, last name, grade, gender, town, and state that the student lives in.
 
     Local Variables: 
 
     """
 
+    print("placeholder")
+
 def sort_students(file_input):
     """
-    This function lists students by first name, last name, sorted by lastname.
+    This function lists students by first name, last name, sorted by lastname. If the user wishes, additional criteria can also
+    be displayed as a seperate iteration
     Format: Last name, first name
 
     Local Variables:
 
+    """
+
+    print("placeholder")
+
+def update_student_info(file_input):
+    """
+    This function updates a student info based on given criteria. It first asks for the last and first name of the student that you would
+    like to change. It then gives you 5 options to choose from: 1) Change the first name of the student 2) Change the last name of the student
+    3) Change the grade of the student 4) Change the town the student is from 5) Change the state the student is from. Once done, it replaces the 
+    existing information in the csv file and closes the datafile. 
+
+    Local Variables:
+
+    """
+
+    print("placeholder")
+
+def delete_student_info(file_input):
+    """
+    
     """
 
 if __name__ == '__main__':
