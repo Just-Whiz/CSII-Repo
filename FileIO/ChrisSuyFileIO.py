@@ -4,6 +4,7 @@
 # Instructor: Mr. Campbell
 # Date: 10/6/23
 # I pledge my honor
+# Running bug list: None to report at the moment.
 
 import csv
 import time
@@ -46,6 +47,10 @@ def main():
         elif answer == "7":
             display_all(file_input)
             time.sleep(1)
+        elif answer == "Q" or "q":
+            print("goodbye")
+            time.sleep(1)
+            break
 
 def display_all(file_input):
 
@@ -67,15 +72,14 @@ def display_all(file_input):
         time.sleep(0.00000000001)
         print(row[1], row[0], row[2], row[3], row[4], row[5], row[6])
 
-
-
 def count_seniors(file_input):
     """
     This function displays all the seniors' names that currently go to GCDS. 
 
     By taking file_input as a variable, (as defined in the main), this function is able to iterate through all the rows
     in the csv file that the variable is attached to (gcds_data3.csv), and singles out each kid whose grade level is
-    "Grade 12". For every kid there, it adds one to a variable counter (senior_counter)
+    "Grade 12". For every kid there, it adds one to a variable counter (senior_counter), and then prints to the user
+    the number.
 
     Local Variables:
     record - Denotes the columns 
@@ -95,14 +99,15 @@ def count_seniors(file_input):
     print(f"There are {senior_counter} seniors.")          # Prints to the user how many seniors there are
     time.sleep(1)
 
-
-
 def compare_genders(file_input):
     """
     This function counts the amount of girls and boys, and finds who has more numbers in terms of gender.
 
     By taking file_input as a variable, (as defined in the main), this function is able to iterate through all the rows
-    in the csv file that the variable is attached to (gcds_data3.csv), and singles out the third row as the row 
+    in the csv file that the variable is attached to (gcds_data3.csv), and singles out the third row. While iterating, it 
+    looks to see if the value present is "Male" or "Female". If they're either, their respective gender counter goes up by 
+    one. Once done, it prints to the user the amount present in each variable gender counter, and prints if there are more
+    guys or gals.
 
     Local Variables:
     males_counter - Denotes the male counter
@@ -135,19 +140,51 @@ def compare_genders(file_input):
         print(f"There are {gender_difference} more gals than guys")
     time.sleep(1)
 
-def count_by_zip(file_in):
+def count_by_zip(file_input):
     """
-    This function counts how many kids live in each city (e.g. through a convenient menu of simple selection)
-    """
-
-def find_by_first_name(file_in):
-    """
-    
+    This function counts how many kids live in each city (e.g. through a convenient menu of simple selection). It first gives
+    the user the amount of 
     """
 
-def find_by_last_name(file_in):
-    """
     
+    for record in file_input:                           #Iterates through all those in lines 
+        row = record.split(",")
+        if row[3] == "Male":
+            males_counter += 1
+        elif row[3] == "Female":
+            females_counter += 1
+
+def find_by_first_name(file_input):
+    """
+    This function finds all kids with the same first name
+
+    Local Variables:
+
+    """
+
+def find_by_last_name(file_input):
+    """
+    This function finds kids by last 
+
+    Local Variables: 
+
+    """
+
+def add_new_entry(file_input):
+    """
+    This function adds a new entry (in this case, a new student) to the file as a whole. 
+
+    Local Variables: 
+
+    """
+
+def sort_students(file_input):
+    """
+    This function lists students by first name, last name, sorted by lastname.
+    Format: Last name, first name
+
+    Local Variables:
+
     """
 
 if __name__ == '__main__':
