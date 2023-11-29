@@ -10,7 +10,7 @@ import time
 
 def main():
     """
-    This function is 
+    This function is the main. It calls all other functions present below the 48th line.
     """
     file_input = open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", 'r')
 
@@ -113,7 +113,7 @@ def compare_genders(file_input):
 
     file_input.seek(1)                                  #Moves the pointer to line 1
 
-    for record in file_input:                           #Iterates through all 
+    for record in file_input:                           #Iterates through all those in lines 
         row = record.split(",")
         if row[3] == "Male":
             males_counter += 1
@@ -135,6 +135,20 @@ def compare_genders(file_input):
         print(f"There are {gender_difference} more gals than guys")
     time.sleep(1)
 
+def count_by_zip(file_in):
+    """
+    This function counts how many kids live in each city (e.g. through a convenient menu of simple selection)
+    """
+
+def find_by_first_name(file_in):
+    """
+    
+    """
+
+def find_by_last_name(file_in):
+    """
+    
+    """
 
 if __name__ == '__main__':
     main()
