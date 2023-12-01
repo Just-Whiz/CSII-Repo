@@ -7,6 +7,7 @@
 # Running bug list: None to report at the moment.
 # To be coded: Make complex selections (first by gender, then city, then by amount of specific grade living there), make selections from database (e.g. ask first name, gender, grade to find specific student), 
 
+from pathlib import Path
 import csv
 import time
 
@@ -16,7 +17,7 @@ def main():
     """
     file_input = open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", 'r')
 
-    file_input.readline()                       #skip first line of header info
+    file_input.readline()                       # Skip first line of header info
     answer = "Y"
     go = True
 
@@ -35,7 +36,7 @@ Menu: Enter Choice or 'Q' to (Q)uit:
         time.sleep(1)
         answer = input("Enter your input here: ")
 
-# The code below is the menu function
+# The code below is the menu function logic
 
         if answer == "1":
             display_all(file_input)
@@ -64,7 +65,7 @@ Menu: Enter Choice or 'Q' to (Q)uit:
         elif answer == "11":
             display_all(file_input)
             time.sleep(1)
-        elif answer == "Q" or "q":
+        elif answer == "Q" or "q":  	
             print("goodbye")
             time.sleep(1)
             break
@@ -104,16 +105,16 @@ def count_seniors(file_input):
     senior_counter - Denotes the counter of the amount of students in the 12th Grade
     """
     
-    file_input.seek(1)                                     # Moves pointer to line 1
-    senior_counter = 0                                     # Sets the counter to 0
+    file_input.seek(1)                                          # Moves pointer to line 1
+    senior_counter = 0                                          # Sets the counter to 0
 
-    for record in file_input:                              # For 
+    for record in file_input:                                   # For 
         row = record.split(",")                            
-        if row[2] == "Grade 12":                           # If the 2nd row has this string value:
-            time.sleep(0.01)                               # Delay between counting
-            senior_counter += 1                            # Add 1 to the counter
+        if row[2] == "Grade 12":                                # If the 2nd row has this string value:
+            time.sleep(0.01)                                    # Delay between counting
+            senior_counter += 1                                 # Add 1 to the counter
     
-    print(f"There are {senior_counter} seniors.")          # Prints to the user how many seniors there are
+    print(f"There are {senior_counter} seniors.")               # Prints to the user how many seniors there are
     time.sleep(1)
 
 def compare_genders(file_input):
@@ -133,23 +134,23 @@ def compare_genders(file_input):
     males_counter = 0
     females_counter = 0
 
-    file_input.seek(1)                                  #Moves the pointer to line 1
+    file_input.seek(1)                                          # Moves the pointer to line 1
 
-    for record in file_input:                           #Iterates through all those in lines 
+    for record in file_input:                                   # Iterates through all those in lines 
         row = record.split(",")
-        if row[3] == "Male":
+        if row[3] == "Male":                                    # If the iteration encounters this specific string:
             males_counter += 1
-        elif row[3] == "Female":
+        elif row[3] == "Female":                                # Otherwise if hte iteration encounters this specific string:
             females_counter += 1
 
-    print(f"There are {males_counter} guys.")
+    print(f"There are {males_counter} guys.")                   # F string to display the value of a variable within a string format
     time.sleep(1)
-    print(f"There are {females_counter} girls.")
+    print(f"There are {females_counter} girls.")                # F string to display the value of a variable within a string format
     time.sleep(1)
 
-    males_counter = int(males_counter)
-    females_counter = int(females_counter)
-    gender_difference = abs(males_counter - females_counter)
+    males_counter = int(males_counter)                          # Turns the value in the counter to an integer value
+    females_counter = int(females_counter)                      # See above
+    gender_difference = abs(males_counter - females_counter)    # Finds the absolute value of the difference b
 
     if males_counter > females_counter:
         print(f"There are {gender_difference} more guys than gals")
@@ -173,7 +174,7 @@ def count_by_zip(file_input):
 
 def find_by_first_name(file_input):
     """
-    This function finds all kids with the same first name
+    This function finds all kids with the same first name through a simple user prompt.
 
     Local Variables:
 
@@ -229,8 +230,11 @@ def update_student_info(file_input):
 
 def delete_student_info(file_input):
     """
-    
+    This function deletes a student's information from the directory. It first asks if the user would like to delete ALL data, or PARTS of the data.
+
     """
+
+    print("placeholder")
 
 if __name__ == '__main__':
     main()
