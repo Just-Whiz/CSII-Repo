@@ -178,16 +178,19 @@ def find_by_first_name(file_input):
     Local Variables:
 
     query_first - 
+
     """
 
+    name_counter = 0
     query_first = input("What is the first name of the student that you're looking for? Enter here: ")
-    time.sleep(1)
-    while True:
-        for record in file_input:
-            row = record.split(",")
-            if row[2] == query_first:
-                print(row[2])
-                time.sleep(0.01)
+
+    for record in file_input:
+        row = record.split(",")
+        if row[2] == query_first:
+                time.sleep(1)
+                name_counter += 1
+    
+    print(f"There are {name_counter} kids named {query_first}")
 
 def find_by_last_name(file_input):
     """
@@ -197,7 +200,17 @@ def find_by_last_name(file_input):
 
     """
 
-    print("placeholder")
+    
+    name_counter = 0
+    query_first = input("What is the first name of the student that you're looking for? Enter here: ")
+
+    for record in file_input:
+        row = record.split(",")
+        if row[2] == query_first:
+                time.sleep(1)
+                name_counter += 1
+
+    print(f"There are {name_counter} kids named {query_first}")
 
 def add_new_entry(file_input):
     """
