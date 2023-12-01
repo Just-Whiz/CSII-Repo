@@ -162,15 +162,14 @@ def count_by_zip(file_input):
     """
     This function counts how many kids live in each city (e.g. through a convenient menu of simple selection). It first gives
     the user the amount of 
-    """
 
+    Local Variables:
+
+    """
     
     for record in file_input:                           #Iterates through all those in lines 
         row = record.split(",")
-        if row[3] == "Male":
-            males_counter += 1
-        elif row[3] == "Female":
-            females_counter += 1
+        
 
 def find_by_first_name(file_input):
     """
@@ -178,9 +177,17 @@ def find_by_first_name(file_input):
 
     Local Variables:
 
+    query_first - 
     """
 
-    print("placeholder")
+    query_first = input("What is the first name of the student that you're looking for? Enter here: ")
+    time.sleep(1)
+    while True:
+        for record in file_input:
+            row = record.split(",")
+            if row[2] == query_first:
+                print(row[2])
+                time.sleep(0.01)
 
 def find_by_last_name(file_input):
     """
