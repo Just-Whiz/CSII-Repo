@@ -186,8 +186,7 @@ def find_by_first_name(file_input):
 
     for record in file_input:
         row = record.split(",")
-        if row[2] == query_first:
-                time.sleep(1)
+        if row[1] == query_first:
                 name_counter += 1
     
     print(f"There are {name_counter} kids named {query_first}")
