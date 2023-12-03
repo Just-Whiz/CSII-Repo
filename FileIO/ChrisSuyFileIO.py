@@ -4,9 +4,8 @@
 # Instructor: Mr. Campbell
 # Date: 10/6/23
 # I pledge my honor
-# Running bug list: None to report at the moment.
 # To be coded: Make complex selections (first by gender, then city, then by amount of specific grade living there), make selections from database (e.g. ask first name, gender, grade to find specific student), 
-# Bugs: Name functions not printing specified names (columns wrong maybe?)
+# Bugs: Zip functions need to not be empty, not found needs to be found in the error list (what), more than I haven't written here yet
 
 from pathlib import Path
 import csv
