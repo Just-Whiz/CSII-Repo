@@ -30,7 +30,8 @@ Menu: Enter Choice or 'Q' to (Q)uit:
 1) Print all students at school
 2) Print all students in grade 12
 3) Compare the amount of boys versus girls
-4) Find all students with the same first name (with not found)
+4) Find all students with the same last name (with not found)
+5) Find all students with the same first name (with not found)
 6) Add a student to the end of the list
 =================================================================
 ''')
@@ -49,10 +50,10 @@ Menu: Enter Choice or 'Q' to (Q)uit:
             compare_genders(file_input)
             time.sleep(1)
         elif answer == "4":
-            find_by_first_name(file_input)
+            find_by_last_name(file_input)
             time.sleep(1)
         elif answer == "5": 
-            find_by_last_name(file_input)
+            find_by_first_name(file_input)
             time.sleep(1)
         elif answer == "6":
             add_new_entry(file_input)
@@ -172,7 +173,7 @@ def count_by_zip(file_input):
         row = record.split(",")
         
 
-def find_by_first_name(file_input):
+def find_by_last_name(file_input):
     """
     This function finds all kids with the same first name through a simple user prompt.
 
@@ -183,16 +184,17 @@ def find_by_first_name(file_input):
     """
 
     name_counter = 0
+
     query_first = input("What is the first name of the student that you're looking for? Enter here: ")
 
     for record in file_input:
         row = record.split(",")
-        if row[1] == query_first:
+        if row[0] == query_first:
                 name_counter += 1
     
     print(f"There are {name_counter} kids named {query_first}")
 
-def find_by_last_name(file_input):
+def find_by_first_name(file_input):
     """
     This function finds kids by last 
 
@@ -200,14 +202,13 @@ def find_by_last_name(file_input):
 
     """
 
-    
     name_counter = 0
+
     query_first = input("What is the first name of the student that you're looking for? Enter here: ")
 
     for record in file_input:
         row = record.split(",")
-        if row[2] == query_first:
-                time.sleep(1)
+        if row[1] == query_first:
                 name_counter += 1
 
     print(f"There are {name_counter} kids named {query_first}")
