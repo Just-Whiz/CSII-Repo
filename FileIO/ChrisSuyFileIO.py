@@ -37,9 +37,9 @@ Menu: Enter Choice or 'Q' to (Q)uit:
         time.sleep(1)
         answer = input("Enter your input here: ")
 
-# The code below is the menu function logic
+# The code below is the menu selections with if statements
 
-        if answer == "1":
+        if answer == "1": 
             display_all(file_input)
             time.sleep(1)
         elif answer == "2":
