@@ -178,15 +178,15 @@ def find_by_last_name(file_input):
 
     query_first = input("What is the last name of the student that you're looking for? Enter here: ")
 
-    try:
-        for record in file_input:
-            row = record.split(",")
-            if row[0] == query_first:
-                    name_counter += 1
+    #try:
+    for record in file_input:
+        row = record.split(",")
+        if row[0] == query_first:
+                name_counter += 1
 
-        print(f"There are {name_counter} kids with the last name {query_first}")
-    except row[0] != query_first or query_first.isdigit() == False:
-        print("Person not found within this database")
+    print(f"There are {name_counter} kids with the last name {query_first}")
+    #except row[0] != query_first or query_first.isdigit() == False:                # Commented out until I can figure out how to add "Not Found" to both sibling functions
+        #print("Person not found within this database")
 
 
 def find_by_first_name(file_input):
@@ -201,16 +201,16 @@ def find_by_first_name(file_input):
 
     query_first = input("What is the first name of the student that you're looking for? Enter here: ")
 
-    try:
-        for record in file_input:
-            row = record.split(",")
-            if row[1] == query_first:
-                    name_counter += 1
+    #try:
+    for record in file_input:
+        row = record.split(",")
+        if row[1] == query_first:
+                name_counter += 1
 
         print(f"There are {name_counter} kids named {query_first}")
 
-    except row[0] != query_first or query_first.isdigit() == False:
-        print("Person not found within this database")
+    #except row[0] != query_first or query_first.isdigit() == False:
+        #print("Person not found within this database")
 
 
 def add_new_entry(file_input):
