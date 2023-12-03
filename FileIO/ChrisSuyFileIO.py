@@ -28,7 +28,7 @@ def main():
 Menu: Enter Choice or 'Q' to (Q)uit:
 
 1) Print all students at school
-2) Print all students in grade 12
+2) Count the amount of students in grade 12
 3) Compare the amount of boys versus girls
 4) Find all students with the same last name (with not found)
 5) Find all students with the same first name (with not found)
@@ -72,6 +72,7 @@ Menu: Enter Choice or 'Q' to (Q)uit:
             time.sleep(1)
             break
 
+
 def display_all(file_input):
 
     """
@@ -91,6 +92,7 @@ def display_all(file_input):
         row = record.split(",")
         time.sleep(0.00000000001)
         print(row[1], row[0], row[2], row[3], row[4], row[5], row[6])
+
 
 def count_seniors(file_input):
     """
@@ -118,6 +120,7 @@ def count_seniors(file_input):
     
     print(f"There are {senior_counter} seniors.")               # Prints to the user how many seniors there are
     time.sleep(1)
+
 
 def compare_genders(file_input):
     """
@@ -159,23 +162,11 @@ def compare_genders(file_input):
     elif females_counter > males_counter:
         print(f"There are {gender_difference} more gals than guys")
     time.sleep(1)
-
-def count_by_zip(file_input):
-    """
-    This function counts how many kids live in each city (e.g. through a convenient menu of simple selection). It first gives
-    the user the amount of 
-
-    Local Variables:
-
-    """
-    
-    for record in file_input:                           #Iterates through all those in lines 
-        row = record.split(",")
         
 
 def find_by_last_name(file_input):
     """
-    This function finds all kids with the same first name through a simple user prompt.
+    This function finds all kids with the same last name through a simple user prompt. 
 
     Local Variables:
 
@@ -185,18 +176,22 @@ def find_by_last_name(file_input):
 
     name_counter = 0
 
-    query_first = input("What is the first name of the student that you're looking for? Enter here: ")
+    query_first = input("What is the last name of the student that you're looking for? Enter here: ")
 
-    for record in file_input:
-        row = record.split(",")
-        if row[0] == query_first:
-                name_counter += 1
-    
-    print(f"There are {name_counter} kids named {query_first}")
+    try:
+        for record in file_input:
+            row = record.split(",")
+            if row[0] == query_first:
+                    name_counter += 1
+
+        print(f"There are {name_counter} kids with the last name {query_first}")
+    except row[0] != query_first or query_first.isdigit() == False:
+        print("Person not found within this database")
+
 
 def find_by_first_name(file_input):
     """
-    This function finds kids by last 
+    This function finds kids by first name through a more complex user prompt. 
 
     Local Variables: 
 
@@ -206,12 +201,17 @@ def find_by_first_name(file_input):
 
     query_first = input("What is the first name of the student that you're looking for? Enter here: ")
 
-    for record in file_input:
-        row = record.split(",")
-        if row[1] == query_first:
-                name_counter += 1
+    try:
+        for record in file_input:
+            row = record.split(",")
+            if row[1] == query_first:
+                    name_counter += 1
 
-    print(f"There are {name_counter} kids named {query_first}")
+        print(f"There are {name_counter} kids named {query_first}")
+
+    except row[0] != query_first or query_first.isdigit() == False:
+        print("Person not found within this database")
+
 
 def add_new_entry(file_input):
     """
@@ -224,6 +224,7 @@ def add_new_entry(file_input):
 
     print("placeholder")
 
+
 def sort_students(file_input):
     """
     This function lists students by first name, last name, sorted by lastname. If the user wishes, additional criteria can also
@@ -235,6 +236,7 @@ def sort_students(file_input):
     """
 
     print("placeholder")
+
 
 def update_student_info(file_input):
     """
@@ -249,6 +251,7 @@ def update_student_info(file_input):
 
     print("placeholder")
 
+
 def delete_student_info(file_input):
     """
     This function deletes a student's information from the directory. It first asks if the user would like to delete ALL data, or PARTS of the data.
@@ -256,6 +259,20 @@ def delete_student_info(file_input):
     """
 
     print("placeholder")
+
+
+def count_by_zip(file_input):
+    """
+    This function counts how many kids live in each city (e.g. through a convenient menu of simple selection). It first gives
+    the user the amount of 
+
+    Local Variables:
+
+    """
+    
+    for record in file_input:                           #Iterates through all those in lines 
+        row = record.split(",")
+
 
 if __name__ == '__main__':
     main()
