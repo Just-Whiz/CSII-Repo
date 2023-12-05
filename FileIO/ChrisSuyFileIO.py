@@ -144,7 +144,7 @@ def compare_genders(file_input):
         row = record.split(",")
         if row[3] == "Male":                                    # If the iteration encounters this specific string:
             males_counter += 1
-        elif row[3] == "Female":                                # Otherwise if hte iteration encounters this specific string:
+        elif row[3] == "Female":                                # Otherwise if the iteration encounters this specific string:
             females_counter += 1
 
     print(f"There are {males_counter} guys.")                   # F string to display the value of a variable within a string format
