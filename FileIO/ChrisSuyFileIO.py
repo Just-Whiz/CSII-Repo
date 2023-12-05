@@ -14,11 +14,22 @@ import time
 def main():
     """
     This function is the main. It calls all other functions present below the 48th line.
+
+    
+    Global Variables:
+
+    file_input - Denotes the variable that open and stores the CSV file in the local directory in "Read" mode
+
+    Local Variables:
+
+    go - Denotes the variable set to True, which allows the while True loop to loop forever, causing the screen to always pop up after
+    a function is called and executed
+    answer - Denotes the variable that 
+
     """
     file_input = open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", 'r')
 
     file_input.readline()                       # Skip first line of header info
-    answer = "Y"
     go = True
 
    
