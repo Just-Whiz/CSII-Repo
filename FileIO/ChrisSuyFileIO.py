@@ -5,7 +5,7 @@
 # Date: 10/6/23
 # I pledge my honor
 # To be coded: Make complex selections (first by gender, then city, then by amount of specific grade living there), make selections from database (e.g. ask first name, gender, grade to find specific student), 
-# Bugs: Zip functions need to not be empty, not found needs to be found in the error list (what), more than I haven't written here yet, figuring out NOT FOUND values yet
+# Bugs: 
 
 from pathlib import Path
 import csv
@@ -205,21 +205,34 @@ def find_by_first_name(file_input):
 
     name_counter = 0
 
-    query_first = input("What is the first name of the student that you're looking for? Enter here:")
+    query_first_name = input("What is the first name of the student that you're looking for? Enter here:")
 
     try:
         for record in file_input:
             row = record.split(",")
-            if row[0] == query_first:
+            if row[0] == query_first_name:
                     name_counter += 1
-            elif row[0] != query_first or query_first.isdigit() == True:
+            elif row[0] != query_first_name or query_first_name.isdigit() == True:
                 raise EntryNotFoundError
     except EntryNotFoundError:
         print("Entry Not Found")
         if EntryNotFoundError == True:
             pass
         else:
-            print(f"There are {name_counter} kids with the last name {query_first}")
+            print(f"There are {name_counter} kids with the last name {query_first_name}")
+
+    second_query_last_names = input("Would you like to display the last names of these kids? Enter 1 for yes, 2 for no.")
+
+    if second_query_last_names == "1":
+        print("Just a second...")
+        time.sleep(1)
+        for record in file_input:
+            row = record.split(",")
+            if row[0] == query_first_name:
+                print(row[0] + row[1])
+        print("goodbye")
+
+    third_query_gender = input("Would you like to the amount of each gender?")
 
 def add_new_entry(file_input):
     """
