@@ -5,7 +5,7 @@
 # Date: 10/6/23
 # I pledge my honor
 # To be coded: Make complex selections (first by gender, then city, then by amount of specific grade living there), make selections from database (e.g. ask first name, gender, grade to find specific student), 
-# Bugs: Zip functions need to not be empty, not found needs to be found in the error list (what), more than I haven't written here yet
+# Bugs: Zip functions need to not be empty, not found needs to be found in the error list (what), more than I haven't written here yet, figuring out NOT FOUND values yet
 
 from pathlib import Path
 import csv
@@ -169,23 +169,28 @@ def find_by_last_name(file_input):
 
     Local Variables:
 
-    query_first - 
+    query_last - Denotes the variable that stores the "last name" string value the user inputs
+    name_counter - Denotes the integer value of the amount of instances the variable query_last was found in
 
     """
 
     name_counter = 0
 
-    query_first = input("What is the last name of the student that you're looking for? Enter here: ")
+    query_last = input("What is the last name of the student that you're looking for? Enter here: ")
 
-    #try:
-    for record in file_input:
-        row = record.split(",")
-        if row[0] == query_first:
-                name_counter += 1
-
-    print(f"There are {name_counter} kids with the last name {query_first}")
-    #except row[0] != query_first or query_first.isdigit() == False:                # Commented out until I can figure out how to add "Not Found" to both sibling functions
-        #print("Person not found within this database")
+    try:
+        for record in file_input:
+            row = record.split(",")
+            if row[0] == query_last:
+                    name_counter += 1
+            elif row[0] != query_last or query_last.isdigit() == True:
+                raise EntryNotFoundError
+    except EntryNotFoundError:
+        print("Person not found within this database")
+        if EntryNotFoundError == True:
+            pass
+        else:
+            print(f"There are {name_counter} kids with the last name {query_last}")
 
 
 def find_by_first_name(file_input):
@@ -194,23 +199,27 @@ def find_by_first_name(file_input):
 
     Local Variables: 
 
+    query_last - Denotes the variable that stores the "first name" string value the user inputs
+    name_counter - Denotes the integer value of the amount of instances the variable query_last was found in
     """
 
     name_counter = 0
 
-    query_first = input("What is the first name of the student that you're looking for? Enter here: ")
+    query_first = input("What is the first name of the student that you're looking for? Enter here:")
 
-    #try:
-    for record in file_input:
-        row = record.split(",")
-        if row[1] == query_first:
-                name_counter += 1
-
-        print(f"There are {name_counter} kids named {query_first}")
-
-    #except row[0] != query_first or query_first.isdigit() == False:
-        #print("Person not found within this database")
-
+    try:
+        for record in file_input:
+            row = record.split(",")
+            if row[0] == query_first:
+                    name_counter += 1
+            elif row[0] != query_first or query_first.isdigit() == True:
+                raise EntryNotFoundError
+    except EntryNotFoundError:
+        print("Entry Not Found")
+        if EntryNotFoundError == True:
+            pass
+        else:
+            print(f"There are {name_counter} kids with the last name {query_first}")
 
 def add_new_entry(file_input):
     """
@@ -272,6 +281,8 @@ def count_by_zip(file_input):
     for record in file_input:                           #Iterates through all those in lines 
         row = record.split(",")
 
+class EntryNotFoundError(LookupError):
+    pass
 
 if __name__ == '__main__':
     main()
