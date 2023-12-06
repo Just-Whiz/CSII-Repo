@@ -129,7 +129,6 @@ def count_seniors(file_input):
             senior_counter += 1                                 # Add 1 to the counter
     
     print(f"There are {senior_counter} seniors.")               # Prints to the user how many seniors there are
-    time.sleep(1)
 
 
 def compare_genders(file_input):
@@ -171,8 +170,6 @@ def compare_genders(file_input):
         print(f"There are {gender_difference} more guys than gals")
     elif females_counter > males_counter:
         print(f"There are {gender_difference} more gals than guys")
-    time.sleep(1)
-        
 
 def find_by_last_name(file_input):
     """
@@ -194,14 +191,9 @@ def find_by_last_name(file_input):
             row = record.split(",")
             if row[0] == query_last:
                     name_counter += 1
-            elif row[0] != query_last or query_last.isdigit() == True:
-                raise EntryNotFoundError
-    except EntryNotFoundError:
+        print(f"There are {name_counter} kids with the last name {query_last}")
+    except row[0] != query_last or query_last.isdigit() == True:
         print("Person not found within this database")
-        if EntryNotFoundError == True:
-            pass
-        else:
-            print(f"There are {name_counter} kids with the last name {query_last}")
 
 
 def find_by_first_name(file_input):
@@ -222,10 +214,8 @@ def find_by_first_name(file_input):
             row = record.split(",")
             if row[0] == query_first_name:
                     name_counter += 1
-                    print(f"There are {name_counter} kids with the last name {query_first_name}")
-            else:
-                raise EntryNotFoundError
-    except EntryNotFoundError:
+        print(f"There are {name_counter} kids with the last name {query_first_name}")
+    except row[0] != query_first_name:
         print("Entry Not Found")
 
     second_query_last_names = input("Would you like to display the last names of these kids? Enter 1 for yes, 2 for no.")
@@ -263,6 +253,7 @@ def sort_students(file_input):
 
     """
 
+    query_first = input("This function alphabetizes students. Would you like to ")
     print("placeholder")
 
 
@@ -300,9 +291,6 @@ def count_by_zip(file_input):
     
     for record in file_input:                           #Iterates through all those in lines 
         row = record.split(",")
-
-class EntryNotFoundError(LookupError):
-    pass
 
 if __name__ == '__main__':
     main()
