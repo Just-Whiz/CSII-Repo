@@ -217,20 +217,16 @@ def find_by_first_name(file_input):
     name_counter = 0
 
     query_first_name = input("What is the first name of the student that you're looking for? Enter here:")
-
     try:
         for record in file_input:
             row = record.split(",")
             if row[0] == query_first_name:
                     name_counter += 1
-            elif row[0] != query_first_name or query_first_name.isdigit() == True:
+                    print(f"There are {name_counter} kids with the last name {query_first_name}")
+            else:
                 raise EntryNotFoundError
     except EntryNotFoundError:
         print("Entry Not Found")
-        if EntryNotFoundError == True:
-            pass
-        else:
-            print(f"There are {name_counter} kids with the last name {query_first_name}")
 
     second_query_last_names = input("Would you like to display the last names of these kids? Enter 1 for yes, 2 for no.")
 
