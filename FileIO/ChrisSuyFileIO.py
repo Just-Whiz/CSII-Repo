@@ -42,7 +42,7 @@ Menu: Enter Choice or 'Q' to (Q)uit:
 3) Compare the amount of boys versus girls
 4) Find all students with the same last name (with not found)
 5) Find all students with the same first name (with not found)
-6) Add a student to the end of the list
+6) Add a new student entry to the end of the list
 =================================================================
 ''')
         time.sleep(1)
@@ -239,8 +239,56 @@ def add_new_entry(file_input):
     Local Variables: 
 
     """
+    
+    print("You've chosen to add a new student entry.")
+    time.sleep(1)
 
-    print("placeholder")
+    first_name_query = input("What is the student's first name? Enter here: ")
+    last_name_query = input("What is the student's last name?")
+    grade_query = input("What is the student's current grade? Enter here: ")
+    gender_query = input("What does the student identify as? Enter here:")
+    address = input("What is the student's address? Enter here: ")
+    city_query = input("What city does the student live in? Enter here: ")
+    state_query = input("What state does the student live in? Please only use 2-letter acronyms; Enter here: ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def sort_students(file_input):
