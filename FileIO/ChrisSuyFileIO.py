@@ -31,7 +31,6 @@ def main():
 
     file_input.readline()                       # Skip first line of header info
     go = True
-
    
     while go is True:
         print('''=================================================================
@@ -147,23 +146,23 @@ def compare_genders(file_input):
     males_counter = 0
     females_counter = 0
 
-    file_input.seek(1)                                          # Moves the pointer to line 1
+    file_input.seek(1)                                                  # Moves the pointer to line 1
 
-    for record in file_input:                                   # Iterates through all those in lines 
+    for record in file_input:                                           # Iterates through all those in lines 
         row = record.split(",")
-        if row[3] == "Male":                                    # If the iteration encounters this specific string:
+        if row[3] == "Male":                                            # If the iteration encounters this specific string:
             males_counter += 1
-        elif row[3] == "Female":                                # Otherwise if the iteration encounters this specific string:
+        elif row[3] == "Female":                                        # Otherwise if the iteration encounters this specific string:
             females_counter += 1
 
-    print(f"There are {males_counter} guys.")                   # F string to display the value of a variable within a string format
+    print(f"There are {males_counter} guys.")                           # F string to display the value of a variable within a string format
     time.sleep(1)
-    print(f"There are {females_counter} girls.")                # F string to display the value of a variable within a string format
+    print(f"There are {females_counter} girls.")                        # F string to display the value of a variable within a string format
     time.sleep(1)
 
-    males_counter = int(males_counter)                          # Turns the value in the counter to an integer value
-    females_counter = int(females_counter)                      # See above
-    gender_difference = abs(males_counter - females_counter)    # Finds the absolute value of the difference b
+    males_counter = int(males_counter)                                  # Turns the value in the counter to an integer value
+    females_counter = int(females_counter)                              # See above
+    gender_difference = abs(males_counter - females_counter)            # Finds the absolute value of the difference b
 
     if males_counter > females_counter:
         print(f"There are {gender_difference} more guys than gals")
@@ -191,7 +190,7 @@ def find_by_last_name(file_input):
             if row[0] == query_last:
                     name_counter += 1
         print(f"There are {name_counter} kids with the last name {query_last}")
-    except row[0] != query_last or query_last.isdigit() == True:
+    except row[0] != query_last or query_last.isdigit() == True: 
         print("Person not found within this database")
 
 
@@ -203,32 +202,50 @@ def find_by_first_name(file_input):
 
     query_last - Denotes the variable that stores the "first name" string value the user inputs
     name_counter - Denotes the integer value of the amount of instances the variable query_last was found in
+    first_query_name - 
+    second_query_last_names - 
+    third_query_gender - 
+    final_query_address
     """
 
     name_counter = 0
 
-    query_first_name = input("What is the first name of the student that you're looking for? Enter here:")
+    first_query_name = input("What is the first name of the student that you're looking for? Enter here1 for yes, 2 for no: ")
     try:
         for record in file_input:
             row = record.split(",")
-            if row[0] == query_first_name:
+            if row[0] == first_query_name:
                     name_counter += 1
-        print(f"There are {name_counter} kids with the last name {query_first_name}")
-    except row[0] != query_first_name:
+        print(f"There are {name_counter} kids with the last name {first_query_name}")
+    except row[0] != first_query_name:
         print("Entry Not Found")
 
-    second_query_last_names = input("Would you like to display the last names of these kids? Enter 1 for yes, 2 for no.")
+    second_query_last_names = input("Would you like to display the last names of these kids? Enter 1 for yes, 2 for no: ")
 
     if second_query_last_names == "1":
         print("Just a second...")
         time.sleep(1)
+        try:
+            for record in file_input:
+                row = record.split(",")
+                if row[0] == first_query_name:
+                    print(f"{row[0]} {row[1]}")
+                print("Goodbye")
+        except row[0] != first_query_name:
+            print("Entry Not Found")
+
+    third_query_gender = input("Would you like the genders of all the people in this list? Enter 1 for yes, 2 for no: ")
+    
+    if third_query_gender == "1":
+        print("just a second...")
+        time.sleep(1)
         for record in file_input:
             row = record.split(",")
-            if row[0] == query_first_name:
-                print(row[0] + row[1])
-        print("goodbye")
+            if row[0] == first_query_name:
+                print(f"{row[0]} {row[1]}. Gender: {row[3]}")
 
-    third_query_gender = input("Would you like to the amount of each gender?")
+    final_query_address = input("Finally, would you like the adresses")
+
 
 def add_new_entry():
     """
