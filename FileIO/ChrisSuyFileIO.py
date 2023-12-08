@@ -4,8 +4,8 @@
 # Instructor: Mr. Campbell
 # Date: 10/6/23
 # I pledge my honor
-# To be coded: Make complex selections (first by gender, then city, then by amount of specific grade living there), make selections from database (e.g. ask first name, gender, grade to find specific student), 
-# Bugs: 
+# Coded
+# To be coded: 
 
 from pathlib import Path
 import csv
@@ -253,7 +253,13 @@ def add_new_entry():
     the funciton will ask the user for the first name, last name, grade, gender, town, and state that the student lives in.
 
     Local Variables: 
-
+    first_name_query - 
+    last_name_query
+    grade_query - 
+    gender_query - 
+    address_query - 
+    city_query - 
+    state_query - 
     """
     
     print("You've chosen to add a new student entry.")
@@ -263,7 +269,7 @@ def add_new_entry():
     last_name_query = input("What is the student's last name?")
     grade_query = input("What is the student's current grade? Enter here: ")
     gender_query = input("What does the student identify as? Enter here:")
-    address = input("What is the student's address? Enter here: ")
+    address_query = input("What is the student's address? Enter here: ")
     city_query = input("What city does the student live in? Enter here: ")
     state_query = input("What state does the student live in? Please only use 2-letter acronyms; Enter here: ")
 
