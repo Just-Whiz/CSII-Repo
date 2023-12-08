@@ -230,7 +230,7 @@ def find_by_first_name(file_input):
 
     third_query_gender = input("Would you like to the amount of each gender?")
 
-def add_new_entry(file_input):
+def add_new_entry():
     """
     This function adds a new entry (in this case, a new student) to the file as a whole. To add a completely new entry,
     the funciton will ask the user for the first name, last name, grade, gender, town, and state that the student lives in.
@@ -249,6 +249,10 @@ def add_new_entry(file_input):
     address = input("What is the student's address? Enter here: ")
     city_query = input("What city does the student live in? Enter here: ")
     state_query = input("What state does the student live in? Please only use 2-letter acronyms; Enter here: ")
+
+
+
+
 
 
 
