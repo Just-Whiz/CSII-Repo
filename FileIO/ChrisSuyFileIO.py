@@ -14,7 +14,7 @@ import time
 def main():
     """
     This function is the main. It calls all other functions present below the 48th line.
-
+    
     
     Global Variables:
 
@@ -81,7 +81,6 @@ Menu: Enter Choice or 'Q' to (Q)uit:
             print("goodbye")
             time.sleep(1)
             break
-
 
 def display_all(file_input):
 
@@ -275,7 +274,7 @@ def add_new_entry(file_input):
 
 
 
-
+   
 
 
 
