@@ -9,6 +9,7 @@
 
 from pathlib import Path
 import csv
+from csv import writer
 import time
 
 def main():
@@ -264,56 +265,24 @@ def add_new_entry():
     
     print("You've chosen to add a new student entry.")
     time.sleep(1)
+    try:
+        first_name_query = input("What is the student's first name? Enter here: ")
+        last_name_query = input("What is the student's last name?")
+        grade_query = input("What is the student's current grade? Enter here: ")
+        gender_query = input("What does the student identify as? Enter here:")
+        address_query = input("What is the student's address? Enter here: ")
+        city_query = input("What city does the student live in? Enter here: ")
+        state_query = input("What state does the student live in? Please only use 2-letter acronyms; Enter here: ")
 
-    first_name_query = input("What is the student's first name? Enter here: ")
-    last_name_query = input("What is the student's last name?")
-    grade_query = input("What is the student's current grade? Enter here: ")
-    gender_query = input("What does the student identify as? Enter here:")
-    address_query = input("What is the student's address? Enter here: ")
-    city_query = input("What city does the student live in? Enter here: ")
-    state_query = input("What state does the student live in? Please only use 2-letter acronyms; Enter here: ")
+        appendage_list = [first_name_query, last_name_query, grade_query, gender_query, address_query, city_query, state_query]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
+        with open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", "a") as file_write:
+            writer_object = writer(file_write)
+            writer_object.writerow(appendage_list)
+            file_write.close()
+    except grade_query != int(grade_query) or len(state_query) > 2:
+        print("Invalid entries. Please try again with valid entries.")
+        
 
 
 
