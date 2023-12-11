@@ -190,10 +190,9 @@ def find_by_last_name(file_input):
             row = record.split(",")
             if row[0] == query_last:
                     name_counter += 1
-    except row[0] != query_last or query_last.isdigit() == True: 
+            print(f"There are {name_counter} kids with the last name {query_last}")
+    except name_counter == 0: 
         print("Person not found within this database")
-
-    print(f"There are {name_counter} kids with the last name {query_last}")
 
 
 def find_by_first_name(file_input):
