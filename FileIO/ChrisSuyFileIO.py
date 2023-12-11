@@ -172,7 +172,7 @@ def compare_genders(file_input):
 
 def find_by_last_name(file_input):
     """
-    This function finds all kids with the same last name through a simple user prompt. 
+    This function finds all kids with the same last name through a simple user prompt. It first asks the user for the last 
 
     Local Variables:
 
@@ -190,9 +190,10 @@ def find_by_last_name(file_input):
             row = record.split(",")
             if row[0] == query_last:
                     name_counter += 1
-        print(f"There are {name_counter} kids with the last name {query_last}")
     except row[0] != query_last or query_last.isdigit() == True: 
         print("Person not found within this database")
+
+    print(f"There are {name_counter} kids with the last name {query_last}")
 
 
 def find_by_first_name(file_input):
@@ -261,6 +262,8 @@ def add_new_entry():
     address_query - 
     city_query - 
     state_query - 
+    file_write - 
+    writer_object - 
     """
     
     print("You've chosen to add a new student entry.")
@@ -273,6 +276,9 @@ def add_new_entry():
         address_query = input("What is the student's address? Enter here: ")
         city_query = input("What city does the student live in? Enter here: ")
         state_query = input("What state does the student live in? Please only use 2-letter acronyms; Enter here: ")
+
+        grade_query = int(grade_query)
+
 
         appendage_list = [first_name_query, last_name_query, grade_query, gender_query, address_query, city_query, state_query]
 
@@ -337,6 +343,3 @@ def count_by_zip(file_input):
 
 if __name__ == '__main__':
     main()
-
-
-
