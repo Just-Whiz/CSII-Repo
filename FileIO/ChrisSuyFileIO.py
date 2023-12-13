@@ -34,7 +34,6 @@ def main():
 
     current_dir = Path(__file__).parent
     file_path = current_dir / "gcds_data3.csv"
-    file_input = open(file_path, "r")
 
     go = True
    
@@ -87,7 +86,7 @@ Menu: Enter Choice or 'Q' to (Q)uit:
             time.sleep(1)
             break
 
-def display_all(file_input):
+def display_all(file_path):
 
     """
     This function displays all the students/all the data in the given CSV file.
@@ -100,12 +99,10 @@ def display_all(file_input):
     student_last_name - each student's last name.
     """
 
-    file_input.seek(1)
-
-    for record in file_input: 
-        row = record.split(",")
-        time.sleep(0.00000000001)
-        print(row[1], row[0], row[2], row[3], row[4], row[5], row[6])
+    with open(file_path) as file_input:
+        for column in file_input:
+            print(column, end="")
+            time.sleep(0.00000000000000001)
 
 
 def count_seniors(file_input):
@@ -122,15 +119,15 @@ def count_seniors(file_input):
     row - Denotes the columns and rows and splits them them by the delimiter (in this case, a comma ",")
     senior_counter - Denotes the counter of the amount of students in the 12th Grade
     """
-    
-    file_input.seek(1)                                          # Moves pointer to line 1
+  
     senior_counter = 0                                          # Sets the counter to 0
 
-    for record in file_input:                                   # For 
-        row = record.split(",")                            
-        if row[2] == "Grade 12":                                # If the 2nd row has this string value:
-            time.sleep(0.01)                                    # Delay between counting
-            senior_counter += 1                                 # Add 1 to the counter
+    with open(file_path) as file_input:                             # Opens the specified file path stored in the variable
+        for record in file_input:                                   # For 
+            column = record.split(",")                            
+            if column[2] == "Grade 12":                             # If the 2nd row has this string value:
+                time.sleep(0.01)                                    # Delay between counting
+                senior_counter += 1                                 # Add 1 to the counter
     
     print(f"There are {senior_counter} seniors.")               # Prints to the user how many seniors there are
 
