@@ -12,6 +12,13 @@ import csv
 from csv import writer
 import time
 
+current_dir = Path(__file__).parent
+file_path = current_dir / "data.txt"
+
+with open(file_path) as f:
+    for line in f:
+        print(line, end='')
+
 def main():
     """
     This function is the main. It calls all other functions present below the 48th line.
@@ -28,7 +35,10 @@ def main():
     answer - Denotes the variable that 
 
     """
-    file_input = open("C:\\Users\\csuy26\Desktop\\CSII-Repo\\FileIO\\gcds_data3.csv", 'r')
+
+    current_dir = Path(__file__).parent
+    file_path = current_dir / "gcds_data3.csv"
+    file_input = open("gcds_data3.csv", 'r')
 
     file_input.readline()                       # Skip first line of header info
     go = True
@@ -287,9 +297,6 @@ def add_new_entry():
             file_write.close()
     except grade_query != int(grade_query) or len(state_query) > 2:
         print("Invalid entries. Please try again with valid entries.")
-        
-
-
 
 def sort_students(file_input):
     """
