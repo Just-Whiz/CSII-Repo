@@ -13,11 +13,7 @@ from csv import writer
 import time
 
 current_dir = Path(__file__).parent
-file_path = current_dir / "data.txt"
-
-with open(file_path) as f:
-    for line in f:
-        print(line, end='')
+file_path = current_dir / "gcds_data3.csv"
 
 def main():
     """
@@ -38,9 +34,8 @@ def main():
 
     current_dir = Path(__file__).parent
     file_path = current_dir / "gcds_data3.csv"
-    open(file_path, "r")
+    file_input = open(file_path, "r")
 
-    file_path.readline()                       # Skip first line of header info
     go = True
    
     while go is True:
@@ -92,7 +87,7 @@ Menu: Enter Choice or 'Q' to (Q)uit:
             time.sleep(1)
             break
 
-def display_all(file_path):
+def display_all(file_input):
 
     """
     This function displays all the students/all the data in the given CSV file.
@@ -105,15 +100,15 @@ def display_all(file_path):
     student_last_name - each student's last name.
     """
 
-    file_path.seek(1)
+    file_input.seek(1)
 
-    for record in file_path: 
+    for record in file_input: 
         row = record.split(",")
         time.sleep(0.00000000001)
         print(row[1], row[0], row[2], row[3], row[4], row[5], row[6])
 
 
-def count_seniors(file_path):
+def count_seniors(file_input):
     """
     This function displays all the seniors' names that currently go to GCDS. 
 
@@ -128,10 +123,10 @@ def count_seniors(file_path):
     senior_counter - Denotes the counter of the amount of students in the 12th Grade
     """
     
-    file_path.seek(1)                                          # Moves pointer to line 1
+    file_input.seek(1)                                          # Moves pointer to line 1
     senior_counter = 0                                          # Sets the counter to 0
 
-    for record in file_path:                                   # For 
+    for record in file_input:                                   # For 
         row = record.split(",")                            
         if row[2] == "Grade 12":                                # If the 2nd row has this string value:
             time.sleep(0.01)                                    # Delay between counting
@@ -140,7 +135,7 @@ def count_seniors(file_path):
     print(f"There are {senior_counter} seniors.")               # Prints to the user how many seniors there are
 
 
-def compare_genders(file_path):
+def compare_genders(file_input):
     """
     This function counts the amount of girls and boys, and finds who has more numbers in terms of gender.
 
@@ -159,7 +154,7 @@ def compare_genders(file_path):
 
     file_path.seek(1)                                                  # Moves the pointer to line 1
 
-    for record in file_path:                                           # Iterates through all those in lines 
+    for record in file_input:                                           # Iterates through all those in lines 
         row = record.split(",")
         if row[3] == "Male":                                            # If the iteration encounters this specific string:
             males_counter += 1
@@ -180,7 +175,7 @@ def compare_genders(file_path):
     elif females_counter > males_counter:
         print(f"There are {gender_difference} more gals than guys")
 
-def find_by_last_name(file_path):
+def find_by_last_name(file_input):
     """
     This function finds all kids with the same last name through a simple user prompt. It first asks the user for the last 
 
@@ -196,7 +191,7 @@ def find_by_last_name(file_path):
     query_last = input("What is the last name of the student that you're looking for? Enter here: ")
 
     try:
-        for record in file_path:
+        for record in file_input:
             row = record.split(",")
             if row[0] == query_last:
                     name_counter += 1
@@ -205,7 +200,7 @@ def find_by_last_name(file_path):
         print("Person not found within this database")
 
 
-def find_by_first_name(file_path):
+def find_by_first_name(file_input):
     """
     This function finds kids by first name through a more complex user prompt. 
 
@@ -223,7 +218,7 @@ def find_by_first_name(file_path):
 
     first_query_name = input("What is the first name of the student that you're looking for? Enter here1 for yes, 2 for no: ")
     try:
-        for record in file_path:
+        for record in file_input:
             row = record.split(",")
             if row[0] == first_query_name:
                     name_counter += 1
@@ -237,7 +232,7 @@ def find_by_first_name(file_path):
         print("Just a second...")
         time.sleep(1)
         try:
-            for record in file_path:
+            for record in file_input:
                 row = record.split(",")
                 if row[0] == first_query_name:
                     print(f"{row[0]} {row[1]}")
@@ -250,7 +245,7 @@ def find_by_first_name(file_path):
     if third_query_gender == "1":
         print("just a second...")
         time.sleep(1)
-        for record in file_path:
+        for record in file_input:
             row = record.split(",")
             if row[0] == first_query_name:
                 print(f"{row[0]} {row[1]}. Gender: {row[3]}")
@@ -298,7 +293,7 @@ def add_new_entry(file_path):
     except grade_query != int(grade_query) or len(state_query) > 2:
         print("Invalid entries. Please try again with valid entries.")
 
-def sort_students(file_path):
+def sort_students(file_input):
     """
     This function lists students by first name, last name, sorted by lastname. If the user wishes, additional criteria can also
     be displayed as a seperate iteration
@@ -312,7 +307,7 @@ def sort_students(file_path):
     print("placeholder")
 
 
-def update_student_info(file_path):
+def update_student_info(file_input):
     """
     This function updates a student info based on given criteria. It first asks for the last and first name of the student that you would
     like to change. It then gives you 5 options to choose from: 1) Change the first name of the student 2) Change the last name of the student
@@ -326,7 +321,7 @@ def update_student_info(file_path):
     print("placeholder")
 
 
-def delete_student_info(file_path):
+def delete_student_info(file_input):
     """
     This function deletes a student's information from the directory. It first asks if the user would like to delete ALL data, or PARTS of the data.
 
