@@ -4,8 +4,8 @@
 # Instructor: Mr. Campbell
 # Date: 10/6/23
 # I pledge my honor
-# Coded
-# To be coded: 
+# Coded: Main, print all students, print all students in grad 12, compare boys vs. girls, find all students with the same last name, find all students with the same first name (+ 
+# specific subsequent queries + both functions include NOT FOUND), and adding a tusdent to the directory with queries and appending it ot the current list
 
 from pathlib import Path
 import csv
