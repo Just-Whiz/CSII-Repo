@@ -150,13 +150,13 @@ def compare_genders(file_input):
     females_counter = 0
 
     file_path.seek(1)                                                  # Moves the pointer to line 1
-
-    for record in file_input:                                           # Iterates through all those in lines 
-        row = record.split(",")
-        if row[3] == "Male":                                            # If the iteration encounters this specific string:
-            males_counter += 1
-        elif row[3] == "Female":                                        # Otherwise if the iteration encounters this specific string:
-            females_counter += 1
+    with open(file_path) as file_input:
+        for record in file_input:                                           # Iterates through all those in lines 
+            row = record.split(",")
+            if row[3] == "Male":                                            # If the iteration encounters this specific string:
+                males_counter += 1
+            elif row[3] == "Female":                                        # Otherwise if the iteration encounters this specific string:
+                females_counter += 1
 
     print(f"There are {males_counter} guys.")                           # F string to display the value of a variable within a string format
     time.sleep(1)
@@ -188,11 +188,12 @@ def find_by_last_name(file_input):
     query_last = input("What is the last name of the student that you're looking for? Enter here: ")
 
     try:
-        for record in file_input:
-            row = record.split(",")
-            if row[0] == query_last:
-                    name_counter += 1
-            print(f"There are {name_counter} kids with the last name {query_last}")
+        with open(file_path) as file_input: 
+            for record in file_input:
+                row = record.split(",")
+                if row[0] == query_last:
+                        name_counter += 1
+                print(f"There are {name_counter} kids with the last name {query_last}")
     except name_counter == 0: 
         print("Person not found within this database")
 
@@ -205,21 +206,22 @@ def find_by_first_name(file_input):
 
     query_last - Denotes the variable that stores the "first name" string value the user inputs
     name_counter - Denotes the integer value of the amount of instances the variable query_last was found in
-    first_query_name - 
-    second_query_last_names - 
-    third_query_gender - 
-    final_query_address
+    first_query_name - Denotes the input question of the first variable
+    second_query_last_names - Denotes the input quesiton of the second variable
+    third_query_gender - Denotes the input question of the third variable
+    final_query_address - Denotes the final input question of the fourth variable
     """
 
     name_counter = 0
 
     first_query_name = input("What is the first name of the student that you're looking for? Enter here1 for yes, 2 for no: ")
     try:
-        for record in file_input:
-            row = record.split(",")
-            if row[0] == first_query_name:
-                    name_counter += 1
-        print(f"There are {name_counter} kids with the last name {first_query_name}")
+        with open(file_path) as file_input:
+            for record in file_input:
+                row = record.split(",")
+                if row[0] == first_query_name:
+                        name_counter += 1
+            print(f"There are {name_counter} kids with the last name {first_query_name}")
     except row[0] != first_query_name:
         print("Entry Not Found")
 
@@ -229,11 +231,12 @@ def find_by_first_name(file_input):
         print("Just a second...")
         time.sleep(1)
         try:
-            for record in file_input:
-                row = record.split(",")
-                if row[0] == first_query_name:
-                    print(f"{row[0]} {row[1]}")
-                print("Goodbye")
+            with open(file_path) as file_input:
+                for record in file_input:
+                    row = record.split(",")
+                    if row[0] == first_query_name:
+                        print(f"{row[0]} {row[1]}")
+                    print("Goodbye")
         except row[0] != first_query_name:
             print("Entry Not Found")
 
@@ -242,12 +245,11 @@ def find_by_first_name(file_input):
     if third_query_gender == "1":
         print("just a second...")
         time.sleep(1)
-        for record in file_input:
-            row = record.split(",")
-            if row[0] == first_query_name:
-                print(f"{row[0]} {row[1]}. Gender: {row[3]}")
-
-    final_query_address = input("Finally, would you like the adresses")
+        with open(file_path) as file_input:
+            for record in file_input:
+                row = record.split(",")
+                if row[0] == first_query_name:
+                    print(f"{row[0]} {row[1]}. Gender: {row[3]}")
 
 
 def add_new_entry(file_path):
