@@ -122,5 +122,5 @@ def post_cost(postclass, zonestravelled):                                       
           postcost = None                                                                                       # setting the postcost as None (a value meaning nothing(?))
     return postcost                                                                                             # Returns postcost's value based on the calculations done in the function
 
-if __name__=="__main__":                                                                                        # Using the spicy, special variable 
+if __name__=="__main__":                                                                                        # Using the spicy, special variable (or is it a class?) 
     main()                                                                                                      # __name__
