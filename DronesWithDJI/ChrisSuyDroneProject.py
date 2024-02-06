@@ -1,12 +1,12 @@
 from djitellopy import Tello
+from time import sleep
+import cv2
 
 tello = Tello()
 
 tello.connect()
-tello.takeoff()
 
-tello.move_left(100)
-tello.rotate_counter_clockwise(90)
-tello.move_forward(100)
-
+tello.takeoff().sleep(2)
+tello.send_rc_control(0, 50, 0, 30)
+#tello.send_rc_control(0, 50, 0, 30)
 tello.land()
