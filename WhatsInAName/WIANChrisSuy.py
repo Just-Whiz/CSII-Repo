@@ -1,6 +1,16 @@
+#
+
+
 from time import sleep
 
 def main():
+    """
+    This function is the main function of the program. All other functions below this will be called from here.
+    """
+    vowels = ["a", "e", "i", "o", "u"]
+    count = 0
+
+
     print("Welcome to the String Analyzer")
 
     vowels = input()
@@ -25,11 +35,16 @@ def main():
 
 def reverse_display():
     """
-    This function is meant to lorem ipsum.
+    This function is will "reverse" the display of the person's name
 
     Local Variables:
     """
-    print("placeholder")
+    first_name = ""
+    for i in range(len(name) - 1):
+        if name[i] != " ":
+            first_name = name[i]
+        else
+            return i
 
 def determine_vowel_number():
     """
@@ -39,7 +54,6 @@ def determine_vowel_number():
 
     Local Variables:
     """
-    print("placeholder")
 
 def find_consonant_frequency():
     """
@@ -50,9 +64,22 @@ def find_consonant_frequency():
 
 def return_first_name():
     """
-    This function will return 
+    This function will return the first name of given name.
+
+    Local Variables:
     """
 
+def return_last_name():
+    """
+    This function will return the last name of the given name.
+
+    Local Variables
+    """
+
+def return_middle_names():
+    """
+    This function will return the middle name(s) of the given name, if any are present.
+    """
 
 if __name__ == '__main__':
     main()
