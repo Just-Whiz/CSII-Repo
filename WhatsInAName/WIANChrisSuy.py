@@ -1,5 +1,9 @@
-#
-
+# Program Name: ChrisSuyFileIO.py
+# Student Name: Chris Suy
+# Course: CS II
+# Instructor: Mr. Campbell
+# Date: 12/31/23
+# I pledge my honor
 
 from time import sleep
 
@@ -43,7 +47,7 @@ def reverse_display():
     for i in range(len(name) - 1):
         if name[i] != " ":
             first_name = name[i]
-        else
+        else:
             return i
 
 def determine_vowel_number():
@@ -73,12 +77,71 @@ def return_last_name():
     """
     This function will return the last name of the given name.
 
-    Local Variables
+    Local Variables:
     """
 
 def return_middle_names():
     """
     This function will return the middle name(s) of the given name, if any are present.
+
+    Local Variables:
+    """
+
+def find_hyphen():
+    """
+    This function will check if the last name has a hyphen. 
+    If the name has a boolean, then it will return a boolean. 
+
+    Local Variables:
+    """
+
+def convert_to_lowercase():
+    """
+    This function will convert the full given name to lowercase. 
+
+    Local Variables:
+    """
+
+def convert_to_uppercase():
+    """
+    This function will convert the full given name to uppercase.
+
+    Local Variables:
+    """
+
+def randomize_name():
+    """
+    This function modifies the name array to create a random name by mixing up the letters. 
+
+    Local Variables:
+    """
+
+def find_palindrome():
+    """
+    This function returns the full name as a sorted array of characters.
+
+    Local Variables:
+    """
+
+def build_menu():
+    """
+    This function builds a menu. Nothing else to it.
+
+    Local Variables:
+    """
+
+def find_initials():
+    """
+    This function finds the initials of a given name and returns the letters. 
+
+    Local Variables:
+    """
+
+def find_titles():
+    """
+    This function finds if a person's name carries a distinction.
+
+    Local Variables:
     """
 
 if __name__ == '__main__':
