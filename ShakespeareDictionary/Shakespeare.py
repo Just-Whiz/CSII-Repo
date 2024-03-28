@@ -10,30 +10,25 @@ def main():
 
     counted_dictionary = ""
     try:
-        print("""Here are your choices for graphing the word usage in Shakespeare:
-    1): Macbeth
-    2): A Midsummer Night's Dream
-            """)
-        choice = input(int("What is your choice? "))
-        if choice == 1 or "1":
-            current_path = "Macbeth.txt"
-            print("You are doing a Midsummer Night's Dream")
-            with open(current_path):
-                counted_dictionary = count_words(current_path)
-                print(counted_dictionary)
-        elif choice == 2 or "2": 
-            current_path = "Midsummer.txt"
-            print("You are doing A Midsummer Night's Dream")
-            with open("current_path"):
-                print(f"You are doing A Midsummer Night's Dream")
-                counted_dictionary = count_words(counted_dictionary)
+        while True:
+            current_path = ""
+            print("""Here are your choices for graphing the word usage in Shakespeare:
+        1): Macbeth
+        2): A Midsummer Night's Dream
+                """)
+            choice = input("What is your choice? Please enter it here: ")
+            choice = int(choice)
+            if choice == 1 or "1":
+                current_path = "Macbeth.txt"
+                print("You are doing a Midsummer Night's Dream")
+                with open(current_path, "r") as f:
+                    counted_dictionary = count_words(current_path)
+                    print(counted_dictionary)
+                    continue
     except ValueError:
         print("Please enter a number value.")
         time.sleep(1)
                 
-
-
-
 
 def count_words(current_path):
     """
