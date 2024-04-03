@@ -12,8 +12,6 @@ import csv
 from csv import writer
 import time
 
-current_dir = Path(__file__).parent
-file_path = current_dir / "gcds_data3.csv"
 
 def main():
     """
