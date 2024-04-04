@@ -17,19 +17,17 @@ def main():
     This is the main function of the program. It executes some other functions 
     """
 
-    filtered_words = []
-    filtered_word_values = []
-
     print1by1("""
 Welcome to the word analyzer. Your choices are:
     1) Macbeth
     2) A Midsummer Night's Dream
 What would you like to analyze?
     """)
-    time.sleep(3)
+    time.sleep(2.5)
 
     # Prompts the user with a choice
-    choice = input(print1by1("Enter your number choice here: "))
+    print1by1(">>>Enter your number choice here: ")
+    choice = input("")
     if choice == '1':
         # Calls the pie chart function to create 
         create_pie_chart(1)
@@ -49,9 +47,7 @@ def create_pie_chart(choice):
     labels = cleaned_words
     values = cleaned_values
     fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
-    fig.update_layout(
-        
-        title="Word Count for " + file_name)
+    fig.update_layout(title="Word Count for " + file_name)
     fig.show()
 
 
