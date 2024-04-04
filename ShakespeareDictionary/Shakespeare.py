@@ -21,19 +21,26 @@ def main():
 
     choice = input("What would you like to analyze? Enter your number choice here: ")
     if choice == '1':
-        create_pie_chart()
+        create_pie_chart(1)
     elif choice == '2':
-        create_pie_chart()
+        create_pie_chart(2)
         
-def create_pie_chart():
-    ordered = order_words("Macbeth")
+def create_pie_chart(choice):
+    if choice == 1:
+        file_name = "Macbeth"
+        ordered = order_words("Macbeth")
+    elif choice == 2:
+        file_name = "A Midsummer Night's Dream"
+        ordered = order_words("Midsummer")
     cleaned_words = ordered[0]
     cleaned_values  = ordered[1]
 
     labels = cleaned_words
     values = cleaned_values
     fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
-    fig.update_layout(title="Macbeth Word Count")
+    fig.update_layout(
+        
+        title="Word Count for " + file_name)
     fig.show()
 
 
