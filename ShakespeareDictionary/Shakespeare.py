@@ -17,29 +17,33 @@ def main():
     1) Macbeth
     2) A Midsummer Night's Dream
     """)
-        
     time.sleep(1)
 
-    choice = input("What would you like to plot? Enter your number choice here: ")
+    choice = input("What would you like to analyze? Enter your number choice here: ")
     if choice == '1':
-         = order_words("Macbeth")
-        a = cleaned_words[0]
-        b  = cleaned_words[1]
-        print(a)
-        print(b)
+        create_pie_chart()
     elif choice == '2':
-        order_words("Midsummer")
+        create_pie_chart()
         
-            
+def create_pie_chart():
+    ordered = order_words("Macbeth")
+    cleaned_words = ordered[0]
+    cleaned_values  = ordered[1]
 
-def order_words(file_number):
+    labels = cleaned_words
+    values = cleaned_values
+    fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+    fig.update_layout(title="Macbeth Word Count")
+    fig.show()
 
+
+def order_words(file_name):
     current_dir = Path(__file__).parent
     stopwords_file = current_dir / "stopwords.txt"
     
-    if file_number == "Macbeth":
+    if file_name == "Macbeth":
         file_path = current_dir / "Macbeth.txt"
-    elif file_number == "Midsummer":
+    elif file_name == "Midsummer":
         file_path = current_dir / "Midsummer.txt"
 
     counts = {}
@@ -57,13 +61,6 @@ def order_words(file_number):
         ordered_words = list(ordered.keys())
         ordered_values = list(ordered.values())
         return ordered_words, ordered_values
-
-def create_pie_chart():
-     labels = []
-     values = []
-     fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
-     fig.update_layout(title="Macbeth Word Count")
-     fig.show()
 
 if __name__ == "__main__":
     main()
