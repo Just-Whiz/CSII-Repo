@@ -34,6 +34,7 @@ What would you like to analyze?
     elif choice == '2':
         create_pie_chart(2)
         
+
 def create_pie_chart(choice):
     if choice == 1:
         file_name = "Macbeth"
@@ -75,6 +76,7 @@ def order_words(file_name):
         ordered_words = list(ordered.keys())
         ordered_values = list(ordered.values())
         return ordered_words, ordered_values
+
 
 def print1by1(text, delay=0.01):
     for c in text:
