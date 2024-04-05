@@ -23,7 +23,7 @@ Welcome to the word analyzer. Your choices are:
     2) A Midsummer Night's Dream
 What would you like to analyze?
     """)
-    time.sleep(2.5)
+    time.sleep(2)
 
     # Prompts the user with a choice
     print1by1(">>>Enter your number choice here: ")
