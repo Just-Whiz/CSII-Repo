@@ -4,6 +4,7 @@
 # Instructor: Mr. Campbell
 # Date: 2/4/24
 # I pledge my honor
+# Challenges: Use Plotly
 
 from string import punctuation
 from pathlib import Path
@@ -18,12 +19,12 @@ def main():
     """
 
     print1by1("""
-Welcome to the word analyzer. Your choices are:
+Welcome to the word analyzer. Your for analyzation choices are:
     1) Macbeth
     2) A Midsummer Night's Dream
 What would you like to analyze?
     """)
-    time.sleep(2)
+    time.sleep(1)
 
     # Prompts the user with a choice
     print1by1(">>>Enter your number choice here: ")
@@ -78,7 +79,7 @@ def order_words(file_name):
         return ordered_words, ordered_values
 
 
-def print1by1(text, delay=0.01):
+def print1by1(text, delay=0.015):
     for c in text:
         sys.stdout.write(c)
         sys.stdout.flush()
