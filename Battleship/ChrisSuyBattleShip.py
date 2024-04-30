@@ -26,28 +26,38 @@ def main():
 
 def guess_coordinates(board, ship_row, ship_col):
     hit = False
-    turn = 0
-    column_height = len(board)
-    row_length = len(board[0])
+    turns = 10
 
-    while turn < 10:
-        guess_row = int(input("What row would you like to fire on? Enter here: "))
-        guess_col = int(input("What column would you like to fire on? Enter here: "))
-        
-        if guess_row == ship_row and guess_col == ship_col:
-            print("Congratulations! You sank my battleship")
-            hit == True
-        elif (guess_row and guess_col < 0) or (guess_row and guess_col >= column_height) or (guess_row and guess_col <= row_length):
-            print("Out of range. Please enter in valid coordinates.")
-        elif board[guess_row][guess_col] == "X":
-            print("You've already sunk this battleship. Please try some other other coordinates")
-        else:
-            print("You missed my battleship")
-            board[guess_row][guess_col] = "X"
-            print_board(board)
-            turn += 1
-    if hit is True or turn == 10:
+    while turns >= 0:
+        try:
+            print(f"You have {turns} turns left. ")
+
+            guess_row = int(input("What row would you like to fire on? Enter here: "))
+            guess_col = int(input("What column would you like to fire on? Enter here: "))
+                
+            guess_row -= 1
+            guess_col -= 1
+
+            if guess_row == ship_row and guess_col == ship_col:
+                print("Congratulations! You sank my battleship")
+                board[guess_row][guess_col] = "X"
+                hit == True
+            elif (guess_row < 0 or guess_row >= 5) or (guess_col < 0 or guess_col >= 5):
+                print("These coordinates are ut of range. Please enter in valid coordinates.")
+            elif board[guess_row][guess_col] == "M":
+                print("You've already fired at this area. Please try some other other coordinates")
+            else:
+                print("You missed my battleship")
+                board[guess_row][guess_col] = "M"
+                print_board(board)
+                turns -= 1
+        except ValueError:
+            print("Error. Please enter numbers.")
+            continue
+    if hit == True or turns == 10:
         print("Game Over!")
+        
+
 
 
 def generate_gameboard():
