@@ -84,7 +84,7 @@ Menu: Enter Choice or 'Q' to (Q)uit:
             time.sleep(1)
             break
 
-def display_all(file_path):
+def display_all(file_input):
 
     """
     This function displays all the students/all the data in the given CSV file.
@@ -97,8 +97,8 @@ def display_all(file_path):
     student_last_name - each student's last name.
     """
 
-    with open(file_path) as file_input:
-        for column in file_input:
+    with open(file_input) as file:
+        for column in file:
             print(column, end="")
             time.sleep(0.00000000000000001)
 
@@ -120,8 +120,8 @@ def count_seniors(file_input):
   
     senior_counter = 0                                          # Sets the counter to 0
 
-    with open(file_path) as file_input:                             # Opens the specified file path stored in the variable
-        for record in file_input:                                   # For 
+    with open(file_input) as file:                             # Opens the specified file path stored in the variable
+        for record in file:                                   # For 
             column = record.split(",")                            
             if column[2] == "Grade 12":                             # If the 2nd row has this string value:
                 time.sleep(0.01)                                    # Delay between counting
@@ -147,9 +147,9 @@ def compare_genders(file_input):
     males_counter = 0
     females_counter = 0
 
-    file_path.seek(1)                                                  # Moves the pointer to line 1
-    with open(file_path) as file_input:
-        for record in file_input:                                           # Iterates through all those in lines 
+    file_input.seek(1)                                                  # Moves the pointer to line 1
+    with open(file_input) as file:
+        for record in file:                                           # Iterates through all those in lines 
             row = record.split(",")
             if row[3] == "Male":                                            # If the iteration encounters this specific string:
                 males_counter += 1
@@ -186,8 +186,8 @@ def find_by_last_name(file_input):
     query_last = input("What is the last name of the student that you're looking for? Enter here: ")
 
     try:
-        with open(file_path) as file_input: 
-            for record in file_input:
+        with open(file_input) as file: 
+            for record in file:
                 row = record.split(",")
                 if row[0] == query_last:
                         name_counter += 1
@@ -214,8 +214,8 @@ def find_by_first_name(file_input):
 
     first_query_name = input("What is the first name of the student that you're looking for? Enter here1 for yes, 2 for no: ")
     try:
-        with open(file_path) as file_input:
-            for record in file_input:
+        with open(file_input) as file:
+            for record in file:
                 row = record.split(",")
                 if row[0] == first_query_name:
                         name_counter += 1

@@ -49,6 +49,8 @@ def main():
                 print("placeholder")
             elif answer == 7:
                 print("placeholder")
+            else:
+                print("Error. Please enter valid input.")
     except ValueError:
         print("Not a valid input. Please enter a number.")
 
@@ -61,6 +63,9 @@ def reverse_display(x):
     return x[::-1]
 
 def isVowel(ch):
+    """
+    This function is a "helper" function.
+    """
     return ch in ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
 
 def determine_vowel_number(name):
@@ -89,6 +94,9 @@ def isConsonant(char):
                 or char == "O" or char == "U") and ord(char) >= 65 and ord(char) <= 90
 
 def totalConsonants(name):
+    """
+    This function will
+    """
     count = 0
     for char in range(len(name)):
         if (isConsonant(name[char])):
@@ -96,6 +104,9 @@ def totalConsonants(name):
     return count
 
 def split(name):
+    """
+    This function will 
+    """
     split_values = []
     temp = ""
     for words in name:
